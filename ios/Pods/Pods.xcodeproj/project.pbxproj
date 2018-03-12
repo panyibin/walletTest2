@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20B02F59A165BBDCED8F8650BEFB0CAA /* Pods-SkyWallet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19D0ACF6AA7EA89B8DA1AC273A7CB5 /* Pods-SkyWallet-dummy.m */; };
+		52D15A4537AEFB2BB974F925AA887EBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C0171E6015403331DE068949483A60AC /* Pods-SkyWalletTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 380905A2E117A1E9063CDC0EE340517E /* Pods-SkyWalletTests-dummy.m */; };
+		D5D3E61F78762F992AB3C5C8EABD0C71 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		082827CEE3AF8684A08C8929E408BCDE /* Pods-SkyWalletTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SkyWalletTests-resources.sh"; sourceTree = "<group>"; };
+		10207005910DF93491ECC519DBBE6B53 /* Pods-SkyWallet-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SkyWallet-resources.sh"; sourceTree = "<group>"; };
+		141FA77E002D728CF2EACEA7ED666184 /* Pods-SkyWalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SkyWalletTests.debug.xcconfig"; sourceTree = "<group>"; };
+		27ED1B6333A66046698B34ED0C09D3F6 /* Pods-SkyWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SkyWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		31AC45A0407060C2D8621514FFF36E27 /* Pods-SkyWallet-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SkyWallet-frameworks.sh"; sourceTree = "<group>"; };
+		380905A2E117A1E9063CDC0EE340517E /* Pods-SkyWalletTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SkyWalletTests-dummy.m"; sourceTree = "<group>"; };
+		4D1497DDA8EA2E91061E3E26F18CD205 /* Pods-SkyWalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SkyWalletTests.release.xcconfig"; sourceTree = "<group>"; };
+		539DF319AF4EBA5950A86F1C380F7EF9 /* libPods-SkyWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SkyWallet.a"; path = "libPods-SkyWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		591DB37980F70364963A88E221EB0E1C /* Pods-SkyWallet-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SkyWallet-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6E8B5427ED2FBE976E96EF2FC27FBA68 /* Pods-SkyWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SkyWallet.release.xcconfig"; sourceTree = "<group>"; };
+		7E19D0ACF6AA7EA89B8DA1AC273A7CB5 /* Pods-SkyWallet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SkyWallet-dummy.m"; sourceTree = "<group>"; };
+		85DF0382E70A54497FC5D0D65FE97421 /* Pods-SkyWalletTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SkyWalletTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		8AB4B7556D18298F82C9CC1780255F17 /* Pods-SkyWallet-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SkyWallet-acknowledgements.plist"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BFD2A34101097B1E12B3690B3BCB83BF /* Pods-SkyWalletTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SkyWalletTests-frameworks.sh"; sourceTree = "<group>"; };
+		C812989AF9BC7B512E5477234F0B2FEE /* Pods-SkyWalletTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SkyWalletTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F94CF2A01609EE9A6265B5D147382BFF /* libPods-SkyWalletTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SkyWalletTests.a"; path = "libPods-SkyWalletTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4524BA683D3CC50BD7994C905AE5AC90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D3E61F78762F992AB3C5C8EABD0C71 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8157ABC5F07946EFA9C7DF6E48F6F6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52D15A4537AEFB2BB974F925AA887EBA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		022EF4C30781376858864A73416EE1E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				539DF319AF4EBA5950A86F1C380F7EF9 /* libPods-SkyWallet.a */,
+				F94CF2A01609EE9A6265B5D147382BFF /* libPods-SkyWalletTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5321E61DDE3544BEB7CEFE97AC46E787 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBF191FE42D825B199D083D5C65E19FA /* Pods-SkyWallet */,
+				620EE13B2A64F51D15F2B6B943EFD22D /* Pods-SkyWalletTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		620EE13B2A64F51D15F2B6B943EFD22D /* Pods-SkyWalletTests */ = {
+			isa = PBXGroup;
+			children = (
+				C812989AF9BC7B512E5477234F0B2FEE /* Pods-SkyWalletTests-acknowledgements.markdown */,
+				85DF0382E70A54497FC5D0D65FE97421 /* Pods-SkyWalletTests-acknowledgements.plist */,
+				380905A2E117A1E9063CDC0EE340517E /* Pods-SkyWalletTests-dummy.m */,
+				BFD2A34101097B1E12B3690B3BCB83BF /* Pods-SkyWalletTests-frameworks.sh */,
+				082827CEE3AF8684A08C8929E408BCDE /* Pods-SkyWalletTests-resources.sh */,
+				141FA77E002D728CF2EACEA7ED666184 /* Pods-SkyWalletTests.debug.xcconfig */,
+				4D1497DDA8EA2E91061E3E26F18CD205 /* Pods-SkyWalletTests.release.xcconfig */,
+			);
+			name = "Pods-SkyWalletTests";
+			path = "Target Support Files/Pods-SkyWalletTests";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				022EF4C30781376858864A73416EE1E4 /* Products */,
+				5321E61DDE3544BEB7CEFE97AC46E787 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		FBF191FE42D825B199D083D5C65E19FA /* Pods-SkyWallet */ = {
+			isa = PBXGroup;
+			children = (
+				591DB37980F70364963A88E221EB0E1C /* Pods-SkyWallet-acknowledgements.markdown */,
+				8AB4B7556D18298F82C9CC1780255F17 /* Pods-SkyWallet-acknowledgements.plist */,
+				7E19D0ACF6AA7EA89B8DA1AC273A7CB5 /* Pods-SkyWallet-dummy.m */,
+				31AC45A0407060C2D8621514FFF36E27 /* Pods-SkyWallet-frameworks.sh */,
+				10207005910DF93491ECC519DBBE6B53 /* Pods-SkyWallet-resources.sh */,
+				27ED1B6333A66046698B34ED0C09D3F6 /* Pods-SkyWallet.debug.xcconfig */,
+				6E8B5427ED2FBE976E96EF2FC27FBA68 /* Pods-SkyWallet.release.xcconfig */,
+			);
+			name = "Pods-SkyWallet";
+			path = "Target Support Files/Pods-SkyWallet";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D9AEB903B9851452ECE985C20F8E3FE /* Pods-SkyWalletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 670CABC6F5CFD2873EB3ECB60C5A4417 /* Build configuration list for PBXNativeTarget "Pods-SkyWalletTests" */;
+			buildPhases = (
+				57CC734112FD4F02AAAB2529FD0A3EA9 /* Sources */,
+				B8157ABC5F07946EFA9C7DF6E48F6F6D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SkyWalletTests";
+			productName = "Pods-SkyWalletTests";
+			productReference = F94CF2A01609EE9A6265B5D147382BFF /* libPods-SkyWalletTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		1F9F612252D47BF0B1302292376C6CD8 /* Pods-SkyWallet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3A288D7B1F5EAE5F98640FB548E4016 /* Build configuration list for PBXNativeTarget "Pods-SkyWallet" */;
+			buildPhases = (
+				C37D60036D87E061D635AC4FCE9EC607 /* Sources */,
+				4524BA683D3CC50BD7994C905AE5AC90 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SkyWallet";
+			productName = "Pods-SkyWallet";
+			productReference = 539DF319AF4EBA5950A86F1C380F7EF9 /* libPods-SkyWallet.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 022EF4C30781376858864A73416EE1E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F9F612252D47BF0B1302292376C6CD8 /* Pods-SkyWallet */,
+				1D9AEB903B9851452ECE985C20F8E3FE /* Pods-SkyWalletTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57CC734112FD4F02AAAB2529FD0A3EA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0171E6015403331DE068949483A60AC /* Pods-SkyWalletTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C37D60036D87E061D635AC4FCE9EC607 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20B02F59A165BBDCED8F8650BEFB0CAA /* Pods-SkyWallet-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0ECA31C9D85140AC7E116049AAEE6CC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 141FA77E002D728CF2EACEA7ED666184 /* Pods-SkyWalletTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		100515E08F0E7738EFABD7C5270C42FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E8B5427ED2FBE976E96EF2FC27FBA68 /* Pods-SkyWallet.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5F513D30D7B827289744558F80DED5FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27ED1B6333A66046698B34ED0C09D3F6 /* Pods-SkyWallet.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		E4676120DA8724170BA7CEBD2BF5824E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D1497DDA8EA2E91061E3E26F18CD205 /* Pods-SkyWalletTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */,
+				B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		670CABC6F5CFD2873EB3ECB60C5A4417 /* Build configuration list for PBXNativeTarget "Pods-SkyWalletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ECA31C9D85140AC7E116049AAEE6CC9 /* Debug */,
+				E4676120DA8724170BA7CEBD2BF5824E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3A288D7B1F5EAE5F98640FB548E4016 /* Build configuration list for PBXNativeTarget "Pods-SkyWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F513D30D7B827289744558F80DED5FB /* Debug */,
+				100515E08F0E7738EFABD7C5270C42FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
