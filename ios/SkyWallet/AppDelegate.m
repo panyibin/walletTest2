@@ -11,6 +11,9 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import "MainNavigationViewController.h"
+#import "BalanceViewController.h"
+#import "MainViewController.h"
 
 @implementation AppDelegate
 
@@ -27,9 +30,15 @@
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [UIViewController new];
-  rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
+//  UIViewController *rootViewController = [UIViewController new];
+//  rootViewController.view = rootView;
+//  self.window.rootViewController = rootViewController;
+  
+  MainNavigationViewController *navigationVC = [[MainNavigationViewController alloc] init];
+  MainViewController *balanceVC = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+  navigationVC.viewControllers = @[balanceVC];
+  self.window.rootViewController = navigationVC;
+  
   [self.window makeKeyAndVisible];
   return YES;
 }

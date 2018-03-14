@@ -39,6 +39,13 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		DC009685F17DF8158D02AC50 /* libPods-SkyWalletTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD101569B685A2CCB4D4EA39 /* libPods-SkyWalletTests.a */; };
+		DFA33CE5205983F200116E38 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33CE4205983F200116E38 /* MainTabBarViewController.m */; };
+		DFA33D1D2059844200116E38 /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33D1C2059844200116E38 /* MainNavigationViewController.m */; };
+		DFA33D202059849F00116E38 /* BalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33D1F2059849F00116E38 /* BalanceViewController.m */; };
+		DFA33D24205988B000116E38 /* RNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33D23205988B000116E38 /* RNManager.m */; };
+		DFA33D5720598D5C00116E38 /* Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFA33D3120598D5C00116E38 /* Mobile.framework */; };
+		DFA33D6020598E6100116E38 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33D5E20598E6100116E38 /* MainViewController.m */; };
+		DFA33D6120598E6100116E38 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFA33D5F20598E6100116E38 /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,6 +266,62 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		DFA33D0B205983F300116E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EBF21BDC1FC498900052F4D5;
+			remoteInfo = jsinspector;
+		};
+		DFA33D0D205983F300116E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EBF21BFA1FC4989A0052F4D5;
+			remoteInfo = "jsinspector-tvOS";
+		};
+		DFA33D0F205983F300116E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 139D7ECE1E25DB7D00323FB7;
+			remoteInfo = "third-party";
+		};
+		DFA33D11205983F300116E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D383D3C1EBD27B6005632C8;
+			remoteInfo = "third-party-tvOS";
+		};
+		DFA33D13205983F300116E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 139D7E881E25C6D100323FB7;
+			remoteInfo = "double-conversion";
+		};
+		DFA33D15205983F300116E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
+			remoteInfo = "double-conversion-tvOS";
+		};
+		DFA33D17205983F300116E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9936F3131F5F2E4B0010BF04;
+			remoteInfo = privatedata;
+		};
+		DFA33D19205983F300116E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9936F32F1F5F2E5B0010BF04;
+			remoteInfo = "privatedata-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -295,6 +358,19 @@
 		BBD9B217FA3C0CBBDF29F41F /* Pods-SkyWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyWallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkyWallet/Pods-SkyWallet.release.xcconfig"; sourceTree = "<group>"; };
 		BD101569B685A2CCB4D4EA39 /* libPods-SkyWalletTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkyWalletTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF669EC30C548E58163ED3F2 /* libPods-SkyWallet-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkyWallet-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFA33CE3205983F200116E38 /* MainTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainTabBarViewController.h; path = SkyWallet/MainTabBarViewController.h; sourceTree = "<group>"; };
+		DFA33CE4205983F200116E38 /* MainTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainTabBarViewController.m; path = SkyWallet/MainTabBarViewController.m; sourceTree = "<group>"; };
+		DFA33D1B2059844200116E38 /* MainNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainNavigationViewController.h; path = SkyWallet/MainNavigationViewController.h; sourceTree = "<group>"; };
+		DFA33D1C2059844200116E38 /* MainNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainNavigationViewController.m; path = SkyWallet/MainNavigationViewController.m; sourceTree = "<group>"; };
+		DFA33D1E2059849F00116E38 /* BalanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BalanceViewController.h; path = SkyWallet/BalanceViewController.h; sourceTree = "<group>"; };
+		DFA33D1F2059849F00116E38 /* BalanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BalanceViewController.m; path = SkyWallet/BalanceViewController.m; sourceTree = "<group>"; };
+		DFA33D212059864D00116E38 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		DFA33D22205988B000116E38 /* RNManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNManager.h; sourceTree = "<group>"; };
+		DFA33D23205988B000116E38 /* RNManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNManager.m; sourceTree = "<group>"; };
+		DFA33D3120598D5C00116E38 /* Mobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mobile.framework; path = SkyWallet/Frameworks/Mobile.framework; sourceTree = "<group>"; };
+		DFA33D5D20598E6100116E38 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		DFA33D5E20598E6100116E38 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		DFA33D5F20598E6100116E38 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		E7D86874AFF5E363AAD5E165 /* Pods-SkyWalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyWalletTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyWalletTests/Pods-SkyWalletTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -318,6 +394,7 @@
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
+				DFA33D5720598D5C00116E38 /* Mobile.framework in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
@@ -437,8 +514,20 @@
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				DFA33D212059864D00116E38 /* PrefixHeader.pch */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				DFA33CE3205983F200116E38 /* MainTabBarViewController.h */,
+				DFA33CE4205983F200116E38 /* MainTabBarViewController.m */,
+				DFA33D1B2059844200116E38 /* MainNavigationViewController.h */,
+				DFA33D1C2059844200116E38 /* MainNavigationViewController.m */,
+				DFA33D1E2059849F00116E38 /* BalanceViewController.h */,
+				DFA33D1F2059849F00116E38 /* BalanceViewController.m */,
+				DFA33D22205988B000116E38 /* RNManager.h */,
+				DFA33D23205988B000116E38 /* RNManager.m */,
+				DFA33D5D20598E6100116E38 /* MainViewController.h */,
+				DFA33D5E20598E6100116E38 /* MainViewController.m */,
+				DFA33D5F20598E6100116E38 /* MainViewController.xib */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -451,13 +540,21 @@
 			isa = PBXGroup;
 			children = (
 				146834041AC3E56700842450 /* libReact.a */,
+				3DAD3EA31DF850E9000B6D8A /* libReact.a */,
 				3DAD3EA51DF850E9000B6D8A /* libyoga.a */,
 				3DAD3EA71DF850E9000B6D8A /* libyoga.a */,
 				3DAD3EA91DF850E9000B6D8A /* libcxxreact.a */,
 				3DAD3EAB1DF850E9000B6D8A /* libcxxreact.a */,
 				3DAD3EAD1DF850E9000B6D8A /* libjschelpers.a */,
 				3DAD3EAF1DF850E9000B6D8A /* libjschelpers.a */,
-				3DAD3EA31DF850E9000B6D8A /* libReact-tvOS.a */,
+				DFA33D0C205983F300116E38 /* libjsinspector.a */,
+				DFA33D0E205983F300116E38 /* libjsinspector-tvOS.a */,
+				DFA33D10205983F300116E38 /* libthird-party.a */,
+				DFA33D12205983F300116E38 /* libthird-party.a */,
+				DFA33D14205983F300116E38 /* libdouble-conversion.a */,
+				DFA33D16205983F300116E38 /* libdouble-conversion.a */,
+				DFA33D18205983F300116E38 /* libprivatedata.a */,
+				DFA33D1A205983F300116E38 /* libprivatedata-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -465,6 +562,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DFA33D3120598D5C00116E38 /* Mobile.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				1BB87A3464A44A60C2FC41A2 /* libPods-SkyWallet.a */,
 				3C5D7A30115072BD1AF6BAE8 /* libPods-SkyWallet-tvOS.a */,
@@ -862,10 +960,10 @@
 			remoteRef = 3DAD3E981DF850E9000B6D8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3DAD3EA31DF850E9000B6D8A /* libReact-tvOS.a */ = {
+		3DAD3EA31DF850E9000B6D8A /* libReact.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = "libReact-tvOS.a";
+			path = libReact.a;
 			remoteRef = 3DAD3EA21DF850E9000B6D8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -946,6 +1044,62 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		DFA33D0C205983F300116E38 /* libjsinspector.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjsinspector.a;
+			remoteRef = DFA33D0B205983F300116E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFA33D0E205983F300116E38 /* libjsinspector-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libjsinspector-tvOS.a";
+			remoteRef = DFA33D0D205983F300116E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFA33D10205983F300116E38 /* libthird-party.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libthird-party.a";
+			remoteRef = DFA33D0F205983F300116E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFA33D12205983F300116E38 /* libthird-party.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libthird-party.a";
+			remoteRef = DFA33D11205983F300116E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFA33D14205983F300116E38 /* libdouble-conversion.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libdouble-conversion.a";
+			remoteRef = DFA33D13205983F300116E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFA33D16205983F300116E38 /* libdouble-conversion.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libdouble-conversion.a";
+			remoteRef = DFA33D15205983F300116E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFA33D18205983F300116E38 /* libprivatedata.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libprivatedata.a;
+			remoteRef = DFA33D17205983F300116E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DFA33D1A205983F300116E38 /* libprivatedata-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libprivatedata-tvOS.a";
+			remoteRef = DFA33D19205983F300116E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -961,6 +1115,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				DFA33D6120598E6100116E38 /* MainViewController.xib in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1122,8 +1277,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFA33CE5205983F200116E38 /* MainTabBarViewController.m in Sources */,
+				DFA33D202059849F00116E38 /* BalanceViewController.m in Sources */,
+				DFA33D1D2059844200116E38 /* MainNavigationViewController.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				DFA33D6020598E6100116E38 /* MainViewController.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				DFA33D24205988B000116E38 /* RNManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1218,7 +1378,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SkyWallet/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = SkyWallet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1236,7 +1403,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SkyWallet/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = SkyWallet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
