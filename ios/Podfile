@@ -6,6 +6,8 @@ target 'SkyWallet' do
   # use_frameworks!
 
   # Pods for SkyWallet
+  pod 'Masonry', '~>1.1.0'
+  pod 'YBUtils', '~>0.1.0'
 
   target 'SkyWalletTests' do
     inherit! :search_paths
