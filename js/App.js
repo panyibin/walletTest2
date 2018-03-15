@@ -121,7 +121,8 @@ const styles = StyleSheet.create({
     marginLeft:35,
     marginRight:35,
     marginTop:10,
-    height:23
+    height:23,
+    borderRadius:5
   },
   textInputSeed: {
     fontSize:15,
@@ -129,7 +130,8 @@ const styles = StyleSheet.create({
     marginLeft:35,
     marginRight:35,
     marginTop:10,
-    height:45
+    height:45,
+    borderRadius:5,
   },
   seedGenerateButton: {
     // backgroundColor:'green',
