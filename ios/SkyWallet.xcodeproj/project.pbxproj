@@ -13,6 +13,7 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* SkyWalletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SkyWalletTests.m */; };
+		04F95B1BB798EBA68AF21CA5 /* libPods-SkyWalletTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D58A57291BE7D4771783BD75 /* libPods-SkyWalletTests.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -35,6 +36,7 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		D44CFD137BF9BAAD87212197 /* libPods-SkyWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A45536419274E5C17A077A89 /* libPods-SkyWallet.a */; };
 		DF295143205AC64F00150D7F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF295142205AC64F00150D7F /* MainViewController.xib */; };
 		DFA33CE5205983F200116E38 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33CE4205983F200116E38 /* MainTabBarViewController.m */; };
 		DFA33D1D2059844200116E38 /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33D1C2059844200116E38 /* MainNavigationViewController.m */; };
@@ -347,8 +349,10 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		A45536419274E5C17A077A89 /* libPods-SkyWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkyWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		BBD9B217FA3C0CBBDF29F41F /* Pods-SkyWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyWallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkyWallet/Pods-SkyWallet.release.xcconfig"; sourceTree = "<group>"; };
+		D58A57291BE7D4771783BD75 /* libPods-SkyWalletTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkyWalletTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF295142205AC64F00150D7F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		DFA33CE3205983F200116E38 /* MainTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		DFA33CE4205983F200116E38 /* MainTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
@@ -373,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				04F95B1BB798EBA68AF21CA5 /* libPods-SkyWalletTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +399,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				D44CFD137BF9BAAD87212197 /* libPods-SkyWallet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +643,8 @@
 			isa = PBXGroup;
 			children = (
 				DFD9A4D3205AC945002A256F /* Mobile.framework */,
+				A45536419274E5C17A077A89 /* libPods-SkyWallet.a */,
+				D58A57291BE7D4771783BD75 /* libPods-SkyWalletTests.a */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
