@@ -45,6 +45,8 @@
 		DFA33D6020598E6100116E38 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33D5E20598E6100116E38 /* MainViewController.m */; };
 		DFD9A4D2205AC870002A256F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFD9A4D0205AC870002A256F /* LaunchScreen.xib */; };
 		DFD9A4D4205AC945002A256F /* Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD9A4D3205AC945002A256F /* Mobile.framework */; };
+		DFD9A515205ACFC3002A256F /* WalletModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD9A514205ACFC3002A256F /* WalletModel.m */; };
+		DFD9A518205AD19D002A256F /* WalletManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD9A517205AD19D002A256F /* WalletManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -368,6 +370,10 @@
 		DFA33D6D205AC52B00116E38 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		DFD9A4D1205AC870002A256F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DFD9A4D3205AC945002A256F /* Mobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mobile.framework; sourceTree = "<group>"; };
+		DFD9A513205ACFC3002A256F /* WalletModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletModel.h; sourceTree = "<group>"; };
+		DFD9A514205ACFC3002A256F /* WalletModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletModel.m; sourceTree = "<group>"; };
+		DFD9A516205AD19D002A256F /* WalletManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletManager.h; sourceTree = "<group>"; };
+		DFD9A517205AD19D002A256F /* WalletManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletManager.m; sourceTree = "<group>"; };
 		E7D86874AFF5E363AAD5E165 /* Pods-SkyWalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyWalletTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyWalletTests/Pods-SkyWalletTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -631,6 +637,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				DFA33D6E205AC59300116E38 /* Component */,
 				DFD9A4CE205AC803002A256F /* Service */,
+				DFD9A4ED205ACC92002A256F /* Model */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				DFD9A4D0205AC870002A256F /* LaunchScreen.xib */,
@@ -670,8 +677,19 @@
 			children = (
 				DFA33D22205988B000116E38 /* RNManager.h */,
 				DFA33D23205988B000116E38 /* RNManager.m */,
+				DFD9A516205AD19D002A256F /* WalletManager.h */,
+				DFD9A517205AD19D002A256F /* WalletManager.m */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		DFD9A4ED205ACC92002A256F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DFD9A513205ACFC3002A256F /* WalletModel.h */,
+				DFD9A514205ACFC3002A256F /* WalletModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1287,8 +1305,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFD9A518205AD19D002A256F /* WalletManager.m in Sources */,
 				DFA33CE5205983F200116E38 /* MainTabBarViewController.m in Sources */,
 				DFA33D202059849F00116E38 /* BalanceViewController.m in Sources */,
+				DFD9A515205ACFC3002A256F /* WalletModel.m in Sources */,
 				DFA33D1D2059844200116E38 /* MainNavigationViewController.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				DFA33D6020598E6100116E38 /* MainViewController.m in Sources */,

@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import {
+  NativeModules,
   Platform,
   StyleSheet,
   Text,
@@ -23,12 +24,30 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+var walletManager = NativeModules.WalletManager;
+
 const onButtonPress = () => {
    Alert.alert('generate seed');
 };
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  constructor(props){
+    super(props);
+    this.state = {seed:""};
+  }
+
+  async getSeed() {
+    var seedGenerated = await walletManager.getSeed();
+    // Alert.alert(seedGenerated);
+    this.setState({seed:seedGenerated});
+  }
+
+  tapNext() {
+
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -45,10 +64,15 @@ export default class App extends Component<Props> {
         <Text style={styles.subTitleSeed}>
         Seed
         </Text>
-        <TextInput style={styles.textInputSeed}></TextInput>
-        <TouchableOpacity style={styles.seedGenerateButton} onPress={onButtonPress}>
-        <Text style={styles.seedGenerateButtonInside}>Generate seed</Text>
+        <TextInput style={styles.textInputSeed} multiline={true} >{this.state.seed}</TextInput>
+        <TouchableOpacity style={styles.seedGenerateButton} onPress={this.getSeed.bind(this)}>
+        <Text style={styles.seedGenerateButtonText}>Generate seed</Text>
         </TouchableOpacity>
+        <View style={{alignItems:'center'}}>
+        <TouchableOpacity style={styles.nextButton} onPress={this.tapNext}>
+        <Text style={styles.nextButtonText}>Next</Text>
+        </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -96,14 +120,16 @@ const styles = StyleSheet.create({
     backgroundColor:'white',
     marginLeft:35,
     marginRight:35,
-    marginTop:10
+    marginTop:10,
+    height:23
   },
   textInputSeed: {
     fontSize:15,
     backgroundColor:'white',
     marginLeft:35,
     marginRight:35,
-    marginTop:10
+    marginTop:10,
+    height:45
   },
   seedGenerateButton: {
     // backgroundColor:'green',
@@ -111,11 +137,25 @@ const styles = StyleSheet.create({
     marginRight:35,
     marginTop:10,
   },
-  seedGenerateButtonInside: {
+  seedGenerateButtonText: {
     color:'white',
     // marginRight:35,
     textAlign:'right',
     // backgroundColor:'red'
   },
+  nextButton:{
+    marginTop:250,
+    height:30,
+    width:80,
+    backgroundColor:'black',
+    alignItems:'center',
+    borderRadius:15
+  },
+  nextButtonText:{
+    textAlign:'center',
+    fontSize:18,
+    color:'white',
+    marginTop:3.5
+  }
 
 });
