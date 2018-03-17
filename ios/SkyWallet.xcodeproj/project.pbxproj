@@ -38,6 +38,7 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		D44CFD137BF9BAAD87212197 /* libPods-SkyWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A45536419274E5C17A077A89 /* libPods-SkyWallet.a */; };
 		DF295143205AC64F00150D7F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF295142205AC64F00150D7F /* MainViewController.xib */; };
+		DF6DB477205D64A400A9A0D9 /* SWUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6DB476205D64A400A9A0D9 /* SWUtils.m */; };
 		DFA33CE5205983F200116E38 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33CE4205983F200116E38 /* MainTabBarViewController.m */; };
 		DFA33D1D2059844200116E38 /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33D1C2059844200116E38 /* MainNavigationViewController.m */; };
 		DFA33D202059849F00116E38 /* BalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33D1F2059849F00116E38 /* BalanceViewController.m */; };
@@ -361,6 +362,8 @@
 		BBD9B217FA3C0CBBDF29F41F /* Pods-SkyWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyWallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkyWallet/Pods-SkyWallet.release.xcconfig"; sourceTree = "<group>"; };
 		D58A57291BE7D4771783BD75 /* libPods-SkyWalletTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkyWalletTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF295142205AC64F00150D7F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		DF6DB475205D64A400A9A0D9 /* SWUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWUtils.h; sourceTree = "<group>"; };
+		DF6DB476205D64A400A9A0D9 /* SWUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWUtils.m; sourceTree = "<group>"; };
 		DFA33CE3205983F200116E38 /* MainTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		DFA33CE4205983F200116E38 /* MainTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		DFA33D1B2059844200116E38 /* MainNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainNavigationViewController.h; sourceTree = "<group>"; };
@@ -700,6 +703,8 @@
 				DFD9A517205AD19D002A256F /* WalletManager.m */,
 				DFD9A51E205CC14D002A256F /* NavigationHelper.h */,
 				DFD9A51F205CC14D002A256F /* NavigationHelper.m */,
+				DF6DB475205D64A400A9A0D9 /* SWUtils.h */,
+				DF6DB476205D64A400A9A0D9 /* SWUtils.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1339,6 +1344,7 @@
 				DFA33D6020598E6100116E38 /* MainViewController.m in Sources */,
 				DFD9A524205D0BA0002A256F /* WalletGeneratorViewController.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				DF6DB477205D64A400A9A0D9 /* SWUtils.m in Sources */,
 				DFA33D24205988B000116E38 /* RNManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

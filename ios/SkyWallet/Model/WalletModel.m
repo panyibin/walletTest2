@@ -32,4 +32,15 @@
   [aCoder encodeObject:_walletType forKey:@"walletType"];
 }
 
+- (NSDictionary*)convertToDictionary {
+  NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+  [dict setObject:self.walletName forKey:@"walletName"];
+  [dict setObject:self.walletId forKey:@"walletId"];
+  [dict setObject:self.pinCode forKey:@"pinCode"];
+  [dict setObject:self.seed forKey:@"seed"];
+  [dict setObject:self.walletType forKey:@"walletType"];
+  
+  return dict;
+}
+
 @end

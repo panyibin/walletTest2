@@ -51,6 +51,10 @@ RCT_REMAP_METHOD(createNewWallet, createWallet:(NSString*)walletName seed:(NSStr
   NSError *error;
   NSString *password = [self passwordWithPinCode:pinCode];
   MobileInit([self getWalletDir], password, &error);
+  if (!error) {
+    [self registerNewCoin];
+    [[NSUserDefaults standardUserDefaults] setObject:pinCode forKey:kPinCode];
+  }
   
   NSString *walletId = MobileNewWallet(@"skycoin", walletName, seed, password, &error);
   
@@ -63,8 +67,6 @@ RCT_REMAP_METHOD(createNewWallet, createWallet:(NSString*)walletName seed:(NSStr
     wm.seed = seed;
     
     [self addWalletLocally:wm];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:pinCode forKey:kPinCode];
     
     return YES;
   } else {
@@ -121,7 +123,15 @@ RCT_REMAP_METHOD(createNewWallet, createWallet:(NSString*)walletName seed:(NSStr
     NSString *password = [self passwordWithPinCode:pinCode];
     NSError *error;
     MobileInit([self getWalletDir], password, &error);
+    
+    [self registerNewCoin];
   }
+}
+
+- (void)registerNewCoin {
+  NSError *error;
+  MobileRegisterNewCoin(@"spocoin", @"47.75.36.182:8620", &error);
+  MobileRegisterNewCoin(@"skycoin", @"47.75.36.182:6420", &error);
 }
 
 //- (NSString *)getPinCode {

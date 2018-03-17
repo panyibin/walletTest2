@@ -21,5 +21,6 @@
 #import "WalletModel.h"
 #import "WalletManager.h"
 #import "NavigationHelper.h"
+#import "SWUtils.h"
 
 #endif /* PrefixHeader_pch */

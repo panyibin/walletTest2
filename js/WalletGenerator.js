@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    marginTop: 50,
+    marginTop: 40,
     color:'white'
   },
   instructions: {
