@@ -17,5 +17,9 @@
 #import <ReactiveObjC.h>
 #import "RNManager.h"
 #import <Mobile/Mobile.objc.h>
+#import "Constants.h"
+#import "WalletModel.h"
+#import "WalletManager.h"
+#import "NavigationHelper.h"
 
 #endif /* PrefixHeader_pch */

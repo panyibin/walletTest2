@@ -32,7 +32,7 @@ const onButtonPress = () => {
 };
 
 type Props = {};
-export default class App extends Component<Props> {
+export default class WalletGenerator extends Component<Props> {
 
   constructor(props) {
     super(props);
@@ -51,8 +51,16 @@ export default class App extends Component<Props> {
   }
 
   tapNext() {
-    navigationHelper.showPinCodeViewControllerWithWalletName(this.state.walletName, this.state.seed,true);
-    // console.log('walletName:'+ this.state.walletName);
+    var walletName = this.state.walletName;
+    var seed = this.state.seed;
+
+    if(walletName == undefined || walletName.length == 0) {
+      Alert.alert('walletName is invalid');
+    } else if (seed == undefined || seed.length == 0) {
+      Alert.alert('seed is invalid');
+    } else {
+      navigationHelper.showPinCodeViewControllerWithWalletName(this.state.walletName, this.state.seed,true);
+    }
   }
 
   render() {

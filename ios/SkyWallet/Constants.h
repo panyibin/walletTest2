@@ -9,5 +9,10 @@
 #ifndef Constants_h
 #define Constants_h
 
+#define kWalletId @"kWalletId"
+#define kWalletPinCode @"kWalletPinCode"
+
+#define kLocalWalletArray @"kLocalWalletArray"
+#define kPinCode @"kPinCode"
 
 #endif /* Constants_h */

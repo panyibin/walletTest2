@@ -1,6 +1,7 @@
 import { AppRegistry } from 'react-native';
-import App from './js/App';
+
+import WalletGenerator from './js/WalletGenerator';
 import PinView from './js/pin';
 
-AppRegistry.registerComponent('SkyWallet', () => App);
+AppRegistry.registerComponent('WalletGenerator', () => WalletGenerator);
 AppRegistry.registerComponent('PinView', () => PinView);

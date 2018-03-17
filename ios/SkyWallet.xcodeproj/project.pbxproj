@@ -50,6 +50,8 @@
 		DFD9A51C205CBCD2002A256F /* PinCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD9A51A205CBCD2002A256F /* PinCodeViewController.m */; };
 		DFD9A51D205CBCD2002A256F /* PinCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFD9A51B205CBCD2002A256F /* PinCodeViewController.xib */; };
 		DFD9A520205CC14D002A256F /* NavigationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD9A51F205CC14D002A256F /* NavigationHelper.m */; };
+		DFD9A524205D0BA0002A256F /* WalletGeneratorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD9A522205D0BA0002A256F /* WalletGeneratorViewController.m */; };
+		DFD9A525205D0BA0002A256F /* WalletGeneratorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFD9A523205D0BA0002A256F /* WalletGeneratorViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -382,6 +384,9 @@
 		DFD9A51B205CBCD2002A256F /* PinCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCodeViewController.xib; sourceTree = "<group>"; };
 		DFD9A51E205CC14D002A256F /* NavigationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationHelper.h; sourceTree = "<group>"; };
 		DFD9A51F205CC14D002A256F /* NavigationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationHelper.m; sourceTree = "<group>"; };
+		DFD9A521205D0BA0002A256F /* WalletGeneratorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletGeneratorViewController.h; sourceTree = "<group>"; };
+		DFD9A522205D0BA0002A256F /* WalletGeneratorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletGeneratorViewController.m; sourceTree = "<group>"; };
+		DFD9A523205D0BA0002A256F /* WalletGeneratorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletGeneratorViewController.xib; sourceTree = "<group>"; };
 		E7D86874AFF5E363AAD5E165 /* Pods-SkyWalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyWalletTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyWalletTests/Pods-SkyWalletTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -679,6 +684,9 @@
 				DFD9A519205CBCD2002A256F /* PinCodeViewController.h */,
 				DFD9A51A205CBCD2002A256F /* PinCodeViewController.m */,
 				DFD9A51B205CBCD2002A256F /* PinCodeViewController.xib */,
+				DFD9A521205D0BA0002A256F /* WalletGeneratorViewController.h */,
+				DFD9A522205D0BA0002A256F /* WalletGeneratorViewController.m */,
+				DFD9A523205D0BA0002A256F /* WalletGeneratorViewController.xib */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1159,6 +1167,7 @@
 				DFD9A4D2205AC870002A256F /* LaunchScreen.xib in Resources */,
 				DF295143205AC64F00150D7F /* MainViewController.xib in Resources */,
 				DFD9A51D205CBCD2002A256F /* PinCodeViewController.xib in Resources */,
+				DFD9A525205D0BA0002A256F /* WalletGeneratorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1328,6 +1337,7 @@
 				DFD9A51C205CBCD2002A256F /* PinCodeViewController.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				DFA33D6020598E6100116E38 /* MainViewController.m in Sources */,
+				DFD9A524205D0BA0002A256F /* WalletGeneratorViewController.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				DFA33D24205988B000116E38 /* RNManager.m in Sources */,
 			);

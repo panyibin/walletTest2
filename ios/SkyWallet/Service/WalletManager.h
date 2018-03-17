@@ -12,4 +12,7 @@
 
 + (instancetype)sharedInstance;
 
+- (void)initWallet;
+- (NSArray*)getLocalWalletArray;
+- (void)addWalletLocally:(WalletModel*)walletModel;
 @end

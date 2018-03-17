@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WalletModel : NSObject
+@interface WalletModel : NSObject<NSCoding>
 
-@property(nonatomic, strong) NSString *pinCode;
 @property(nonatomic, strong) NSString *walletName;
 @property(nonatomic, strong) NSString *walletId;
+@property(nonatomic, strong) NSString *pinCode;
 @property(nonatomic, strong) NSString *seed;
+@property(nonatomic, strong) NSString *walletType;
 
 @end

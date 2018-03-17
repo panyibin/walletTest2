@@ -43,4 +43,10 @@ RCT_EXPORT_METHOD(popViewControllerAnimated:(BOOL)animated) {
   });
 }
 
+RCT_EXPORT_METHOD(popToRootViewControllerAnimated:(BOOL)animated) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [[self rootNavigationController] popToRootViewControllerAnimated:animated];
+  });
+}
+
 @end
