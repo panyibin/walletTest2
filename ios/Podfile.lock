@@ -1,18 +1,21 @@
 PODS:
+  - IQKeyboardManager (5.0.8)
   - Masonry (1.1.0)
   - ReactiveObjC (3.1.0)
   - YBUtils (0.1.4)
 
 DEPENDENCIES:
+  - IQKeyboardManager
   - Masonry (~> 1.1.0)
   - ReactiveObjC (~> 3.1.0)
   - YBUtils (~> 0.1.0)
 
 SPEC CHECKSUMS:
+  IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   YBUtils: 9f5b1caeef6206ea43d4442336a9953a68cc11b2
 
-PODFILE CHECKSUM: b1c82e1a0982d189970e321a7a6bfcc0e0d77943
+PODFILE CHECKSUM: c33a49af228af177c8c631df2901ceaf7217a8d4
 
 COCOAPODS: 1.4.0

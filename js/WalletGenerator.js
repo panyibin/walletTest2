@@ -108,7 +108,13 @@ export default class WalletGenerator extends Component<Props> {
         <Text style={styles.subTitleSeed}>
         Seed
         </Text>
-        <TextInput style={styles.textInputSeed} multiline={true} >{this.state.seed}</TextInput>
+        <TextInput 
+        style={styles.textInputSeed} 
+        multiline={true} 
+        onChangeText={(text)=>{this.setState({seed:text})}}
+        >
+        {this.state.seed}
+        </TextInput>
         <TouchableOpacity style={styles.seedGenerateButton} onPress={this.getSeed.bind(this)}>
         <Text style={styles.seedGenerateButtonText}>Generate seed</Text>
         </TouchableOpacity>

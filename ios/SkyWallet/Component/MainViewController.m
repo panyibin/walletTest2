@@ -28,8 +28,6 @@
     // Do any additional setup after loading the view from its nib.
   self.navigationController.navigationBar.hidden = YES;
   
-  [self loadData];
-  
   self.walletView = [RNManager viewWithModuleName:@"Wallet"
                                 initialProperties:nil];
   [self.view addSubview:self.walletView];
@@ -41,20 +39,29 @@
 
 - (void)viewDidAppear:(BOOL)animated {
   [self loadData];
-  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    self.walletView.appProperties = @{
-                                      @"totalCoinBalance":self.totalCoinBalance ? : @"",
-                                      @"totalHourBalance":self.totalHourBalance ? : @"",
-                                      @"data": self.walletJsonArray ? : @[]
-                                      };
-  });
+  if(!self.walletArray) {
+    
+    WalletGeneratorViewController *vc = [[WalletGeneratorViewController alloc] init];
+    vc.needPinCode = YES;
+    
+    [[NavigationHelper sharedInstance].rootNavigationController pushViewController:vc animated:NO];
+    
+  } else {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+      self.walletView.appProperties = @{
+                                        @"totalCoinBalance":self.totalCoinBalance ? : @"",
+                                        @"totalHourBalance":self.totalHourBalance ? : @"",
+                                        @"data": self.walletJsonArray ? : @[]
+                                        };
+    });
+  }
 }
 
 - (void)loadData {
   self.walletArray = [[WalletManager sharedInstance] getLocalWalletArray];
   
   NSMutableArray *mutableWalletArray = [[NSMutableArray alloc] init];
-  NSInteger totalCoinBalance = 0;
+  float totalCoinBalance = 0;
   float totalHourBalance = 0;
   
   for (WalletModel *wm in self.walletArray) {
@@ -69,9 +76,11 @@
       NSString *hours = [balanceDict getStringForKey:@"hours"];
       
       if (balance) {
-        totalCoinBalance += [balance integerValue];
+        totalCoinBalance += [balance floatValue];
         totalHourBalance += [hours floatValue];
       }
+      
+      balance = [NSString stringWithFormat:@"%.3f", [balance floatValue]];
       
       [dict setObject:balance forKey:@"balance"];
       [mutableWalletArray addObject:dict];
@@ -79,8 +88,8 @@
   }
   
   self.walletJsonArray = mutableWalletArray;
-  self.totalCoinBalance = [NSString stringWithFormat:@"%ld", totalCoinBalance];
-  self.totalHourBalance = [NSString stringWithFormat:@"%.f", totalHourBalance];
+  self.totalCoinBalance = [NSString stringWithFormat:@"%.3f", totalCoinBalance];
+  self.totalHourBalance = [NSString stringWithFormat:@"%.3f", totalHourBalance];
 }
 
 - (NSArray*)getJsonArray {

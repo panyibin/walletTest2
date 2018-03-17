@@ -15,7 +15,8 @@ import {
   Button,
   Alert,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  ScrollView
 } from 'react-native';
 
 var walletManager = NativeModules.WalletManager;
@@ -37,21 +38,22 @@ async tapNewWallet() {
   render() {
     return (
         <View style={styles.container}>
+        <ScrollView style={{backgroundColor:'grey'}}>
             <Text style={styles.welcome}>
                 Wallets
             </Text>
             <View style={{backgroundColor:'red'}}>
                 <Text style={styles.skyCoinBalance}>
-                    {this.props.totalCoinBalance + ' SKY'}
+                    {(this.props.totalCoinBalance != undefined ? this.props.totalCoinBalance : '0')   + ' SKY'}
                 </Text>
                 <Text style={styles.skyHourBalance}>
-                    {this.props.totalHourBalance + ' Hours'}
+                    {(this.props.totalHourBalance != undefined ? this.props.totalHourBalance : '0') + ' Hours'}
                 </Text>
             </View>
-            <View style={{marginTop:50, backgroundColor:'green', height:300}}>
+            <View style={{marginTop:0, backgroundColor:'green'}}>
                 <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
                  <Text style={{marginLeft:10,width:100, backgroundColor:'transparent',fontSize:15}}>Wallet</Text>
-                 <Text style={{marginLeft:200, backgroundColor:'transparent',fontSize:15}}>Balance</Text>
+                 <Text style={{marginLeft:180, backgroundColor:'transparent',fontSize:15}}>Balance</Text>
                 </View>
                 <View style={{height:0.5, backgroundColor:'grey'}} />
                 <FlatList
@@ -64,7 +66,7 @@ async tapNewWallet() {
                         <View style={{marginLeft:10,width:100}}>
                         <Text style={{backgroundColor: 'transparent', fontSize: 15 }}>{item.walletName}</Text>
                         </View>
-                        <View style={{marginLeft:200, width:100}}>
+                        <View style={{marginLeft:180, width:100}}>
                         <Text style={{backgroundColor: 'yellow', fontSize: 15, textAlign:'left' }}>{item.balance}</Text>
                         </View>                                                        
                         </View>
@@ -80,6 +82,7 @@ async tapNewWallet() {
                 >
                 </FlatList>
             </View>
+            </ScrollView>
             <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                 <TouchableOpacity style={styles.newWalletButton} onPress={this.tapNewWallet.bind(this)}>
                     <Text style={styles.createButtonText}>New Wallet</Text>
@@ -134,6 +137,7 @@ const styles = StyleSheet.create({
     fontSize:17,
     color: 'white',
     marginTop:20,
+    marginBottom:30
   },
   subTitleSeed: {
     textAlign: 'left',
@@ -142,40 +146,10 @@ const styles = StyleSheet.create({
     marginTop:50,
     marginLeft:35
   },
-  textInputPinCode: {
-    fontSize:15,
-    backgroundColor:'white',
-    marginLeft:35,
-    marginRight:35,
-    marginTop:10,
-    height:23,
-    borderRadius:5
-  },
-  textInputSeed: {
-    fontSize:15,
-    backgroundColor:'white',
-    marginLeft:35,
-    marginRight:35,
-    marginTop:10,
-    height:45,
-    borderRadius:5,
-    // textAlign:'left'
-  },
-  seedGenerateButton: {
-    // backgroundColor:'green',
-    marginLeft:35,
-    marginRight:35,
-    marginTop:10,
-  },
-  seedGenerateButtonText: {
-    color:'white',
-    // marginRight:35,
-    textAlign:'right',
-    // backgroundColor:'red'
-  },
   newWalletButton:{
-    marginTop:100,
+    marginTop:20,
     marginRight:15,
+    marginBottom:40,
     height:30,
     width:120,
     backgroundColor:'grey',
@@ -183,8 +157,9 @@ const styles = StyleSheet.create({
     borderRadius:15
   },
   loadWalletButton:{
-    marginTop:100,
+    marginTop:20,
     marginLeft:15,
+    marginBottom:40,
     height:30,
     width:120,
     backgroundColor:'grey',
