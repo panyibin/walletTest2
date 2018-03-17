@@ -19,20 +19,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
   self.navigationController.navigationBar.hidden = YES;
-  
-//  RCTRootView *welcomeView = [[RCTRootView alloc] initWithBundleURL:[RNManager jsCodeLocation] moduleName:@"SkyWallet" initialProperties:nil launchOptions:nil];
-//
-//  [self.view addSubview:welcomeView];
-//
-//  [welcomeView mas_makeConstraints:^(MASConstraintMaker *make) {
-//    make.edges.mas_equalTo(self.view);
-//  }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
   NSArray *walletArray = [[WalletManager sharedInstance] getLocalWalletArray];
   if(!walletArray || walletArray.count == 0) {
     WalletGeneratorViewController *vc = [[WalletGeneratorViewController alloc] init];
+    vc.needPinCode = YES;
     
     [[NavigationHelper sharedInstance].rootNavigationController pushViewController:vc animated:NO];
   } else {
@@ -47,7 +40,6 @@
 
 - (IBAction)clickNewWallet:(id)sender {
   WalletGeneratorViewController *vc = [[WalletGeneratorViewController alloc] init];
-  
   [[NavigationHelper sharedInstance].rootNavigationController pushViewController:vc animated:YES];
 }
 

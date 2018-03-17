@@ -10,4 +10,6 @@
 
 @interface WalletGeneratorViewController : UIViewController
 
+@property (nonatomic, assign) BOOL needPinCode;
+
 @end

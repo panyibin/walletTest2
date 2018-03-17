@@ -50,7 +50,7 @@ export default class WalletGenerator extends Component<Props> {
     );
   }
 
-  tapNext() {
+  async tapNext() {
     var walletName = this.state.walletName;
     var seed = this.state.seed;
 
@@ -59,18 +59,40 @@ export default class WalletGenerator extends Component<Props> {
     } else if (seed == undefined || seed.length == 0) {
       Alert.alert('seed is invalid');
     } else {
-      navigationHelper.showPinCodeViewControllerWithWalletName(this.state.walletName, this.state.seed,true);
+      if(this.props.needPinCode) {
+        navigationHelper.showPinCodeViewControllerWithWalletName(this.state.walletName, this.state.seed,true);
+      } else {
+        var pinCode = await walletManager.getPinCode();
+        var success = await walletManager.createNewWallet(walletName, seed, pinCode);
+        if(success) {
+          navigationHelper.popToRootViewControllerAnimated(true);
+        } else {
+          Alert.alert('fail to create wallet');
+        }
+      }
+      
     }
   }
 
   render() {
+
+    var bottomButtonText;
+    var instructionText;
+    if(this.props.needPinCode) {
+      bottomButtonText = 'Next';
+      instructionText = "It's your first time using our mobile wallet, so you'll need to either create a new wallet or load an existing one from a seed.";
+    } else {
+      bottomButtonText = 'Create';
+      instructionText = "You can either create a new wallet or load an existing one from a seed.";
+    }
+
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Create a wallet
         </Text>
         <Text style={styles.instructions}>
-          It's your first time using our mobile wallet, so you'll need to either create a new wallet or load an existing one from a seed.
+        {instructionText}
         </Text>
         <Text style={styles.subTitleWallet}>
         Name your wallet
@@ -92,7 +114,7 @@ export default class WalletGenerator extends Component<Props> {
         </TouchableOpacity>
         <View style={{alignItems:'center'}}>
         <TouchableOpacity style={styles.nextButton} onPress={this.tapNext.bind(this)}>
-        <Text style={styles.nextButtonText}>Next</Text>
+        <Text style={styles.nextButtonText}>{bottomButtonText}</Text>
         </TouchableOpacity>
         </View>
       </View>

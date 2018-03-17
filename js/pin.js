@@ -84,7 +84,7 @@ async tapCreate() {
             ></TextInput>
         <View style={{alignItems:'center'}}>
         <TouchableOpacity style={styles.createButton} onPress={this.tapCreate.bind(this)}>
-        <Text style={styles.createButtonText}>Create Wallet</Text>
+        <Text style={styles.createButtonText}>Create</Text>
         </TouchableOpacity>
         </View>
       </View>
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   createButton:{
     marginTop:250,
     height:30,
-    width:180,
+    width:120,
     backgroundColor:'black',
     alignItems:'center',
     borderRadius:15

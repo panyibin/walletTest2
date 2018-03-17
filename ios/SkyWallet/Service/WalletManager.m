@@ -12,13 +12,6 @@
 
 RCT_EXPORT_MODULE()
 
-//+ (void)initialize {
-//  NSString *pinCode = [[NSUserDefaults standardUserDefaults] stringForKey:kPinCode];
-//  NSString *password = [self passwordWithPinCode:pinCode];
-//  NSError *error;
-//  MobileInit([self getWalletDir], password, &error);
-//}
-
 + (instancetype)sharedInstance {
   static WalletManager *_instance;
   static dispatch_once_t onceToken;
@@ -37,6 +30,11 @@ RCT_REMAP_METHOD(getSeed, getSeedWithResolver:(RCTPromiseResolveBlock)resolve re
 - (NSString*)getSeed {
   NSString *seed = MobileNewSeed();
   return seed;
+}
+
+RCT_REMAP_METHOD(getPinCode, getPinCodeWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+  NSString *pinCode = [[NSUserDefaults standardUserDefaults] stringForKey:kPinCode];
+  resolve(pinCode);
 }
 
 RCT_REMAP_METHOD(createNewWallet, createWallet:(NSString*)walletName seed:(NSString*)seed pinCode:(NSString*)pinCode resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
@@ -125,5 +123,10 @@ RCT_REMAP_METHOD(createNewWallet, createWallet:(NSString*)walletName seed:(NSStr
     MobileInit([self getWalletDir], password, &error);
   }
 }
+
+//- (NSString *)getPinCode {
+//  NSString *pinCode = [[NSUserDefaults standardUserDefaults] stringForKey:kPinCode];
+//  return pinCode;
+//}
 
 @end
