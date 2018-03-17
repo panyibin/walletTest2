@@ -35,8 +35,8 @@
 //  self.window.rootViewController = rootViewController;
   
   MainNavigationViewController *navigationVC = [[MainNavigationViewController alloc] init];
-  MainViewController *balanceVC = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-  navigationVC.viewControllers = @[balanceVC];
+  MainViewController *mainVC = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+  navigationVC.viewControllers = @[mainVC];
   self.window.rootViewController = navigationVC;
   
   [self.window makeKeyAndVisible];

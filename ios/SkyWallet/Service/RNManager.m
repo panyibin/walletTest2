@@ -17,4 +17,10 @@
   return jsCodeLocation;
 }
 
++ (RCTRootView*)viewWithModuleName:(NSString*)moduleName initialProperties:(NSDictionary*)initialProperties {
+  RCTRootView *view = [[RCTRootView alloc] initWithBundleURL:[self jsCodeLocation] moduleName:moduleName initialProperties:initialProperties launchOptions:nil];
+  
+  return view;
+}
+
 @end

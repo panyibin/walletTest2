@@ -11,5 +11,6 @@
 @interface RNManager : NSObject
 
 + (NSURL*)jsCodeLocation;
++ (RCTRootView*)viewWithModuleName:(NSString*)moduleName initialProperties:(NSDictionary*)initialProperties;
 
 @end

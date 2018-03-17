@@ -17,74 +17,52 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
 var walletManager = NativeModules.WalletManager;
-var navigationHelper = NativeModules.NavigationHelper;
 
 const onButtonPress = () => {
    Alert.alert('generate seed');
 };
 
 type Props = {};
-export default class App extends Component<Props> {
+export default class PinView extends Component<Props> {
 
-  constructor(props) {
+  constructor(props){
     super(props);
-    this.state = {
-      seed: "",
-      walletName: ""
-    };
+    this.state = {pinCode:""};
   }
 
-  async getSeed() {
-    var seedGenerated = await walletManager.getSeed();
-    // Alert.alert(seedGenerated);
-    this.setState(
-      {seed:seedGenerated}
-    );
-  }
+  tapCreate() {
+      var pinCode = this.state.pinCode;
+      if(pinCode.length == 0) {
+          Alert.alert("pin code must be 6 digits");
+      } else {
 
-  tapNext() {
-    navigationHelper.showPinCodeViewControllerWithWalletName(this.state.walletName, this.state.seed,true);
-    // console.log('walletName:'+ this.state.walletName);
+      }
   }
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Create a wallet
+          Great, now create a pin
         </Text>
         <Text style={styles.instructions}>
-          It's your first time using our mobile wallet, so you'll need to either create a new wallet or load an existing one from a seed.
+       This PIN # will be used to open the wallet. Don't forget your pin. If you do, you may lose access to your mobile wallet.
         </Text>
-        <Text style={styles.subTitleWallet}>
-        Name your wallet
+        <Text style={styles.pinCodeTitle}>
+        pin code
         </Text>
         <TextInput 
-          style={styles.textInputWallet}
-          onChangeText={(text) => {
-            this.setState({ walletName: text });
-          }
-          } 
-        >
-        </TextInput>
-        <Text style={styles.subTitleSeed}>
-        Seed
-        </Text>
-        <TextInput style={styles.textInputSeed} multiline={true} >{this.state.seed}</TextInput>
-        <TouchableOpacity style={styles.seedGenerateButton} onPress={this.getSeed.bind(this)}>
-        <Text style={styles.seedGenerateButtonText}>Generate seed</Text>
-        </TouchableOpacity>
+        style={styles.textInputPinCode} 
+        onChangeText={
+            (text)=>{
+                this.setState({pinCode:text});
+            }
+        }
+        ></TextInput>
         <View style={{alignItems:'center'}}>
-        <TouchableOpacity style={styles.nextButton} onPress={this.tapNext.bind(this)}>
-        <Text style={styles.nextButtonText}>Next</Text>
+        <TouchableOpacity style={styles.createButton} onPress={this.tapCreate.bind(this)}>
+        <Text style={styles.createButtonText}>Create Wallet</Text>
         </TouchableOpacity>
         </View>
       </View>
@@ -115,7 +93,7 @@ const styles = StyleSheet.create({
     marginLeft:35,
     marginRight:35,
   },
-  subTitleWallet: {
+  pinCodeTitle: {
     textAlign: 'left',
     fontSize:15,
     color: 'white',
@@ -129,7 +107,7 @@ const styles = StyleSheet.create({
     marginTop:50,
     marginLeft:35
   },
-  textInputWallet: {
+  textInputPinCode: {
     fontSize:15,
     backgroundColor:'white',
     marginLeft:35,
@@ -160,15 +138,15 @@ const styles = StyleSheet.create({
     textAlign:'right',
     // backgroundColor:'red'
   },
-  nextButton:{
+  createButton:{
     marginTop:250,
     height:30,
-    width:80,
+    width:180,
     backgroundColor:'black',
     alignItems:'center',
     borderRadius:15
   },
-  nextButtonText:{
+  createButtonText:{
     textAlign:'center',
     fontSize:18,
     color:'white',
