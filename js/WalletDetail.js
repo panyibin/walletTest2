@@ -56,13 +56,20 @@ async tapNewAddress() {
       navigationHelper.showPayCoinViewControllerWithWalletModelDict(this.props.walletModelDict, true);
   }
 
+  longPressWalletTitle() {
+    Clipboard.setString(this.props.walletModelDict.seed);
+    Alert.alert('seed copied',this.props.walletModelDict.seed);
+  }
+
   render() {
     return (
         <View style={styles.container}>
         <View style={styles.topView}>
+        <TouchableOpacity onLongPress={this.longPressWalletTitle.bind(this)} >
         <Text style={styles.pageTitle}>
                 {this.props.walletModelDict.walletName}
         </Text>
+        </TouchableOpacity>
         </View>
         <ScrollView style={{backgroundColor:'white'}}>
             <View style={{backgroundColor:'#1A9BFC'}}>
@@ -88,7 +95,7 @@ async tapNewAddress() {
                             // Alert.alert('hello');
                             ()=>{
                                 Clipboard.setString(item.address);
-                                Alert.alert('The address has been copied to clipborad',item.address);
+                                Alert.alert('Address copied',item.address);
                             }
                         }>
                         <View>
