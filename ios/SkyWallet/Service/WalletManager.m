@@ -83,6 +83,16 @@ RCT_EXPORT_METHOD(createNewAddressWithWalletId:(NSString*)walletId num:(NSIntege
   [[NSNotificationCenter defaultCenter] postNotificationName:kNewAddressCreatedNotification object:nil];
 }
 
+RCT_REMAP_METHOD(sendSkyCoinWithWalletId, sendSkyCoinWithWalletId:(NSString*)walletId toAddress:(NSString*)toAddr amount:(NSString*)amount resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+  NSError *error;
+  MobileSend(kCoinTypeSky, walletId, toAddr, amount, &error);
+  if(!error) {
+    resolve(@"success");
+  } else {
+    resolve([error.userInfo getStringForKey:@"NSLocalizedDescription"]);
+  }
+}
+
 - (NSString*)passwordWithPinCode:(NSString*)pinCode {
   NSString *password = [NSString stringWithFormat:@"%ld", [pinCode hash]];
   return password;

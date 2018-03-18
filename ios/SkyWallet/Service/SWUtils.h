@@ -12,4 +12,6 @@
 
 + (NSDictionary*)dictionaryFromJsonString:(NSString*)jsonStr;
 
++ (UIImage*)qrCodeImageWithString:(NSString*)str width:(CGFloat)width height:(CGFloat)height;
+
 @end

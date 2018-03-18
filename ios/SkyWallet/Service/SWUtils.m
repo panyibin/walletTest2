@@ -23,4 +23,21 @@
   }
 }
 
++ (UIImage*)qrCodeImageWithString:(NSString*)str width:(CGFloat)width height:(CGFloat)height {
+  NSData *stringData = [str dataUsingEncoding: NSUTF8StringEncoding];
+  
+  CIFilter *qrFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+  [qrFilter setValue:stringData forKey:@"inputMessage"];
+  [qrFilter setValue:@"H" forKey:@"inputCorrectionLevel"];
+  
+  CIImage *qrImage = qrFilter.outputImage;
+  float scaleX = width / qrImage.extent.size.width;
+  float scaleY = height / qrImage.extent.size.height;
+  
+  qrImage = [qrImage imageByApplyingTransform:CGAffineTransformMakeScale(scaleX, scaleY)];
+  
+  return [UIImage imageWithCIImage:qrImage scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp];
+
+}
+
 @end

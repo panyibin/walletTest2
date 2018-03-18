@@ -17,11 +17,13 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   FlatList,
-  ScrollView
+  ScrollView,
+  Clipboard
 } from 'react-native';
 
 var walletManager = NativeModules.WalletManager;
 var navigationHelper = NativeModules.NavigationHelper;
+// var {Clipboard} = ReactNative;
 
 type Props = {};
 export default class WalletDetail extends Component<Props> {
@@ -34,11 +36,24 @@ export default class WalletDetail extends Component<Props> {
 
 async tapNewAddress() {
     // Alert.alert('new address');
-    walletManager.createNewAddressWithWalletId(this.props.walletModelDict.walletId, 1);
+    // walletManager.createNewAddressWithWalletId(this.props.walletModelDict.walletId, 1);
+    Alert.alert(
+        'A new address will be created in this wallet.',
+        '',
+        [
+            {text:'OK', onPress:()=>{
+                walletManager.createNewAddressWithWalletId(this.props.walletModelDict.walletId, 1);
+            }},
+            {text:'Cancel', onPress:()=>{
+
+            }, style:'cancel'}            
+        ]
+    );
   }
 
-  tapWalletItem(item) {
-      Alert.alert(item.walletName);
+  async tapSendSky() {
+      //Alert.alert('send sky');
+      navigationHelper.showPayCoinViewControllerWithWalletModelDict(this.props.walletModelDict, true);
   }
 
   render() {
@@ -70,7 +85,8 @@ async tapNewAddress() {
                         <TouchableOpacity onPress={
                             // Alert.alert('hello');
                             ()=>{
-                                Alert.alert(item.address);
+                                Clipboard.setString(item.address);
+                                Alert.alert('The address has been copied to clipborad',item.address);
                             }
                         }>
                         <View>
@@ -102,6 +118,9 @@ async tapNewAddress() {
             </View>
             </ScrollView>
             <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                <TouchableOpacity style={styles.newAddressButton} onPress={this.tapSendSky.bind(this)}>
+                    <Text style={styles.newAddressButtonText}>Send Sky</Text>
+                </TouchableOpacity>
                 <TouchableOpacity style={styles.newAddressButton} onPress={this.tapNewAddress.bind(this)}>
                     <Text style={styles.newAddressButtonText}>New Address</Text>
                 </TouchableOpacity>

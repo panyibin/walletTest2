@@ -10,6 +10,7 @@
 #import "WalletGeneratorViewController.h"
 #import "PinCodeViewController.h"
 #import "WalletDetailViewController.h"
+#import "PayCoinViewController.h"
 
 @implementation NavigationHelper
 
@@ -50,6 +51,16 @@ RCT_EXPORT_METHOD(showWalletGeneratorViewControllerAnimated:(BOOL)animated) {
 RCT_EXPORT_METHOD(showWalletDetailViewControllerWithWalletModelDict:(NSDictionary*)walletModelDict animated:(BOOL)animated) {
   dispatch_async(dispatch_get_main_queue(), ^{
     WalletDetailViewController *vc = [[WalletDetailViewController alloc] initWithNibName:@"WalletDetailViewController" bundle:nil];
+    
+    vc.walletModelDict = walletModelDict;
+    
+    [[self rootNavigationController] pushViewController:vc animated:animated];
+  });
+}
+
+RCT_EXPORT_METHOD(showPayCoinViewControllerWithWalletModelDict:(NSDictionary*)walletModelDict animated:(BOOL)animated) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    PayCoinViewController *vc = [[PayCoinViewController alloc] initWithNibName:@"PayCoinViewController" bundle:nil];
     
     vc.walletModelDict = walletModelDict;
     

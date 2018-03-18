@@ -30,6 +30,7 @@
 		DF6DB477205D64A400A9A0D9 /* SWUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6DB476205D64A400A9A0D9 /* SWUtils.m */; };
 		DF6DB48A205DF90200A9A0D9 /* WalletDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6DB489205DF90200A9A0D9 /* WalletDetailViewController.m */; };
 		DF6DB4B2205E015700A9A0D9 /* WalletBalanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6DB4B1205E015700A9A0D9 /* WalletBalanceModel.m */; };
+		DF6DB4B5205E376B00A9A0D9 /* PayCoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6DB4B4205E376B00A9A0D9 /* PayCoinViewController.m */; };
 		DFA33CE5205983F200116E38 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33CE4205983F200116E38 /* MainTabBarViewController.m */; };
 		DFA33D1D2059844200116E38 /* MainNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33D1C2059844200116E38 /* MainNavigationViewController.m */; };
 		DFA33D202059849F00116E38 /* BalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA33D1F2059849F00116E38 /* BalanceViewController.m */; };
@@ -350,6 +351,8 @@
 		DF6DB489205DF90200A9A0D9 /* WalletDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletDetailViewController.m; sourceTree = "<group>"; };
 		DF6DB4B0205E015700A9A0D9 /* WalletBalanceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletBalanceModel.h; sourceTree = "<group>"; };
 		DF6DB4B1205E015700A9A0D9 /* WalletBalanceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletBalanceModel.m; sourceTree = "<group>"; };
+		DF6DB4B3205E376B00A9A0D9 /* PayCoinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayCoinViewController.h; sourceTree = "<group>"; };
+		DF6DB4B4205E376B00A9A0D9 /* PayCoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayCoinViewController.m; sourceTree = "<group>"; };
 		DFA33CE3205983F200116E38 /* MainTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		DFA33CE4205983F200116E38 /* MainTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		DFA33D1B2059844200116E38 /* MainNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainNavigationViewController.h; sourceTree = "<group>"; };
@@ -655,6 +658,8 @@
 				DFD9A521205D0BA0002A256F /* WalletGeneratorViewController.h */,
 				DFD9A522205D0BA0002A256F /* WalletGeneratorViewController.m */,
 				DFD9A523205D0BA0002A256F /* WalletGeneratorViewController.xib */,
+				DF6DB4B3205E376B00A9A0D9 /* PayCoinViewController.h */,
+				DF6DB4B4205E376B00A9A0D9 /* PayCoinViewController.m */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1235,6 +1240,7 @@
 				DFD9A520205CC14D002A256F /* NavigationHelper.m in Sources */,
 				DFA33CE5205983F200116E38 /* MainTabBarViewController.m in Sources */,
 				DFA33D202059849F00116E38 /* BalanceViewController.m in Sources */,
+				DF6DB4B5205E376B00A9A0D9 /* PayCoinViewController.m in Sources */,
 				DFD9A515205ACFC3002A256F /* WalletModel.m in Sources */,
 				DFA33D1D2059844200116E38 /* MainNavigationViewController.m in Sources */,
 				DFD9A51C205CBCD2002A256F /* PinCodeViewController.m in Sources */,
