@@ -74,6 +74,15 @@ RCT_REMAP_METHOD(createNewWallet, createWallet:(NSString*)walletName seed:(NSStr
   }
 }
 
+RCT_EXPORT_METHOD(createNewAddressWithWalletId:(NSString*)walletId num:(NSInteger)num) {
+  NSError *error;
+  NSString *pinCode = [[NSUserDefaults standardUserDefaults] stringForKey:kPinCode];
+  NSString *password = [self passwordWithPinCode:pinCode];
+  MobileNewAddress(walletId, num, password, &error);
+  
+  [[NSNotificationCenter defaultCenter] postNotificationName:kNewAddressCreatedNotification object:nil];
+}
+
 - (NSString*)passwordWithPinCode:(NSString*)pinCode {
   NSString *password = [NSString stringWithFormat:@"%ld", [pinCode hash]];
   return password;

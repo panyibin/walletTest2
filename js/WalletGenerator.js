@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize:15,
     color: 'white',
-    marginTop:50,
+    marginTop:30,
     marginLeft:35
   },
   textInputWallet: {

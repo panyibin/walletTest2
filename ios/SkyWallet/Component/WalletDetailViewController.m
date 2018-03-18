@@ -30,15 +30,22 @@
   if(self.walletModelDict) {
     self.walletModel = [[WalletModel alloc] initWithDictionary:self.walletModelDict];
   }
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNewAddressesCreated:) name:kNewAddressCreatedNotification object:nil];
+  
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+  [self refreshPage];
+}
+
+- (void)refreshPage {
   [self loadData];
   
   NSDictionary *initialProperties = @{
                                       @"totalCoinBalance":self.totalCoinBalance ? : @"",
                                       @"totalHourBalance":self.totalHourBalance ? : @"",
-                                      @"walletName":self.walletModel.walletName ? : @"",
+                                      @"walletModelDict":self.walletModelDict ? : @{},
                                       @"data":self.addressJsonArray ? : @[]
                                       };
   
@@ -84,6 +91,12 @@
       self.totalHourBalance = [NSString stringWithFormat:@"%.3f", totalHourBalance];
     }
   }
+}
+
+- (void)didNewAddressesCreated:(NSNotification*)notification {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self refreshPage];
+  });
 }
 
 - (void)loadView {

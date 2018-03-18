@@ -33,7 +33,8 @@ export default class WalletDetail extends Component<Props> {
   }
 
 async tapNewAddress() {
-    Alert.alert('new address');
+    // Alert.alert('new address');
+    walletManager.createNewAddressWithWalletId(this.props.walletModelDict.walletId, 1);
   }
 
   tapWalletItem(item) {
@@ -45,7 +46,7 @@ async tapNewAddress() {
         <View style={styles.container}>
         <ScrollView style={{backgroundColor:'grey'}}>
             <Text style={styles.welcome}>
-                {this.props.walletName}
+                {this.props.walletModelDict.walletName}
             </Text>
             <View style={{backgroundColor:'red'}}>
                 <Text style={styles.skyCoinBalance}>
@@ -57,7 +58,7 @@ async tapNewAddress() {
             </View>
             <View style={{marginTop:0, backgroundColor:'green'}}>
                 <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
-                 <Text style={{marginLeft:10,width:100, backgroundColor:'transparent',fontSize:15}}>Wallet</Text>
+                 <Text style={{marginLeft:10,width:100, backgroundColor:'transparent',fontSize:15}}>Address</Text>
                  <Text style={{marginLeft:180, backgroundColor:'transparent',fontSize:15}}>Balance</Text>
                 </View>
                 <View style={{height:0.5, backgroundColor:'grey'}} />

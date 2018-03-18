@@ -18,4 +18,7 @@
 #define kCoinTypeSky @"skycoin"
 #define kCoinTypeSpo @"spocoin"
 
+//Notification
+#define kNewAddressCreatedNotification @"kNewAddressCreatedNotification"
+
 #endif /* Constants_h */
