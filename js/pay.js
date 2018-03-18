@@ -65,14 +65,17 @@ async tapSend() {
   render() {
     return (
       <View style={styles.container}>
+      <View style={{backgroundColor:'#1A9BFC'}}>
         <Text style={styles.welcome}>
           Send Sky
         </Text>
+      </View>
+        <View style={{backgroundColor:'#F7F7F7'}}>
         <Text style={styles.subTitle}>
         Walet
         </Text>
         <Text style={styles.subTitleWallet}>
-            {this.props.walletModelDict.walletName + ' -' + this.props.balance}
+            {this.props.walletModelDict.walletName + ' - ' + this.props.balance + ' SKY'}
         </Text>
         <Text style={styles.subTitle}>
         Send to
@@ -108,11 +111,12 @@ async tapSend() {
         </TextInput>
         <View style={{flexDirection:'row', justifyContent: 'center'}}>
         <TouchableOpacity style={styles.cancelButton} onPress={this.tapCancel.bind(this)}>
-        <Text style={styles.sendButtonText}>Cancel</Text>
+        <Text style={styles.cancelButtonText}>Cancel</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.sendButton} onPress={this.tapSend.bind(this)}>
         <Text style={styles.sendButtonText}>Send</Text>
         </TouchableOpacity>
+        </View>
         </View>
       </View>
     );
@@ -126,42 +130,31 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     //alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#F7F7F7',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     marginTop: 50,
-    color:'white'
-  },
-  instructions: {
-    textAlign: 'left',
-    color: 'white',
-    marginTop: 15,
-    marginBottom: 5,
-    marginLeft:35,
-    marginRight:35,
+    marginBottom:20,
+    color:'white',
+    fontWeight:'bold'
   },
   subTitle: {
     textAlign: 'left',
     fontSize:15,
-    color: 'white',
+    color: 'black',
     marginTop:15,
-    marginLeft:35
+    marginLeft:35,
+    fontWeight:'bold'
   },
   subTitleWallet: {
     textAlign: 'left',
     fontSize:15,
     color: 'black',
     marginTop:10,
-    marginLeft:35
-  },
-  pinCodeTitleConfirm: {
-    textAlign: 'left',
-    fontSize:15,
-    color: 'white',
-    marginTop:10,
-    marginLeft:35
+    marginLeft:35,
+    fontWeight:'bold'
   },
   textInput: {
     fontSize:15,
@@ -170,7 +163,8 @@ const styles = StyleSheet.create({
     marginRight:35,
     marginTop:10,
     height:30,
-    borderRadius:5
+    borderRadius:5,
+    fontWeight:'bold'
   },
   seedGenerateButton: {
     // backgroundColor:'green',
@@ -190,7 +184,7 @@ const styles = StyleSheet.create({
     marginRight:10,
     height:30,
     width:120,
-    backgroundColor:'black',
+    backgroundColor:'#1E2227',
     alignItems:'center',
     borderRadius:15
   },
@@ -200,21 +194,23 @@ const styles = StyleSheet.create({
     marginRight:10,
     height:30,
     width:120,
-    backgroundColor:'grey',
+    backgroundColor:'#EFF0F0',
     alignItems:'center',
     borderRadius:15
   },
   sendButtonText:{
     textAlign:'center',
-    fontSize:18,
+    fontSize:15,
     color:'white',
-    marginTop:3.5
+    marginTop:6,
+    fontWeight:'bold',
   },
   cancelButtonText:{
     textAlign:'center',
-    fontSize:18,
+    fontSize:15,
     color:'black',
-    marginTop:3.5
+    marginTop:6,
+    fontWeight:'bold',
   }
 
 });

@@ -59,11 +59,13 @@ async tapNewAddress() {
   render() {
     return (
         <View style={styles.container}>
-        <ScrollView style={{backgroundColor:'grey'}}>
-            <Text style={styles.welcome}>
+        <View style={styles.topView}>
+        <Text style={styles.pageTitle}>
                 {this.props.walletModelDict.walletName}
-            </Text>
-            <View style={{backgroundColor:'red'}}>
+        </Text>
+        </View>
+        <ScrollView style={{backgroundColor:'white'}}>
+            <View style={{backgroundColor:'#1A9BFC'}}>
                 <Text style={styles.skyCoinBalance}>
                     {(this.props.totalCoinBalance != undefined ? this.props.totalCoinBalance : '0')   + ' SKY'}
                 </Text>
@@ -71,12 +73,12 @@ async tapNewAddress() {
                     {(this.props.totalHourBalance != undefined ? this.props.totalHourBalance : '0') + ' Hours'}
                 </Text>
             </View>
-            <View style={{marginTop:0, backgroundColor:'green'}}>
+            <View style={{marginTop:0, backgroundColor:'white'}}>
                 <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
-                 <Text style={{marginLeft:10,width:100, backgroundColor:'transparent',fontSize:15}}>Address</Text>
-                 <Text style={{marginLeft:180, backgroundColor:'transparent',fontSize:15}}>Balance</Text>
+                 <Text style={{marginLeft:10,width:200, backgroundColor:'transparent',fontSize:15, fontWeight:'bold', color:'#C3C4C6'}}>Address</Text>
+                 <Text style={{marginLeft:80,width:100, backgroundColor:'transparent',fontSize:15, fontWeight:'bold', color:'#C3C4C6'}}>Balance</Text>
                 </View>
-                <View style={{height:0.5, backgroundColor:'grey'}} />
+                <View style={{height:0.5, backgroundColor:'#EFF0F0'}} />
                 <FlatList
                 data={this.props.data}
 
@@ -91,20 +93,20 @@ async tapNewAddress() {
                         }>
                         <View>
                         <View style={{ flexDirection: 'row', marginBottom:10,marginTop:10 }}>
-                        <View style={{marginLeft:10,width:150}}>
+                        <View style={{marginLeft:10,width:200}}>
                         <Text 
-                        style={{backgroundColor: 'transparent', fontSize: 15 }}
+                        style={{backgroundColor: 'transparent', fontSize: 15 ,fontWeight:'bold', color:'#919497'}}
                         numberOfLines={1}
                         >
                         {item.address}
                         </Text>
                         </View>
-                        <View style={{marginLeft:130, width:100}}>
-                        <Text style={{backgroundColor: 'yellow', fontSize: 15, textAlign:'left' }}>{item.balance}</Text>
+                        <View style={{marginLeft:80, width:100}}>
+                        <Text style={{backgroundColor: 'transparent', fontSize: 15, textAlign:'left', fontWeight:'bold'}}>{item.balance}</Text>
                         </View>                                                        
                         </View>
                         <View 
-                        style={{height:0.5, backgroundColor:'grey'}}
+                        style={{height:0.5, backgroundColor:'#EFF0F0'}}
                         />
                         </View>
                         </TouchableOpacity>
@@ -117,7 +119,7 @@ async tapNewAddress() {
                 </FlatList>
             </View>
             </ScrollView>
-            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'center',backgroundColor:'white' }}>
                 <TouchableOpacity style={styles.newAddressButton} onPress={this.tapSendSky.bind(this)}>
                     <Text style={styles.newAddressButtonText}>Send Sky</Text>
                 </TouchableOpacity>
@@ -137,12 +139,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     //alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#1A9BFC',
   },
-  welcome: {
+  topView: {
+    flexDirection:'row',
+    justifyContent:'center'
+},
+  pageTitle: {
     fontSize: 20,
     textAlign: 'center',
     marginTop: 50,
+    marginBottom: 10,
     color:'white'
   },
   instructions: {
@@ -172,15 +179,16 @@ const styles = StyleSheet.create({
     marginBottom:40,
     height:30,
     width:140,
-    backgroundColor:'grey',
+    backgroundColor:'#EFF0F0',
     alignItems:'center',
     borderRadius:15
   },
   newAddressButtonText:{
     textAlign:'center',
-    fontSize:18,
+    fontSize:15,
     color:'black',
-    marginTop:3.5
+    marginTop:6,
+    fontWeight:'bold'
   }
 
 });

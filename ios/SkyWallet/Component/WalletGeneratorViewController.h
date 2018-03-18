@@ -11,5 +11,6 @@
 @interface WalletGeneratorViewController : UIViewController
 
 @property (nonatomic, assign) BOOL needPinCode;
+@property (nonatomic, assign) BOOL showGenerateSeedButton;
 
 @end

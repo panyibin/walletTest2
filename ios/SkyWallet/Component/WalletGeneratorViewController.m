@@ -20,7 +20,11 @@
   
   self.navigationController.navigationBar.hidden = YES;
   
-  RCTRootView *newWalletView = [RNManager viewWithModuleName:@"WalletGenerator" initialProperties:@{@"needPinCode":@(self.needPinCode)}];
+  RCTRootView *newWalletView = [RNManager viewWithModuleName:@"WalletGenerator"
+                                           initialProperties:@{
+                                                               @"needPinCode":@(self.needPinCode),
+                                                               @"showGenerateSeedButton":@(self.showGenerateSeedButton)
+                                                            }];
   [self.view addSubview:newWalletView];
   
   [newWalletView mas_makeConstraints:^(MASConstraintMaker *make) {

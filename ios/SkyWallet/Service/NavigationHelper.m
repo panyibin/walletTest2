@@ -40,9 +40,10 @@ RCT_EXPORT_METHOD(showPinCodeViewControllerWithWalletName:(NSString*)walletName 
   });
 }
 
-RCT_EXPORT_METHOD(showWalletGeneratorViewControllerAnimated:(BOOL)animated) {
+RCT_EXPORT_METHOD(showWalletGeneratorViewControllerWithGenerateSeedButton:(BOOL)showGenerateSeedButton animated:(BOOL)animated) {
   dispatch_async(dispatch_get_main_queue(), ^{
     WalletGeneratorViewController *vc = [[WalletGeneratorViewController alloc] initWithNibName:@"WalletGeneratorViewController" bundle:nil];
+    vc.showGenerateSeedButton = showGenerateSeedButton;
     
     [[self rootNavigationController] pushViewController:vc animated:animated];
   });

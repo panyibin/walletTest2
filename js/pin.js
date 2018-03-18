@@ -99,13 +99,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     //alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#1478FB',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     marginTop: 50,
-    color:'white'
+    color:'white',
+    fontWeight:'bold'
   },
   instructions: {
     textAlign: 'left',
@@ -114,27 +115,23 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginLeft:35,
     marginRight:35,
+    fontWeight:'bold'
   },
   pinCodeTitle: {
     textAlign: 'left',
     fontSize:15,
     color: 'white',
     marginTop:50,
-    marginLeft:35
+    marginLeft:35,
+    fontWeight:'bold'
   },
   pinCodeTitleConfirm: {
     textAlign: 'left',
     fontSize:15,
     color: 'white',
     marginTop:10,
-    marginLeft:35
-  },
-  subTitleSeed: {
-    textAlign: 'left',
-    fontSize:15,
-    color: 'white',
-    marginTop:50,
-    marginLeft:35
+    marginLeft:35,
+    fontWeight:'bold'
   },
   textInputPinCode: {
     fontSize:15,
@@ -168,7 +165,7 @@ const styles = StyleSheet.create({
     // backgroundColor:'red'
   },
   createButton:{
-    marginTop:250,
+    marginTop:200,
     height:30,
     width:120,
     backgroundColor:'black',
@@ -177,9 +174,10 @@ const styles = StyleSheet.create({
   },
   createButtonText:{
     textAlign:'center',
-    fontSize:18,
+    fontSize:15,
     color:'white',
-    marginTop:3.5
+    marginTop:6,
+    fontWeight:'bold'
   }
 
 });
