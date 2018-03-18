@@ -24,7 +24,7 @@ var walletManager = NativeModules.WalletManager;
 var navigationHelper = NativeModules.NavigationHelper;
 
 type Props = {};
-export default class Wallet extends Component<Props> {
+export default class WalletDetail extends Component<Props> {
 
   constructor(props){
     super(props);
@@ -32,8 +32,8 @@ export default class Wallet extends Component<Props> {
     // Alert.alert(props.data);
   }
 
-async tapNewWallet() {
-    navigationHelper.showWalletGeneratorViewControllerAnimated(true);
+async tapNewAddress() {
+    Alert.alert('new address');
   }
 
   tapWalletItem(item) {
@@ -45,7 +45,7 @@ async tapNewWallet() {
         <View style={styles.container}>
         <ScrollView style={{backgroundColor:'grey'}}>
             <Text style={styles.welcome}>
-                Wallets
+                {this.props.walletName}
             </Text>
             <View style={{backgroundColor:'red'}}>
                 <Text style={styles.skyCoinBalance}>
@@ -68,16 +68,21 @@ async tapNewWallet() {
                     return (
                         <TouchableOpacity onPress={
                             // Alert.alert('hello');
-                            ()=>{                                
-                                navigationHelper.showWalletDetailViewControllerWithWalletModelDict(item, true);
+                            ()=>{
+                                Alert.alert(item.address);
                             }
                         }>
                         <View>
                         <View style={{ flexDirection: 'row', marginBottom:10,marginTop:10 }}>
-                        <View style={{marginLeft:10,width:100}}>
-                        <Text style={{backgroundColor: 'transparent', fontSize: 15 }}>{item.walletName}</Text>
+                        <View style={{marginLeft:10,width:150}}>
+                        <Text 
+                        style={{backgroundColor: 'transparent', fontSize: 15 }}
+                        numberOfLines={1}
+                        >
+                        {item.address}
+                        </Text>
                         </View>
-                        <View style={{marginLeft:180, width:100}}>
+                        <View style={{marginLeft:130, width:100}}>
                         <Text style={{backgroundColor: 'yellow', fontSize: 15, textAlign:'left' }}>{item.balance}</Text>
                         </View>                                                        
                         </View>
@@ -89,18 +94,15 @@ async tapNewWallet() {
                     );
                 }}
 
-                keyExtractor = { item => item.walletId}
+                keyExtractor = { item => item.address}
 
                 >
                 </FlatList>
             </View>
             </ScrollView>
             <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                <TouchableOpacity style={styles.newWalletButton} onPress={this.tapNewWallet.bind(this)}>
-                    <Text style={styles.createButtonText}>New Wallet</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.loadWalletButton} onPress={this.tapNewWallet.bind(this)}>
-                    <Text style={styles.createButtonText}>Load Wallet</Text>
+                <TouchableOpacity style={styles.newAddressButton} onPress={this.tapNewAddress.bind(this)}>
+                    <Text style={styles.newAddressButtonText}>New Address</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -131,13 +133,6 @@ const styles = StyleSheet.create({
     marginLeft:35,
     marginRight:35,
   },
-  pinCodeTitle: {
-    textAlign: 'left',
-    fontSize:15,
-    color: 'white',
-    marginTop:50,
-    marginLeft:35
-  },
   skyCoinBalance: {
     textAlign: 'center',
     fontSize:35,
@@ -151,34 +146,17 @@ const styles = StyleSheet.create({
     marginTop:20,
     marginBottom:30
   },
-  subTitleSeed: {
-    textAlign: 'left',
-    fontSize:15,
-    color: 'white',
-    marginTop:50,
-    marginLeft:35
-  },
-  newWalletButton:{
+  newAddressButton:{
     marginTop:20,
     marginRight:15,
     marginBottom:40,
     height:30,
-    width:120,
+    width:140,
     backgroundColor:'grey',
     alignItems:'center',
     borderRadius:15
   },
-  loadWalletButton:{
-    marginTop:20,
-    marginLeft:15,
-    marginBottom:40,
-    height:30,
-    width:120,
-    backgroundColor:'grey',
-    alignItems:'center',
-    borderRadius:15
-  },
-  createButtonText:{
+  newAddressButtonText:{
     textAlign:'center',
     fontSize:18,
     color:'black',

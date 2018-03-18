@@ -9,7 +9,9 @@
 #import "MainViewController.h"
 #import "WalletGeneratorViewController.h"
 
-@interface MainViewController ()
+@interface MainViewController () {
+  BOOL rnViewCreated;
+}
 
 @property (nonatomic, strong) RCTRootView *walletView;
 @property (nonatomic, strong) NSArray *walletArray;
@@ -27,33 +29,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
   self.navigationController.navigationBar.hidden = YES;
-  
-  self.walletView = [RNManager viewWithModuleName:@"Wallet"
-                                initialProperties:nil];
-  [self.view addSubview:self.walletView];
-  
-  [self.walletView mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.edges.mas_equalTo(self.view);
-  }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
   [self loadData];
+  
   if(!self.walletArray) {
-    
     WalletGeneratorViewController *vc = [[WalletGeneratorViewController alloc] init];
     vc.needPinCode = YES;
     
     [[NavigationHelper sharedInstance].rootNavigationController pushViewController:vc animated:NO];
-    
   } else {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-      self.walletView.appProperties = @{
-                                        @"totalCoinBalance":self.totalCoinBalance ? : @"",
-                                        @"totalHourBalance":self.totalHourBalance ? : @"",
-                                        @"data": self.walletJsonArray ? : @[]
-                                        };
-    });
+    NSDictionary *walletViewProperties = @{
+                                           @"totalCoinBalance":self.totalCoinBalance ? : @"",
+                                           @"totalHourBalance":self.totalHourBalance ? : @"",
+                                           @"data": self.walletJsonArray ? : @[]
+                                           };
+    if (!self.walletView) {
+      self.walletView = [RNManager viewWithModuleName:@"Wallet" initialProperties:walletViewProperties];
+      [self.view addSubview:self.walletView];
+      [self.walletView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+      }];
+    } else {
+      self.walletView.appProperties = walletViewProperties;
+    }
   }
 }
 
@@ -71,18 +71,13 @@
     NSError *error;
     NSString *walletBalance = MobileGetWalletBalance(@"skycoin", wm.walletId, &error);
     if (walletBalance) {
-      NSDictionary *balanceDict = [SWUtils dictionaryOfJsonString:walletBalance];
-      NSString *balance = [balanceDict getStringForKey:@"balance"];
-      NSString *hours = [balanceDict getStringForKey:@"hours"];
+      NSDictionary *balanceDict = [SWUtils dictionaryFromJsonString:walletBalance];
+      WalletBalanceModel *wbm = [[WalletBalanceModel alloc] initWithDictionary:balanceDict];
       
-      if (balance) {
-        totalCoinBalance += [balance floatValue];
-        totalHourBalance += [hours floatValue];
-      }
+      totalCoinBalance += [wbm.balance floatValue];
+      totalHourBalance += [wbm.hours floatValue];
       
-      balance = [NSString stringWithFormat:@"%.3f", [balance floatValue]];
-      
-      [dict setObject:balance forKey:@"balance"];
+      [dict setObject:wbm.balance forKey:@"balance"];
       [mutableWalletArray addObject:dict];
     }
   }
@@ -107,28 +102,6 @@
   }
   
   return array;
-}
-
-//- (void)viewDidAppear:(BOOL)animated {
-//  NSArray *walletArray = [[WalletManager sharedInstance] getLocalWalletArray];
-//  if(!walletArray || walletArray.count == 0) {
-//    WalletGeneratorViewController *vc = [[WalletGeneratorViewController alloc] init];
-//    vc.needPinCode = YES;
-//
-//    [[NavigationHelper sharedInstance].rootNavigationController pushViewController:vc animated:NO];
-//  } else {
-//    for (WalletModel *wm in walletArray) {
-//      NSError *error;
-//      NSString *seed = MobileGetSeed(wm.walletId, &error);
-//
-//      NSLog(@"wallet id:%@, seed:%@", wm.walletId, seed);
-//    }
-//  }
-//}
-
-- (IBAction)clickNewWallet:(id)sender {
-  WalletGeneratorViewController *vc = [[WalletGeneratorViewController alloc] init];
-  [[NavigationHelper sharedInstance].rootNavigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

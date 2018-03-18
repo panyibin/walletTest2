@@ -10,6 +10,6 @@
 
 @interface SWUtils : NSObject
 
-+ (NSDictionary*)dictionaryOfJsonString:(NSString*)jsonStr;
++ (NSDictionary*)dictionaryFromJsonString:(NSString*)jsonStr;
 
 @end

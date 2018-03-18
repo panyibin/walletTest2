@@ -10,7 +10,7 @@
 
 @implementation SWUtils
 
-+ (NSDictionary*)dictionaryOfJsonString:(NSString*)jsonStr {
++ (NSDictionary*)dictionaryFromJsonString:(NSString*)jsonStr {
   NSDictionary *dict;
   NSError *error;
   NSData *data = [jsonStr dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];

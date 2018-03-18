@@ -16,6 +16,7 @@
 @property(nonatomic, strong) NSString *seed;
 @property(nonatomic, strong) NSString *walletType;
 
+- (instancetype)initWithDictionary:(NSDictionary*)dict;
 - (NSDictionary*)convertToDictionary;
 
 @end

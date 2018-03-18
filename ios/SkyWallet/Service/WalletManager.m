@@ -134,9 +134,22 @@ RCT_REMAP_METHOD(createNewWallet, createWallet:(NSString*)walletName seed:(NSStr
   MobileRegisterNewCoin(@"skycoin", @"47.75.36.182:6420", &error);
 }
 
-//- (NSString *)getPinCode {
-//  NSString *pinCode = [[NSUserDefaults standardUserDefaults] stringForKey:kPinCode];
-//  return pinCode;
-//}
+- (WalletBalanceModel*)getBalanceOfWallet:(NSString*)walletId coinType:(NSString*)coinType {
+  NSError *error;
+  NSString *balanceJsonStr = MobileGetWalletBalance(coinType, walletId, &error);
+  NSDictionary *balanceDict = [SWUtils dictionaryFromJsonString:balanceJsonStr];
+  WalletBalanceModel *wbm = [[WalletBalanceModel alloc] initWithDictionary:balanceDict];
+  
+  return wbm;
+}
+
+- (WalletBalanceModel*)getBalanceOfAddress:(NSString*)address coinType:(NSString*)coinType {
+  NSError *error;
+  NSString *balanceJsonStr = MobileGetBalance(coinType, address, &error);
+  NSDictionary *balanceDict = [SWUtils dictionaryFromJsonString:balanceJsonStr];
+  WalletBalanceModel *wbm = [[WalletBalanceModel alloc] initWithDictionary:balanceDict];
+  
+  return wbm;
+}
 
 @end

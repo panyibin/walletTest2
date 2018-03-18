@@ -10,6 +10,19 @@
 
 @implementation WalletModel
 
+- (instancetype)initWithDictionary:(NSDictionary*)dict {
+  self = [super init];
+  if (self) {
+    _walletName = [dict getStringForKey:@"walletName"];
+    _walletId = [dict getStringForKey:@"walletId"];
+    _pinCode = [dict getStringForKey:@"pinCode"];
+    _seed = [dict getStringForKey:@"seed"];
+    _walletType = [dict getStringForKey:@"walletType"];
+  }
+  
+  return self;
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
   self = [super init];
   if(self) {

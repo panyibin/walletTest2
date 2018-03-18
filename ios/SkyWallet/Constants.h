@@ -15,4 +15,7 @@
 #define kLocalWalletArray @"kLocalWalletArray"
 #define kPinCode @"kPinCode"
 
+#define kCoinTypeSky @"skycoin"
+#define kCoinTypeSpo @"spocoin"
+
 #endif /* Constants_h */
