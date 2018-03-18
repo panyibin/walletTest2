@@ -613,10 +613,9 @@
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
-				DFA33D212059864D00116E38 /* PrefixHeader.pch */,
-				DFA33D6D205AC52B00116E38 /* Constants.h */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				DF6DB4B6205E755400A9A0D9 /* Common */,
 				DFA33D6E205AC59300116E38 /* Component */,
 				DFD9A4CE205AC803002A256F /* Service */,
 				DFD9A4ED205ACC92002A256F /* Model */,
@@ -636,6 +635,15 @@
 				D58A57291BE7D4771783BD75 /* libPods-SkyWalletTests.a */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF6DB4B6205E755400A9A0D9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DFA33D212059864D00116E38 /* PrefixHeader.pch */,
+				DFA33D6D205AC52B00116E38 /* Constants.h */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		DFA33D6E205AC59300116E38 /* Component */ = {
@@ -1334,7 +1342,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = SkyWallet/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = SkyWallet/Common/PrefixHeader.pch;
 				INFOPLIST_FILE = SkyWallet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1363,7 +1371,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = SkyWallet/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = SkyWallet/Common/PrefixHeader.pch;
 				INFOPLIST_FILE = SkyWallet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
