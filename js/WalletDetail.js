@@ -20,6 +20,7 @@ import {
   ScrollView,
   Clipboard
 } from 'react-native';
+import {isiPhoneX} from './utils';
 
 var walletManager = NativeModules.WalletManager;
 var navigationHelper = NativeModules.NavigationHelper;
@@ -77,7 +78,7 @@ async tapNewAddress() {
                     {(this.props.totalCoinBalance != undefined ? this.props.totalCoinBalance : '0')   + ' SKY'}
                 </Text>
                 <Text style={styles.skyHourBalance}>
-                    {(this.props.totalHourBalance != undefined ? this.props.totalHourBalance : '0') + ' Hours'}
+                    {(this.props.totalHourBalance != undefined ? this.props.totalHourBalance : '0') + ' SKY Hours'}
                 </Text>
             </View>
             <View style={{marginTop:0, backgroundColor:'white'}}>
@@ -150,15 +151,16 @@ const styles = StyleSheet.create({
   },
   topView: {
     flexDirection:'row',
-    justifyContent:'center'
+    justifyContent:'center',
+    height:(isiPhoneX() ? 88 : 64),
 },
-  pageTitle: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginTop: 50,
-    marginBottom: 10,
-    color:'white'
-  },
+pageTitle: {
+  fontSize: 20,
+  fontWeight:'bold',
+  textAlign: 'center',
+  marginTop: (isiPhoneX() ? 54 : 30),
+  color:'white'
+},
   instructions: {
     textAlign: 'left',
     color: 'white',
@@ -170,12 +172,14 @@ const styles = StyleSheet.create({
   skyCoinBalance: {
     textAlign: 'center',
     fontSize:35,
+    fontWeight:'bold',
     color: 'white',
     marginTop:50,
   },
   skyHourBalance: {
     textAlign: 'center',
     fontSize:17,
+    fontWeight:'bold',
     color: 'white',
     marginTop:20,
     marginBottom:30
