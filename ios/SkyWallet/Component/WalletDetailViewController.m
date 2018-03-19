@@ -13,6 +13,7 @@
 @property (nonatomic, strong) RCTRootView *walletDetailView;
 @property (nonatomic, strong) WalletModel *walletModel;
 @property (nonatomic, strong) NSArray *addressArray;
+@property (nonatomic, strong) LoadingView *loadingView;
 
 //used for RN
 @property (nonatomic, strong) NSArray *addressJsonArray; //format {"address":"", "balance":""}
@@ -35,29 +36,45 @@
   
 }
 
+- (LoadingView *)loadingView {
+  if (!_loadingView) {
+    _loadingView = [[LoadingView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:_loadingView];
+  }
+  
+  return _loadingView;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
   [self refreshPage];
 }
 
 - (void)refreshPage {
-  [self loadData];
-  
-  NSDictionary *initialProperties = @{
-                                      @"totalCoinBalance":self.totalCoinBalance ? : @"",
-                                      @"totalHourBalance":self.totalHourBalance ? : @"",
-                                      @"walletModelDict":self.walletModelDict ? : @{},
-                                      @"data":self.addressJsonArray ? : @[]
-                                      };
-  
-  if(!self.walletDetailView) {
-    self.walletDetailView = [RNManager viewWithModuleName:@"WalletDetail" initialProperties:initialProperties];
-    [self.view addSubview:self.walletDetailView];
-    [self.walletDetailView mas_makeConstraints:^(MASConstraintMaker *make) {
-      make.edges.mas_equalTo(self.view);
-    }];
-  } else {
-    self.walletDetailView.appProperties = initialProperties;
-  }
+  [self.loadingView show];
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    [self loadData];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+      NSDictionary *initialProperties = @{
+                                          @"totalCoinBalance":self.totalCoinBalance ? : @"",
+                                          @"totalHourBalance":self.totalHourBalance ? : @"",
+                                          @"walletModelDict":self.walletModelDict ? : @{},
+                                          @"data":self.addressJsonArray ? : @[]
+                                          };
+      
+      if(!self.walletDetailView) {
+        self.walletDetailView = [RNManager viewWithModuleName:@"WalletDetail" initialProperties:initialProperties];
+        [self.view addSubview:self.walletDetailView];
+        [self.walletDetailView mas_makeConstraints:^(MASConstraintMaker *make) {
+          make.edges.mas_equalTo(self.view);
+        }];
+      } else {
+        self.walletDetailView.appProperties = initialProperties;
+      }
+      
+      [self.loadingView hide];
+    });
+  });
 }
 
 - (void)loadData {

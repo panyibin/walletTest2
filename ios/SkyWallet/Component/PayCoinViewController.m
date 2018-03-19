@@ -25,6 +25,7 @@
     // Do any additional setup after loading the view.
   if(self.walletModelDict) {
     self.walletModel = [[WalletModel alloc] initWithDictionary:self.walletModelDict];
+    self.balance = [self.walletModelDict getStringForKey:@"balance"];
   }
 }
 
@@ -33,22 +34,26 @@
 }
 
 - (void)refreshPage {
-  [self loadData];
-  
-  NSDictionary *initialProperties = @{
-                                      @"walletModelDict":self.walletModelDict ? : @{},
-                                      @"balance":self.balance ? : @"0"
-                                      };
-  
-  if (!self.payView) {
-    self.payView = [RNManager viewWithModuleName:@"PayView" initialProperties:initialProperties];
-    [self.view addSubview:self.payView];
-    [self.payView mas_makeConstraints:^(MASConstraintMaker *make) {
-      make.edges.mas_equalTo(self.view);
-    }];
-  } else {
-    self.payView.appProperties = initialProperties;
-  }
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    //[self loadData];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+      NSDictionary *initialProperties = @{
+                                          @"walletModelDict":self.walletModelDict ? : @{},
+                                          @"balance":self.balance ? : @"0"
+                                          };
+      
+      if (!self.payView) {
+        self.payView = [RNManager viewWithModuleName:@"PayView" initialProperties:initialProperties];
+        [self.view addSubview:self.payView];
+        [self.payView mas_makeConstraints:^(MASConstraintMaker *make) {
+          make.edges.mas_equalTo(self.view);
+        }];
+      } else {
+        self.payView.appProperties = initialProperties;
+      }
+    });
+  });
 }
 
 - (void)loadData {

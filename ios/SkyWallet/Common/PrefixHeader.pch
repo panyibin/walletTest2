@@ -23,5 +23,6 @@
 #import "WalletManager.h"
 #import "NavigationHelper.h"
 #import "WalletBalanceModel.h"
+#import "LoadingView.h"
 
 #endif /* PrefixHeader_pch */

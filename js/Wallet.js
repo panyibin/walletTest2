@@ -34,13 +34,7 @@ export default class Wallet extends Component<Props> {
   }
 
 async tapNewWallet() {
-    // navigationHelper.showWalletGeneratorViewControllerWithGenerateSeedButton(true,true);
-    var b = isiPhoneX();
-    if(b) {
-        Alert.alert('is iPhoneX');
-    } else {
-        Alert.alert('is not iPhoneX');
-    }
+    navigationHelper.showWalletGeneratorViewControllerWithGenerateSeedButton(true,true);
   }
 
   async tapLoadWallet() {

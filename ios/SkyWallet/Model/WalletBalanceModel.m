@@ -15,6 +15,10 @@
   if (self) {
     _balance = [dict getStringForKey:@"balance"];
     _hours = [dict getStringForKey:@"hours"];
+    if(!_hours) {
+      NSInteger hours = [dict getIntegerForKey:@"hours"];
+      _hours = [NSString stringWithFormat:@"%ld", hours];
+    }
   }
   
   return self;

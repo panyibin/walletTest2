@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) RCTRootView *walletView;
 @property (nonatomic, strong) NSArray *walletArray;
+@property (nonatomic, strong) LoadingView *loadingView;
 
 //used for RN
 @property (nonatomic, strong) NSArray *walletJsonArray;
@@ -31,30 +32,50 @@
   self.navigationController.navigationBar.hidden = YES;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-  [self loadData];
-  
-  if(!self.walletArray) {
-    WalletGeneratorViewController *vc = [[WalletGeneratorViewController alloc] init];
-    vc.needPinCode = YES;
-    
-    [[NavigationHelper sharedInstance].rootNavigationController pushViewController:vc animated:NO];
-  } else {
-    NSDictionary *walletViewProperties = @{
-                                           @"totalCoinBalance":self.totalCoinBalance ? : @"",
-                                           @"totalHourBalance":self.totalHourBalance ? : @"",
-                                           @"data": self.walletJsonArray ? : @[]
-                                           };
-    if (!self.walletView) {
-      self.walletView = [RNManager viewWithModuleName:@"Wallet" initialProperties:walletViewProperties];
-      [self.view addSubview:self.walletView];
-      [self.walletView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-      }];
-    } else {
-      self.walletView.appProperties = walletViewProperties;
-    }
+- (LoadingView *)loadingView {
+  if (!_loadingView) {
+    _loadingView = [[LoadingView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:_loadingView];
   }
+  
+  return _loadingView;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [self refreshPage];
+}
+
+- (void)refreshPage {
+  [self.loadingView show];
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    [self loadData];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if(!self.walletArray) {
+        WalletGeneratorViewController *vc = [[WalletGeneratorViewController alloc] init];
+        vc.needPinCode = YES;
+        
+        [[NavigationHelper sharedInstance].rootNavigationController pushViewController:vc animated:NO];
+      } else {
+        NSDictionary *walletViewProperties = @{
+                                               @"totalCoinBalance":self.totalCoinBalance ? : @"",
+                                               @"totalHourBalance":self.totalHourBalance ? : @"",
+                                               @"data": self.walletJsonArray ? : @[]
+                                               };
+        if (!self.walletView) {
+          self.walletView = [RNManager viewWithModuleName:@"Wallet" initialProperties:walletViewProperties];
+          [self.view addSubview:self.walletView];
+          [self.walletView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(self.view);
+          }];
+        } else {
+          self.walletView.appProperties = walletViewProperties;
+        }
+      }
+      
+      [self.loadingView hide];
+    });
+  });
 }
 
 - (void)loadData {
