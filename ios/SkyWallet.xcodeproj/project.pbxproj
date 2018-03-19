@@ -759,6 +759,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 627296YAP6;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1331,6 +1332,8 @@
 			baseConfigurationReference = 1CE1807BE2BE0767BF3C63B2 /* Pods-SkyWallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 627296YAP6;
@@ -1351,7 +1354,9 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yibinpan.skywallet;
 				PRODUCT_NAME = SkyWallet;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1361,6 +1366,8 @@
 			baseConfigurationReference = BBD9B217FA3C0CBBDF29F41F /* Pods-SkyWallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 627296YAP6;
 				ENABLE_BITCODE = NO;
@@ -1380,7 +1387,9 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yibinpan.skywallet;
 				PRODUCT_NAME = SkyWallet;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
