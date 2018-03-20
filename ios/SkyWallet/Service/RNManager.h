@@ -14,3 +14,12 @@
 + (RCTRootView*)viewWithModuleName:(NSString*)moduleName initialProperties:(NSDictionary*)initialProperties;
 
 @end
+
+@interface RNBridgeManager : NSObject <RCTBridgeDelegate>
+
+@property (nonatomic, strong) RCTBridge *bridge;
+
++ (instancetype)sharedInstance;
+
+@end
+

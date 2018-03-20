@@ -18,9 +18,36 @@
 }
 
 + (RCTRootView*)viewWithModuleName:(NSString*)moduleName initialProperties:(NSDictionary*)initialProperties {
-  RCTRootView *view = [[RCTRootView alloc] initWithBundleURL:[self jsCodeLocation] moduleName:moduleName initialProperties:initialProperties launchOptions:nil];
+  RCTRootView *view = [[RCTRootView alloc] initWithBridge:[RNBridgeManager sharedInstance].bridge moduleName:moduleName initialProperties:initialProperties];
   
   return view;
+}
+
+@end
+
+@implementation RNBridgeManager
+
++ (instancetype)sharedInstance {
+  static RNBridgeManager *_instance;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    _instance = [[RNBridgeManager alloc] init];
+  });
+  
+  return _instance;
+}
+
+- (instancetype)init {
+  self = [super init];
+  if(self) {
+    _bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:nil];
+  }
+  
+  return self;
+}
+
+- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge {
+  return [RNManager jsCodeLocation];
 }
 
 @end
