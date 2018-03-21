@@ -27,6 +27,15 @@
     }
 }
 
+- (float)getFloatForKey:(NSString*)key {
+    id ob = [self objectForKey:key];
+    if(ob && [ob respondsToSelector:@selector(floatValue)]) {
+        return [ob floatValue];
+    } else {
+        return 0;
+    }
+}
+
 - (NSString*)getStringForKey:(NSString*)key {
     id ob = [self objectForKey:key];
     if(ob && [ob isKindOfClass:[NSString class]]) {

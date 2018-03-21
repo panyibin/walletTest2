@@ -50,7 +50,8 @@
 }
 
 - (void)refreshPage {
-  [self.loadingView show];
+//  [self.loadingView show];
+  [YBLoadingView showInView:self.view];
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     [self loadData];
     
@@ -72,7 +73,8 @@
         self.walletDetailView.appProperties = initialProperties;
       }
       
-      [self.loadingView hide];
+//      [self.loadingView hide];
+      [YBLoadingView dismiss];
     });
   });
 }

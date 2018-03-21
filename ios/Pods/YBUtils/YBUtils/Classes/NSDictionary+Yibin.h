@@ -11,6 +11,7 @@
 
 - (BOOL)getBoolForKey:(NSString*)key;
 - (NSInteger)getIntegerForKey:(NSString*)key;
+- (float)getFloatForKey:(NSString*)key;
 - (NSString*)getStringForKey:(NSString*)key;
 - (NSArray*)getArrayForKey:(NSString*)key;
 - (NSDictionary*)getDictionaryForKey:(NSString*)key;
