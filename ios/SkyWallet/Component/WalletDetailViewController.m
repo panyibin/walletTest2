@@ -9,6 +9,9 @@
 #import "WalletDetailViewController.h"
 
 @interface WalletDetailViewController ()
+{
+  BOOL bFirstShow;
+}
 
 @property (nonatomic, strong) RCTRootView *walletDetailView;
 @property (nonatomic, strong) WalletModel *walletModel;
@@ -34,17 +37,24 @@
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNewAddressesCreated:) name:kNewAddressCreatedNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCoinSent:) name:kCoinSentNotification object:nil];
-
-  [self refreshPage];
+  
+  bFirstShow = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-  
+  if (bFirstShow) {
+    [self refreshPageWithLoading:YES];
+    bFirstShow = NO;
+  } else {
+    [self refreshPageWithLoading:NO];
+  }
 }
 
-- (void)refreshPage {
-//  [self.loadingView show];
-  [YBLoadingView showInView:self.view];
+- (void)refreshPageWithLoading:(BOOL)withLoading {
+  if (withLoading) {
+    [YBLoadingView showInView:self.view];
+  }
+  
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     [self loadData];
     
@@ -107,13 +117,13 @@
 
 - (void)didNewAddressesCreated:(NSNotification*)notification {
   dispatch_async(dispatch_get_main_queue(), ^{
-    [self refreshPage];
+    [self refreshPageWithLoading:YES];
   });
 }
 
 - (void)didCoinSent:(NSNotification*)notification {
   dispatch_async(dispatch_get_main_queue(), ^{
-    [self refreshPage];
+    [self refreshPageWithLoading:YES];
   });
 }
 
