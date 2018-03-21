@@ -78,7 +78,9 @@
       }
       
 //      [self.loadingView hide];
-      [YBLoadingView dismiss];
+      if(withLoading) {
+        [YBLoadingView dismiss];
+      }
     });
   });
 }

@@ -76,8 +76,9 @@
         self.walletDetailView.appProperties = initialProperties;
       }
       
-//      [self.loadingView hide];
-      [YBLoadingView dismiss];
+      if(withLoading) {
+        [YBLoadingView dismiss];
+      }
     });
   });
 }
