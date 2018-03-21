@@ -68,6 +68,8 @@ RCT_REMAP_METHOD(createNewWallet, createWallet:(NSString*)walletName seed:(NSStr
     
     [self addWalletLocally:wm];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNewWalletCreatedNotification object:nil];
+    
     return YES;
   } else {
     return NO;
@@ -88,6 +90,7 @@ RCT_REMAP_METHOD(sendSkyCoinWithWalletId, sendSkyCoinWithWalletId:(NSString*)wal
   MobileSend(kCoinTypeSky, walletId, toAddr, amount, &error);
   if(!error) {
     resolve(@"success");
+    [[NSNotificationCenter defaultCenter] postNotificationName:kCoinSentNotification object:nil];
   } else {
     resolve([error.userInfo getStringForKey:@"NSLocalizedDescription"]);
   }

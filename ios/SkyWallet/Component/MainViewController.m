@@ -9,13 +9,10 @@
 #import "MainViewController.h"
 #import "WalletGeneratorViewController.h"
 
-@interface MainViewController () {
-  BOOL rnViewCreated;
-}
+@interface MainViewController ()
 
 @property (nonatomic, strong) RCTRootView *walletView;
 @property (nonatomic, strong) NSArray *walletArray;
-@property (nonatomic, strong) LoadingView *loadingView;
 
 //used for RN
 @property (nonatomic, strong) NSArray *walletJsonArray;
@@ -30,23 +27,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
   self.navigationController.navigationBar.hidden = YES;
-}
-
-- (LoadingView *)loadingView {
-  if (!_loadingView) {
-    _loadingView = [[LoadingView alloc] initWithFrame:self.view.frame];
-    [self.view addSubview:_loadingView];
-  }
   
-  return _loadingView;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNewWalletCreated:) name:kNewWalletCreatedNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCoinSent:) name:kCoinSentNotification object:nil];
+  
   [self refreshPage];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+//  [self refreshPage];
+}
+
 - (void)refreshPage {
-//  [self.loadingView show];
   [YBLoadingView showInView:self.view];
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     [self loadData];
@@ -127,9 +119,16 @@
   return array;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)didNewWalletCreated:(NSNotification*)notification {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self refreshPage];
+  });
+}
+
+- (void)didCoinSent:(NSNotification*)notification {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self refreshPage];
+  });
 }
 
 @end

@@ -33,20 +33,13 @@
   }
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNewAddressesCreated:) name:kNewAddressCreatedNotification object:nil];
-  
-}
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCoinSent:) name:kCoinSentNotification object:nil];
 
-- (LoadingView *)loadingView {
-  if (!_loadingView) {
-    _loadingView = [[LoadingView alloc] initWithFrame:self.view.frame];
-    [self.view addSubview:_loadingView];
-  }
-  
-  return _loadingView;
+  [self refreshPage];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-  [self refreshPage];
+  
 }
 
 - (void)refreshPage {
@@ -113,6 +106,12 @@
 }
 
 - (void)didNewAddressesCreated:(NSNotification*)notification {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self refreshPage];
+  });
+}
+
+- (void)didCoinSent:(NSNotification*)notification {
   dispatch_async(dispatch_get_main_queue(), ^{
     [self refreshPage];
   });

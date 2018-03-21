@@ -20,5 +20,7 @@
 
 //Notification
 #define kNewAddressCreatedNotification @"kNewAddressCreatedNotification"
+#define kNewWalletCreatedNotification @"kNewWalletCreatedNotification"
+#define kCoinSentNotification @"kCoinSentNotification"
 
 #endif /* Constants_h */
