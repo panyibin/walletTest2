@@ -17,9 +17,15 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   FlatList,
-  ScrollView
+  ScrollView,
+  Image,
+  ActionSheetIOS
 } from 'react-native';
- import {isiPhoneX} from './utils';
+ import {
+  isiPhoneX,
+  getStatusBarHeight,
+  getScreenWidth
+} from './utils';
 
 var walletManager = NativeModules.WalletManager;
 var navigationHelper = NativeModules.NavigationHelper;
@@ -45,6 +51,22 @@ async tapNewWallet() {
       Alert.alert(item.walletName);
   }
 
+  showActionSheet() {
+    var buttons = ['send sky','cancel'];
+    ActionSheetIOS.showActionSheetWithOptions(
+      {
+        options:buttons,
+        cancelButtonIndex:buttons.length - 1,
+      },
+      (buttonIndex)=>{
+        if(buttonIndex == 0) {
+          // navigationHelper.showPayCoinViewControllerWithWalletModelDict({'abc':'def'}, true);
+          Alert.alert('TO BE IMPLEMENTED');
+        }
+      }
+    );
+  }
+
   render() {
     return (
         <View style={styles.container}>
@@ -52,6 +74,14 @@ async tapNewWallet() {
         <Text style={styles.pageTitle}>
                 Wallets
         </Text>
+        <TouchableOpacity 
+                style={{ position: 'absolute', marginLeft: (getScreenWidth() - 40), marginTop: (getStatusBarHeight() + 10) }} 
+                onPress={
+                  this.showActionSheet
+                }
+                >
+                    <Image source={require('./images/more-horizontal.png')} style={{ width: 27, height: 27 }} />
+                </TouchableOpacity>
         </View>
         <ScrollView style={{backgroundColor:'white'}}>
             <View style={{backgroundColor:'#1A9BFC'}}>
@@ -125,9 +155,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1A9BFC',
   },
   topView: {
-      flexDirection:'row',
-      justifyContent:'center',
-      height:(isiPhoneX() ? 88 : 64),
+      height:(getStatusBarHeight() + 44),
   },
   pageTitle: {
     fontSize: 20,

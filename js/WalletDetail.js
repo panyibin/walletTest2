@@ -19,9 +19,15 @@ import {
   FlatList,
   ScrollView,
   Clipboard,
-  Image
+  Image,
+  ActionSheetIOS
 } from 'react-native';
-import {isiPhoneX} from './utils';
+
+import {
+    isiPhoneX,
+    getStatusBarHeight,
+    getScreenWidth
+} from './utils';
 
 var walletManager = NativeModules.WalletManager;
 var navigationHelper = NativeModules.NavigationHelper;
@@ -63,21 +69,45 @@ async tapNewAddress() {
     Alert.alert('seed copied',this.props.walletModelDict.seed);
   }
 
+  showActionSheet() {
+    var buttons = ['send sky','cancel'];
+    ActionSheetIOS.showActionSheetWithOptions(
+      {
+        options:buttons,
+        cancelButtonIndex:buttons.length - 1,
+      },
+      (buttonIndex)=>{
+        if(buttonIndex == 0) {
+          navigationHelper.showPayCoinViewControllerWithWalletModelDict(this.props.walletModelDict, true);
+        }
+      }
+    );
+  }
+
   render() {
     return (
         <View style={styles.container}>
-        <View style={styles.topView}>
-        <TouchableOpacity onLongPress={this.longPressWalletTitle.bind(this)} >
-        <Text style={styles.pageTitle}>
-                {this.props.walletModelDict.walletName}
-        </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{ position: 'absolute', marginLeft: 10, marginTop:((isiPhoneX()?44:20) + 10) }} onPress={() => {
-              navigationHelper.popViewControllerAnimated(true);
-            }} >
-              <Image source={require('./images/arrow-left.png')} style={{ width: 27, height: 27 }} />
-            </TouchableOpacity>
-        </View>
+            <View style={styles.topView}>
+                <TouchableOpacity onLongPress={this.longPressWalletTitle.bind(this)} >
+                    <Text style={styles.pageTitle}>
+                        {this.props.walletModelDict.walletName}
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                style={{ position: 'absolute', marginLeft: 10, marginTop: (getStatusBarHeight() + 10) }} 
+                onPress={() => {
+                    navigationHelper.popViewControllerAnimated(true);
+                }} >
+                    <Image source={require('./images/arrow-left.png')} style={{ width: 27, height: 27 }} />
+                </TouchableOpacity>
+                <TouchableOpacity 
+                style={{ position: 'absolute', marginLeft: (getScreenWidth() - 40), marginTop: (getStatusBarHeight() + 10) }} 
+                onPress={() => {
+                    this.showActionSheet();
+                }} >
+                    <Image source={require('./images/more-horizontal.png')} style={{ width: 27, height: 27 }} />
+                </TouchableOpacity>
+            </View>
         <ScrollView style={{backgroundColor:'white'}}>
             <View style={{backgroundColor:'#1A9BFC'}}>
                 <Text style={styles.skyCoinBalance}>
@@ -152,21 +182,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    //alignItems: 'center',
     backgroundColor: '#1A9BFC',
   },
-  topView: {
-    // flexDirection:'row',
-    
-    height:(isiPhoneX() ? 88 : 64),
-},
-pageTitle: {
-  fontSize: 20,
-  fontWeight:'bold',
-  textAlign: 'center',
-  marginTop: (isiPhoneX() ? 54 : 30),
-  color:'white'
-},
+    topView: {
+        height: (isiPhoneX() ? 88 : 64),
+    },
+    pageTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: (isiPhoneX() ? 54 : 30),
+        color: 'white'
+    },
   instructions: {
     textAlign: 'left',
     color: 'white',
