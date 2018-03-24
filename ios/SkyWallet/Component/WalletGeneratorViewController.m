@@ -20,10 +20,13 @@
   
   self.navigationController.navigationBar.hidden = YES;
   
+  NSString *defaultSeed = MobileNewSeed();
+  
   RCTRootView *newWalletView = [RNManager viewWithModuleName:@"WalletGenerator"
                                            initialProperties:@{
                                                                @"needPinCode":@(self.needPinCode),
-                                                               @"showGenerateSeedButton":@(self.showGenerateSeedButton)
+                                                               @"showGenerateSeedButton":@(self.showGenerateSeedButton),
+                                                               @"defaultSeed":(self.showGenerateSeedButton ? defaultSeed : @"")
                                                             }];
   [self.view addSubview:newWalletView];
   

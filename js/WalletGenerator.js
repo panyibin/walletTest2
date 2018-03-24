@@ -39,7 +39,7 @@ export default class WalletGenerator extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
-      seed: "",
+      seed: props.defaultSeed,
       walletName: ""
     };
   }
