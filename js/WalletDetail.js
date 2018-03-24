@@ -18,7 +18,8 @@ import {
   TouchableHighlight,
   FlatList,
   ScrollView,
-  Clipboard
+  Clipboard,
+  Image
 } from 'react-native';
 import {isiPhoneX} from './utils';
 
@@ -71,6 +72,11 @@ async tapNewAddress() {
                 {this.props.walletModelDict.walletName}
         </Text>
         </TouchableOpacity>
+        <TouchableOpacity style={{ position: 'absolute', marginLeft: 10, marginTop:((isiPhoneX()?44:20) + 10) }} onPress={() => {
+              navigationHelper.popViewControllerAnimated(true);
+            }} >
+              <Image source={require('./images/arrow-left.png')} style={{ width: 27, height: 27 }} />
+            </TouchableOpacity>
         </View>
         <ScrollView style={{backgroundColor:'white'}}>
             <View style={{backgroundColor:'#1A9BFC'}}>
@@ -150,8 +156,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#1A9BFC',
   },
   topView: {
-    flexDirection:'row',
-    justifyContent:'center',
+    // flexDirection:'row',
+    
     height:(isiPhoneX() ? 88 : 64),
 },
 pageTitle: {

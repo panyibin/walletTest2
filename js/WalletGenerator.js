@@ -14,8 +14,10 @@ import {
   TextInput,
   Button,
   Alert,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from 'react-native';
+import {isiPhoneX} from './utils';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -102,9 +104,18 @@ export default class WalletGenerator extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          {pageTitle}
+        <View style={styles.topView}>
+        <Text style={styles.pageTitle}>
+        {pageTitle}
         </Text>
+          {!this.props.needPinCode &&
+            <TouchableOpacity style={{ position: 'absolute', marginLeft: 10, marginTop:((isiPhoneX()?44:20) + 10) }} onPress={() => {
+              navigationHelper.popViewControllerAnimated(true);
+            }} >
+              <Image source={require('./images/arrow-left.png')} style={{ width: 27, height: 27 }} />
+            </TouchableOpacity>
+          }
+        </View>
         <Text style={styles.instructions}>
         {instructionText}
         </Text>
@@ -151,12 +162,22 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
     backgroundColor: '#1478FB',
   },
+  topView: {
+    height:(isiPhoneX() ? 88 : 64),
+  },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     marginTop: 40,
     color:'white',
     fontWeight:'bold'
+  },
+  pageTitle: {
+    fontSize: 20,
+    fontWeight:'bold',
+    textAlign: 'center',
+    marginTop: (isiPhoneX() ? 54 : 30),
+    color:'white'
   },
   instructions: {
     textAlign: 'left',

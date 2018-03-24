@@ -15,8 +15,10 @@ import {
   Button,
   Alert,
   TouchableOpacity,
-  Keyboard
+  Keyboard,
+  Image
 } from 'react-native';
+import {isiPhoneX} from './utils';
 
 var walletManager = NativeModules.WalletManager;
 var navigationHelper = NativeModules.NavigationHelper;
@@ -65,11 +67,16 @@ async tapSend() {
   render() {
     return (
       <View style={styles.container}>
-      <View style={{backgroundColor:'#1A9BFC'}}>
-        <Text style={styles.welcome}>
-          Send Sky
+        <View style={styles.topView}>
+        <Text style={styles.pageTitle}>
+               Send Sky
         </Text>
-      </View>
+        <TouchableOpacity style={{ position: 'absolute', marginLeft: 10, marginTop:((isiPhoneX()?44:20) + 10) }} onPress={() => {
+              navigationHelper.popViewControllerAnimated(true);
+            }} >
+              <Image source={require('./images/arrow-left.png')} style={{ width: 27, height: 27 }} />
+            </TouchableOpacity>
+        </View>
         <View style={{backgroundColor:'#F7F7F7'}}>
         <Text style={styles.subTitle}>
         Walet
@@ -132,13 +139,16 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
     backgroundColor: '#F7F7F7',
   },
-  welcome: {
+  topView: {
+    height: (isiPhoneX() ? 88 : 64),
+    backgroundColor: '#1A9BFC',
+  },
+  pageTitle: {
     fontSize: 20,
+    fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 50,
-    marginBottom:20,
-    color:'white',
-    fontWeight:'bold'
+    marginTop: (isiPhoneX() ? 54 : 30),
+    color: 'white'
   },
   subTitle: {
     textAlign: 'left',
