@@ -15,6 +15,7 @@
 #import <YBUtils/YBLoadingView.h>
 #import <Masonry.h>
 #import <React/RCTRootView.h>
+#import <React/RCTEventEmitter.h>
 #import <ReactiveObjC.h>
 #import "SWUtils.h"
 #import "RNManager.h"

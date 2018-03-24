@@ -21,3 +21,6 @@
 - (WalletBalanceModel*)getBalanceOfAddress:(NSString*)address coinType:(NSString*)coinType;
 
 @end
+
+@interface WalletEventEmitter:RCTEventEmitter<RCTBridgeModule>
+@end

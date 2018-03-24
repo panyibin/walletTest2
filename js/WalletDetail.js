@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import {
+  NativeEventEmitter,
   NativeModules,
   Platform,
   StyleSheet,
@@ -20,7 +21,8 @@ import {
   ScrollView,
   Clipboard,
   Image,
-  ActionSheetIOS
+  ActionSheetIOS,
+  RefreshControl
 } from 'react-native';
 
 import {
@@ -31,15 +33,34 @@ import {
 
 var walletManager = NativeModules.WalletManager;
 var navigationHelper = NativeModules.NavigationHelper;
-// var {Clipboard} = ReactNative;
+
+const {WalletEventEmitter} = NativeModules;
+const wallManagerEmitter = new NativeEventEmitter(WalletEventEmitter);
+var subscription;
 
 type Props = {};
 export default class WalletDetail extends Component<Props> {
 
   constructor(props){
     super(props);
-    this.state = {pinCode:"", pinCodeConfirm:""};
+    this.state = {
+        pinCode:"", 
+        pinCodeConfirm:"",
+        refreshing:false
+    };
     // Alert.alert(props.data);
+  }
+
+  componentDidMount () {
+    subscription = wallManagerEmitter.addListener(WalletEventEmitter.stopLoadingAnimationNotification, (reminder)=>{
+      // Alert.alert('stop animation');
+      this.setState({refreshing:false});
+    })
+    ;
+  }
+
+  componentWillUnmount () {
+    subscription.remove();
   }
 
 async tapNewAddress() {
@@ -84,6 +105,15 @@ async tapNewAddress() {
     );
   }
 
+  async _onRefresh() {
+      this.setState({refreshing:true});
+      walletManager.refreshAddressList();
+    // var complete = await 
+    // if(complete = 'complete') {
+    //     // this.setState({refreshing:false});
+    // }
+  }
+
   render() {
     return (
         <View style={styles.container}>
@@ -108,7 +138,12 @@ async tapNewAddress() {
                     <Image source={require('./images/more-horizontal.png')} style={{ width: 27, height: 27 }} />
                 </TouchableOpacity>
             </View>
-        <ScrollView style={{backgroundColor:'white'}}>
+        <ScrollView style={{backgroundColor:'white'}}
+                refreshControl={<RefreshControl
+                    refreshing={this.state.refreshing}
+                    onRefresh = {this._onRefresh.bind(this)}
+                    />}
+        >
             <View style={{backgroundColor:'#1A9BFC'}}>
                 <Text style={styles.skyCoinBalance}>
                     {(this.props.totalCoinBalance != undefined ? this.props.totalCoinBalance : '0')   + ' SKY'}

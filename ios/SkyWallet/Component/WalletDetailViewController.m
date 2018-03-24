@@ -37,6 +37,7 @@
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNewAddressesCreated:) name:kNewAddressCreatedNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCoinSent:) name:kCoinSentNotification object:nil];
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveAddressListRefreshNotification:) name:kRefreshAddressListNotification object:nil];
   
   bFirstShow = YES;
 }
@@ -79,6 +80,7 @@
       if(withLoading) {
         [YBLoadingView dismiss];
       }
+      [[NSNotificationCenter defaultCenter] postNotificationName:kStopLoadingAnimationNotification object:nil];
     });
   });
 }
@@ -123,6 +125,12 @@
 }
 
 - (void)didCoinSent:(NSNotification*)notification {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self refreshPageWithLoading:YES];
+  });
+}
+
+- (void)didReceiveAddressListRefreshNotification:(NSNotification*)notification {
   dispatch_async(dispatch_get_main_queue(), ^{
     [self refreshPageWithLoading:YES];
   });

@@ -96,6 +96,14 @@ RCT_REMAP_METHOD(sendSkyCoinWithWalletId, sendSkyCoinWithWalletId:(NSString*)wal
   }
 }
 
+RCT_EXPORT_METHOD(refreshWalletList) {
+  [[NSNotificationCenter defaultCenter] postNotificationName:kRefreshWalletListNotification object:nil];
+}
+
+RCT_EXPORT_METHOD(refreshAddressList) {
+  [[NSNotificationCenter defaultCenter] postNotificationName:kRefreshAddressListNotification object:nil];
+}
+
 - (NSString*)passwordWithPinCode:(NSString*)pinCode {
   NSString *password = [NSString stringWithFormat:@"%ld", [pinCode hash]];
   return password;
@@ -172,6 +180,36 @@ RCT_REMAP_METHOD(sendSkyCoinWithWalletId, sendSkyCoinWithWalletId:(NSString*)wal
   WalletBalanceModel *wbm = [[WalletBalanceModel alloc] initWithDictionary:balanceDict];
   
   return wbm;
+}
+
+@end
+
+@implementation WalletEventEmitter
+
+RCT_EXPORT_MODULE()
+
+- (NSArray<NSString *> *)supportedEvents {
+  return @[kRNStopLoadingAnimationNotification];
+}
+
+- (NSDictionary *)constantsToExport {
+  return @{
+           @"stopLoadingAnimationNotification":kRNStopLoadingAnimationNotification
+           };
+}
+
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveStopLoadingAnimationNotification:) name:kStopLoadingAnimationNotification object:nil];
+  }
+  
+  return self;
+}
+
+//notification sent to js
+- (void)didReceiveStopLoadingAnimationNotification:(NSNotification*)notification {
+    [self sendEventWithName:kRNStopLoadingAnimationNotification body:nil];
 }
 
 @end

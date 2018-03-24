@@ -22,5 +22,13 @@
 #define kNewAddressCreatedNotification @"kNewAddressCreatedNotification"
 #define kNewWalletCreatedNotification @"kNewWalletCreatedNotification"
 #define kCoinSentNotification @"kCoinSentNotification"
+#define kRefreshWalletListNotification @"kRefreshWalletListNotification"
+#define kRefreshAddressListNotification @"kRefreshAddressListNotification"
+
+//cooperate with RN Notification
+#define kStopLoadingAnimationNotification @"kStopLoadingAnimationNotification"
+
+//RN Notification
+#define kRNStopLoadingAnimationNotification @"kRNStopLoadingAnimationNotification"
 
 #endif /* Constants_h */

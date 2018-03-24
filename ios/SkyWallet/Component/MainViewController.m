@@ -33,6 +33,7 @@
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNewWalletCreated:) name:kNewWalletCreatedNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCoinSent:) name:kCoinSentNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveWalletListRefreshNotification:) name:kRefreshWalletListNotification object:nil];
   
   bFirstShow = YES;
 }
@@ -54,10 +55,11 @@
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     [self loadData];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
       if(!self.walletArray) {
         WalletGeneratorViewController *vc = [[WalletGeneratorViewController alloc] init];
         vc.needPinCode = YES;
+        vc.showGenerateSeedButton = YES;
         
         [[NavigationHelper sharedInstance].rootNavigationController pushViewController:vc animated:NO];
       } else {
@@ -77,10 +79,11 @@
         }
       }
       
-//      [self.loadingView hide];
       if(withLoading) {
         [YBLoadingView dismiss];
       }
+      
+      [[NSNotificationCenter defaultCenter] postNotificationName:kStopLoadingAnimationNotification object:nil];
     });
   });
 }
@@ -139,6 +142,13 @@
 }
 
 - (void)didCoinSent:(NSNotification*)notification {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self refreshPageWithLoading:YES];
+  });
+}
+
+//called from RN
+- (void)didReceiveWalletListRefreshNotification:(NSNotification*)notification {
   dispatch_async(dispatch_get_main_queue(), ^{
     [self refreshPageWithLoading:YES];
   });
