@@ -118,11 +118,11 @@ async tapNewAddress() {
     return (
         <View style={styles.container}>
             <View style={styles.topView}>
-                <TouchableOpacity onLongPress={this.longPressWalletTitle.bind(this)} >
+                {/* <TouchableOpacity onLongPress={this.longPressWalletTitle.bind(this)} > */}
                     <Text style={styles.pageTitle}>
                         {this.props.walletModelDict.walletName}
                     </Text>
-                </TouchableOpacity>
+                {/* </TouchableOpacity> */}
                 <TouchableOpacity 
                 style={{ position: 'absolute', marginLeft: 10, marginTop: (getStatusBarHeight() + 10) }} 
                 onPress={() => {

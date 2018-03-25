@@ -10,6 +10,7 @@ target 'SkyWallet' do
   pod 'YBUtils', '~>0.1.0'
   pod 'ReactiveObjC', '~>3.1.0'
   pod 'IQKeyboardManager'
+  pod 'QRCodeReaderViewController', '~> 4.0.2'
 
   target 'SkyWalletTests' do
     inherit! :search_paths

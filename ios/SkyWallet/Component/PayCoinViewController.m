@@ -27,10 +27,14 @@
     self.walletModel = [[WalletModel alloc] initWithDictionary:self.walletModelDict];
     self.balance = [self.walletModelDict getStringForKey:@"balance"];
   }
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didGetAddressFromQRCodeNotification:) name:kGetAddressFromQRCodeNotification object:nil];
+  
+  [self refreshPage];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-  [self refreshPage];
+  
 }
 
 - (void)refreshPage {
@@ -59,6 +63,19 @@
 - (void)loadData {
   WalletBalanceModel *wbm = [[WalletManager sharedInstance] getBalanceOfWallet:self.walletModel.walletId coinType:kCoinTypeSky];
   self.balance = wbm.balance;
+}
+//kGetAddressFromQRCodeNotification
+- (void)didGetAddressFromQRCodeNotification:(NSNotification*)notification {
+  NSMutableDictionary *initialAppProperties = [NSMutableDictionary dictionaryWithDictionary:self.payView.appProperties];
+  
+  NSString *targetAddress = [notification.userInfo getStringForKey:kUserInfoTargetAddress];
+  if (targetAddress) {
+    [initialAppProperties setObject:targetAddress forKey:@"targetAddress"];
+    self.payView.appProperties = initialAppProperties;
+  } else {
+    NSLog(@"fail to get target Address");
+  }
+  
 }
 
 - (void)loadView {

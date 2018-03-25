@@ -31,10 +31,20 @@ export default class PayView extends Component<Props> {
     this.state = {targetAddress:"", amount:""};
   }
 
+  componentWillReceiveProps (nextProps) {
+    // Alert.alert('will receive:'+ nextProps.targetAddress);
+    // if(nextProps.targetAddress) {
+      this.setState({targetAddress:nextProps.targetAddress});
+    // }
+  }
+
 async tapSend() {
       var targetAddress = this.state.targetAddress;
       var amount = this.state.amount;
       var walletId = this.props.walletModelDict.walletId;
+
+      // Alert.alert(targetAddress);
+      
       if(targetAddress.length == 0) {
           Alert.alert("address is invalid");
       } else if (amount.length == 0) {
@@ -87,15 +97,23 @@ async tapSend() {
         <Text style={styles.subTitle}>
         Send to
         </Text>
+        <View style={{flexDirection:'row'}}>
         <TextInput
-                style={styles.textInput}
+                style={styles.textInputAddress}
                 onChangeText={
                     (text) => {
                         this.setState({ targetAddress: text });
                     }
                 }
             >
+            {this.props.targetAddress}
         </TextInput>
+        <TouchableOpacity onPress={()=>{
+          navigationHelper.showQRReaderViewControllerAnimated(true);
+        }} >
+          <Image source={require('./images/qrcode.png')} style={styles.qrCode} />
+        </TouchableOpacity>
+        </View>
         <Text style={styles.subTitle}>
             Amount
         </Text>
@@ -166,27 +184,31 @@ const styles = StyleSheet.create({
     marginLeft:35,
     fontWeight:'bold'
   },
+  textInputAddress: {
+    fontSize:15,
+    backgroundColor:'white',
+    marginLeft:35,
+    marginTop:10,
+    height:30,
+    width:250,
+    borderRadius:5,
+    fontWeight:'bold'
+  },
+  qrCode:{
+    marginLeft:10,
+    marginTop:15,
+    width:20,
+    height:20
+  },
   textInput: {
     fontSize:15,
     backgroundColor:'white',
     marginLeft:35,
-    marginRight:35,
     marginTop:10,
     height:30,
+    width:250,
     borderRadius:5,
     fontWeight:'bold'
-  },
-  seedGenerateButton: {
-    // backgroundColor:'green',
-    marginLeft:35,
-    marginRight:35,
-    marginTop:10,
-  },
-  seedGenerateButtonText: {
-    color:'white',
-    // marginRight:35,
-    textAlign:'right',
-    // backgroundColor:'red'
   },
   sendButton:{
     marginTop:50,

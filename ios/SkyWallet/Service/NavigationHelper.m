@@ -12,6 +12,8 @@
 #import "WalletDetailViewController.h"
 #import "PayCoinViewController.h"
 #import "AddressQRCodeViewController.h"
+#import <QRCodeReaderViewController/QRCodeReader.h>
+#import <QRCodeReaderViewController/QRCodeReaderViewController.h>
 
 @implementation NavigationHelper
 
@@ -74,6 +76,32 @@ RCT_EXPORT_METHOD(showAddressQRCodeViewControllerWithAddress:(NSString*)address 
   dispatch_async(dispatch_get_main_queue(), ^{
     AddressQRCodeViewController *vc = [[AddressQRCodeViewController alloc] initWithNibName:@"AddressQRCodeViewController" bundle:nil];
     vc.address = address;
+    
+    [[self rootNavigationController] pushViewController:vc animated:animated];
+  });
+}
+
+RCT_EXPORT_METHOD(showQRReaderViewControllerAnimated:(BOOL)animated) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+    
+    QRCodeReaderViewController *vc = [QRCodeReaderViewController readerWithCancelButtonTitle:@"Cancel" codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:NO showTorchButton:YES];
+    
+    __weak QRCodeReaderViewController* weakVC = vc;
+    
+    [vc setCompletionWithBlock:^(NSString * _Nullable resultAsString) {
+      if (!resultAsString) {
+        [[self rootNavigationController] popViewControllerAnimated:YES];
+      } else {
+        NSLog(@"result str:%@", resultAsString);
+        [weakVC stopScanning];
+        [[self rootNavigationController] popViewControllerAnimated:YES];
+        
+        NSDictionary * userInfo = @{kUserInfoTargetAddress:resultAsString};
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kGetAddressFromQRCodeNotification object:nil userInfo:userInfo];
+      }
+    }];
     
     [[self rootNavigationController] pushViewController:vc animated:animated];
   });

@@ -118,7 +118,7 @@ async tapNewWallet() {
                   this.showActionSheet
                 }
                 >
-                    <Image source={require('./images/more-horizontal.png')} style={{ width: 27, height: 27 }} />
+                    {/* <Image source={require('./images/more-horizontal.png')} style={{ width: 27, height: 27 }} /> */}
                 </TouchableOpacity>
         </View>
         <ScrollView style={{backgroundColor:'white'}} 

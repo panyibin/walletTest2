@@ -56,7 +56,7 @@ export default class AddressQRCodeView extends Component<Props> {
         <TouchableOpacity style={{flexDirection:'row'}}
         onPress={()=>{
             Clipboard.setString(this.props.address);
-            Alert.alert('address copied');
+            Alert.alert('address copied',this.props.address);
         }}
         >
         <Text style={styles.address} numberOfLines={1} >

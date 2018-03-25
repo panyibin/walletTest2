@@ -24,6 +24,9 @@
 #define kCoinSentNotification @"kCoinSentNotification"
 #define kRefreshWalletListNotification @"kRefreshWalletListNotification"
 #define kRefreshAddressListNotification @"kRefreshAddressListNotification"
+#define kGetAddressFromQRCodeNotification @"kGetAddressFromQRCodeNotification"
+
+#define kUserInfoTargetAddress @"kUserInfoTargetAddress"
 
 //cooperate with RN Notification
 #define kStopLoadingAnimationNotification @"kStopLoadingAnimationNotification"
