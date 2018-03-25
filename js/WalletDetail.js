@@ -166,8 +166,9 @@ async tapNewAddress() {
                         <TouchableOpacity onPress={
                             // Alert.alert('hello');
                             ()=>{
-                                Clipboard.setString(item.address);
-                                Alert.alert('Address copied',item.address);
+                                // Clipboard.setString(item.address);
+                                // Alert.alert('Address copied',item.address);
+                                navigationHelper.showAddressQRCodeViewControllerWithAddress(item.address, true);
                             }
                         }>
                         <View>

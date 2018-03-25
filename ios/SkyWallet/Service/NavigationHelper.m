@@ -11,6 +11,7 @@
 #import "PinCodeViewController.h"
 #import "WalletDetailViewController.h"
 #import "PayCoinViewController.h"
+#import "AddressQRCodeViewController.h"
 
 @implementation NavigationHelper
 
@@ -64,6 +65,15 @@ RCT_EXPORT_METHOD(showPayCoinViewControllerWithWalletModelDict:(NSDictionary*)wa
     PayCoinViewController *vc = [[PayCoinViewController alloc] initWithNibName:@"PayCoinViewController" bundle:nil];
     
     vc.walletModelDict = walletModelDict;
+    
+    [[self rootNavigationController] pushViewController:vc animated:animated];
+  });
+}
+
+RCT_EXPORT_METHOD(showAddressQRCodeViewControllerWithAddress:(NSString*)address animated:(BOOL)animated) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    AddressQRCodeViewController *vc = [[AddressQRCodeViewController alloc] initWithNibName:@"AddressQRCodeViewController" bundle:nil];
+    vc.address = address;
     
     [[self rootNavigationController] pushViewController:vc animated:animated];
   });

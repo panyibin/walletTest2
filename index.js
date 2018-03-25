@@ -5,9 +5,11 @@ import PinView from './js/pin';
 import Wallet from './js/Wallet';
 import WalletDetail from './js/WalletDetail';
 import PayView from './js/pay';
+import AddressQRCodeView from './js/AddressQRCode';
 
 AppRegistry.registerComponent('WalletGenerator', () => WalletGenerator);
 AppRegistry.registerComponent('PinView', () => PinView);
 AppRegistry.registerComponent('Wallet', () => Wallet);
 AppRegistry.registerComponent('WalletDetail', () => WalletDetail);
 AppRegistry.registerComponent('PayView', () => PayView);
+AppRegistry.registerComponent('AddressQRCodeView', () => AddressQRCodeView);
