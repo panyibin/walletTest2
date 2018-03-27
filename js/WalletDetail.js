@@ -91,7 +91,7 @@ async tapNewAddress() {
   }
 
   showActionSheet() {
-    var buttons = ['send sky','cancel'];
+    var buttons = ['send sky','delete wallet','cancel'];
     ActionSheetIOS.showActionSheetWithOptions(
       {
         options:buttons,
@@ -100,9 +100,32 @@ async tapNewAddress() {
       (buttonIndex)=>{
         if(buttonIndex == 0) {
           navigationHelper.showPayCoinViewControllerWithWalletModelDict(this.props.walletModelDict, true);
+        } else if (buttonIndex == 1) {
+            Alert.alert(
+                'Do you want to delete the wallet?',
+                '',
+                [
+                    {text:'OK', onPress:()=>{
+                       this._tryToRemoveWallet();
+                    }},
+                    {text:'Cancel', onPress:()=>{
+        
+                    }, style:'cancel'}            
+                ]
+            );
         }
       }
     );
+  }
+
+  async _tryToRemoveWallet() {
+    var result = await walletManager.removeWallet(this.props.walletModelDict.walletId);
+
+    if(result == 'success') {
+        navigationHelper.popViewControllerAnimated(true);
+    } else {
+        Alert.alert('fail to remove wallet', result);
+    }
   }
 
   async _onRefresh() {

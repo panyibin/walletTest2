@@ -96,6 +96,24 @@ RCT_REMAP_METHOD(sendSkyCoinWithWalletId, sendSkyCoinWithWalletId:(NSString*)wal
   }
 }
 
+RCT_REMAP_METHOD(removeWallet, removeWallet:(NSString*)walletId resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+  NSArray *localWalletArray = [self getLocalWalletArray];
+  if (localWalletArray.count <= 1) {
+    resolve(@"you should at least have 1 wallet");
+//    return;
+  } else {
+  
+  NSError *error;
+  MobileRemove(walletId, &error);
+  if (!error) {
+    [self removeWalletLocally:walletId];
+    resolve(@"success");
+  } else {
+    resolve([error.userInfo getStringForKey:@"NSLocalizedDescription"]);
+  }
+  }
+}
+
 RCT_EXPORT_METHOD(refreshWalletList) {
   [[NSNotificationCenter defaultCenter] postNotificationName:kRefreshWalletListNotification object:nil];
 }
@@ -130,6 +148,21 @@ RCT_EXPORT_METHOD(refreshAddressList) {
   }
   
   [mutableLocalWalletArray addObject:walletModel];
+  
+  NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mutableLocalWalletArray];
+  [[NSUserDefaults standardUserDefaults] setObject:data forKey:kLocalWalletArray];
+}
+
+- (void)removeWalletLocally:(NSString*)walletId {
+  NSArray *localWalletArray = [self getLocalWalletArray];
+  NSMutableArray *mutableLocalWalletArray = [NSMutableArray arrayWithArray:localWalletArray];
+  
+  for (WalletModel *wm in localWalletArray) {
+    if ([wm.walletId isEqualToString:walletId]) {
+      [mutableLocalWalletArray removeObject:wm];
+      break;
+    }
+  }
   
   NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mutableLocalWalletArray];
   [[NSUserDefaults standardUserDefaults] setObject:data forKey:kLocalWalletArray];
