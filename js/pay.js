@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     marginLeft:35,
     marginTop:10,
     height:30,
-    width:250,
+    width:290,
     borderRadius:5,
     fontWeight:'bold'
   },
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     marginLeft:35,
     marginTop:10,
     height:30,
-    width:250,
+    width:290,
     borderRadius:5,
     fontWeight:'bold'
   },
