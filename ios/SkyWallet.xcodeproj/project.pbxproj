@@ -30,6 +30,7 @@
 		DF3E1F8420663FBD0057E950 /* AddressQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1F8320663FBC0057E950 /* AddressQRCodeViewController.m */; };
 		DF3E1FAC2067E68B0057E950 /* QRCodeViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1FAB2067E68B0057E950 /* QRCodeViewManager.m */; };
 		DF3E1FB22068090D0057E950 /* QRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1FB02068090D0057E950 /* QRCodeView.m */; };
+		DF3E1FC1206A97BA0057E950 /* WalletSeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1FC0206A97BA0057E950 /* WalletSeedViewController.m */; };
 		DF6DB477205D64A400A9A0D9 /* SWUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6DB476205D64A400A9A0D9 /* SWUtils.m */; };
 		DF6DB48A205DF90200A9A0D9 /* WalletDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6DB489205DF90200A9A0D9 /* WalletDetailViewController.m */; };
 		DF6DB4B2205E015700A9A0D9 /* WalletBalanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6DB4B1205E015700A9A0D9 /* WalletBalanceModel.m */; };
@@ -355,6 +356,8 @@
 		DF3E1FAB2067E68B0057E950 /* QRCodeViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewManager.m; sourceTree = "<group>"; };
 		DF3E1FB02068090D0057E950 /* QRCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeView.m; sourceTree = "<group>"; };
 		DF3E1FB12068090D0057E950 /* QRCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeView.h; sourceTree = "<group>"; };
+		DF3E1FBF206A97BA0057E950 /* WalletSeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletSeedViewController.h; sourceTree = "<group>"; };
+		DF3E1FC0206A97BA0057E950 /* WalletSeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletSeedViewController.m; sourceTree = "<group>"; };
 		DF6DB475205D64A400A9A0D9 /* SWUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWUtils.h; sourceTree = "<group>"; };
 		DF6DB476205D64A400A9A0D9 /* SWUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWUtils.m; sourceTree = "<group>"; };
 		DF6DB488205DF90200A9A0D9 /* WalletDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletDetailViewController.h; sourceTree = "<group>"; };
@@ -686,6 +689,8 @@
 				DF3E1FAB2067E68B0057E950 /* QRCodeViewManager.m */,
 				DF3E1FB12068090D0057E950 /* QRCodeView.h */,
 				DF3E1FB02068090D0057E950 /* QRCodeView.m */,
+				DF3E1FBF206A97BA0057E950 /* WalletSeedViewController.h */,
+				DF3E1FC0206A97BA0057E950 /* WalletSeedViewController.m */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1266,6 +1271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF3E1FB22068090D0057E950 /* QRCodeView.m in Sources */,
+				DF3E1FC1206A97BA0057E950 /* WalletSeedViewController.m in Sources */,
 				DFD9A518205AD19D002A256F /* WalletManager.m in Sources */,
 				DFB74E58205FF5CB00571EC5 /* LoadingView.m in Sources */,
 				DF3E1FAC2067E68B0057E950 /* QRCodeViewManager.m in Sources */,

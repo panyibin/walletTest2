@@ -91,7 +91,7 @@ async tapNewAddress() {
   }
 
   showActionSheet() {
-    var buttons = ['send sky','delete wallet','cancel'];
+    var buttons = ['send sky','back up wallet','delete wallet','cancel'];
     ActionSheetIOS.showActionSheetWithOptions(
       {
         options:buttons,
@@ -100,7 +100,9 @@ async tapNewAddress() {
       (buttonIndex)=>{
         if(buttonIndex == 0) {
           navigationHelper.showPayCoinViewControllerWithWalletModelDict(this.props.walletModelDict, true);
-        } else if (buttonIndex == 1) {
+        } else if(buttonIndex == 1) {
+            navigationHelper.showWalletSeedViewControllerWithWalletModelDict(this.props.walletModelDict, true);
+          } else if (buttonIndex == 2) {
             Alert.alert(
                 'Do you want to delete the wallet?',
                 '',

@@ -12,6 +12,7 @@
 #import "WalletDetailViewController.h"
 #import "PayCoinViewController.h"
 #import "AddressQRCodeViewController.h"
+#import "WalletSeedViewController.h"
 #import <QRCodeReaderViewController/QRCodeReader.h>
 #import <QRCodeReaderViewController/QRCodeReaderViewController.h>
 
@@ -72,6 +73,16 @@ RCT_EXPORT_METHOD(showPayCoinViewControllerWithWalletModelDict:(NSDictionary*)wa
   });
 }
 
+RCT_EXPORT_METHOD(showWalletSeedViewControllerWithWalletModelDict:(NSDictionary*)walletModelDict animated:(BOOL)animated) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    WalletSeedViewController *vc = [[WalletSeedViewController alloc] init];
+    
+    vc.walletModelDict = walletModelDict;
+    
+    [[self rootNavigationController] pushViewController:vc animated:animated];
+  });
+}
+
 RCT_EXPORT_METHOD(showAddressQRCodeViewControllerWithAddress:(NSString*)address animated:(BOOL)animated) {
   dispatch_async(dispatch_get_main_queue(), ^{
     AddressQRCodeViewController *vc = [[AddressQRCodeViewController alloc] initWithNibName:@"AddressQRCodeViewController" bundle:nil];
@@ -106,6 +117,8 @@ RCT_EXPORT_METHOD(showQRReaderViewControllerAnimated:(BOOL)animated) {
     [[self rootNavigationController] pushViewController:vc animated:animated];
   });
 }
+
+
 
 RCT_EXPORT_METHOD(popViewControllerAnimated:(BOOL)animated) {
   dispatch_async(dispatch_get_main_queue(), ^{
