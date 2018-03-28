@@ -31,6 +31,10 @@
 		DF3E1FAC2067E68B0057E950 /* QRCodeViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1FAB2067E68B0057E950 /* QRCodeViewManager.m */; };
 		DF3E1FB22068090D0057E950 /* QRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1FB02068090D0057E950 /* QRCodeView.m */; };
 		DF3E1FC1206A97BA0057E950 /* WalletSeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1FC0206A97BA0057E950 /* WalletSeedViewController.m */; };
+		DF3E20B7206BF3840057E950 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E20B0206BF3820057E950 /* ViewController.m */; };
+		DF3E20B8206BF3840057E950 /* PinInputCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E20B1206BF3830057E950 /* PinInputCollectionViewCell.m */; };
+		DF3E20B9206BF3840057E950 /* PinDotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E20B3206BF3830057E950 /* PinDotCollectionViewCell.m */; };
+		DF3E20BA206BF3840057E950 /* PinInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E20B6206BF3840057E950 /* PinInputViewController.m */; };
 		DF6DB477205D64A400A9A0D9 /* SWUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6DB476205D64A400A9A0D9 /* SWUtils.m */; };
 		DF6DB48A205DF90200A9A0D9 /* WalletDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6DB489205DF90200A9A0D9 /* WalletDetailViewController.m */; };
 		DF6DB4B2205E015700A9A0D9 /* WalletBalanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6DB4B1205E015700A9A0D9 /* WalletBalanceModel.m */; };
@@ -358,6 +362,14 @@
 		DF3E1FB12068090D0057E950 /* QRCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeView.h; sourceTree = "<group>"; };
 		DF3E1FBF206A97BA0057E950 /* WalletSeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletSeedViewController.h; sourceTree = "<group>"; };
 		DF3E1FC0206A97BA0057E950 /* WalletSeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletSeedViewController.m; sourceTree = "<group>"; };
+		DF3E208A206BF3820057E950 /* PinInputCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinInputCollectionViewCell.h; sourceTree = "<group>"; };
+		DF3E20B0206BF3820057E950 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DF3E20B1206BF3830057E950 /* PinInputCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinInputCollectionViewCell.m; sourceTree = "<group>"; };
+		DF3E20B2206BF3830057E950 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DF3E20B3206BF3830057E950 /* PinDotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinDotCollectionViewCell.m; sourceTree = "<group>"; };
+		DF3E20B4206BF3830057E950 /* PinDotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinDotCollectionViewCell.h; sourceTree = "<group>"; };
+		DF3E20B5206BF3840057E950 /* PinInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinInputViewController.h; sourceTree = "<group>"; };
+		DF3E20B6206BF3840057E950 /* PinInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinInputViewController.m; sourceTree = "<group>"; };
 		DF6DB475205D64A400A9A0D9 /* SWUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWUtils.h; sourceTree = "<group>"; };
 		DF6DB476205D64A400A9A0D9 /* SWUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWUtils.m; sourceTree = "<group>"; };
 		DF6DB488205DF90200A9A0D9 /* WalletDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletDetailViewController.h; sourceTree = "<group>"; };
@@ -699,6 +711,14 @@
 				DFD9A519205CBCD2002A256F /* PinCodeViewController.h */,
 				DFD9A51A205CBCD2002A256F /* PinCodeViewController.m */,
 				DFD9A51B205CBCD2002A256F /* PinCodeViewController.xib */,
+				DF3E20B4206BF3830057E950 /* PinDotCollectionViewCell.h */,
+				DF3E20B3206BF3830057E950 /* PinDotCollectionViewCell.m */,
+				DF3E208A206BF3820057E950 /* PinInputCollectionViewCell.h */,
+				DF3E20B1206BF3830057E950 /* PinInputCollectionViewCell.m */,
+				DF3E20B5206BF3840057E950 /* PinInputViewController.h */,
+				DF3E20B6206BF3840057E950 /* PinInputViewController.m */,
+				DF3E20B2206BF3830057E950 /* ViewController.h */,
+				DF3E20B0206BF3820057E950 /* ViewController.m */,
 			);
 			path = PinCode;
 			sourceTree = "<group>";
@@ -1271,10 +1291,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SkyWallet/Pods-SkyWallet-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1341,11 +1363,15 @@
 				DF6DB4B2205E015700A9A0D9 /* WalletBalanceModel.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				DFA33D6020598E6100116E38 /* MainViewController.m in Sources */,
+				DF3E20B8206BF3840057E950 /* PinInputCollectionViewCell.m in Sources */,
 				DFD9A524205D0BA0002A256F /* WalletGeneratorViewController.m in Sources */,
+				DF3E20B7206BF3840057E950 /* ViewController.m in Sources */,
+				DF3E20B9206BF3840057E950 /* PinDotCollectionViewCell.m in Sources */,
 				DF3E1F8420663FBD0057E950 /* AddressQRCodeViewController.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				DF6DB477205D64A400A9A0D9 /* SWUtils.m in Sources */,
 				DF6DB48A205DF90200A9A0D9 /* WalletDetailViewController.m in Sources */,
+				DF3E20BA206BF3840057E950 /* PinInputViewController.m in Sources */,
 				DFA33D24205988B000116E38 /* RNManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

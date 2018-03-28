@@ -27,5 +27,6 @@
 #import "NavigationHelper.h"
 #import "WalletBalanceModel.h"
 #import "LoadingView.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #endif /* PrefixHeader_pch */

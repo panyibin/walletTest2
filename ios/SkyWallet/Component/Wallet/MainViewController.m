@@ -8,6 +8,8 @@
 
 #import "MainViewController.h"
 #import "WalletGeneratorViewController.h"
+#import "PinInputViewController.h"
+
 
 @interface MainViewController ()
 {
@@ -36,6 +38,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveWalletListRefreshNotification:) name:kRefreshWalletListNotification object:nil];
   
   bFirstShow = YES;
+  
+  [PinInputViewController showWithCloseButton:NO animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

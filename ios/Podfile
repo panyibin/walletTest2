@@ -11,6 +11,7 @@ target 'SkyWallet' do
   pod 'ReactiveObjC', '~>3.1.0'
   pod 'IQKeyboardManager'
   pod 'QRCodeReaderViewController', '~> 4.0.2'
+  pod 'SVProgressHUD', '~>2.2.5'
 
   target 'SkyWalletTests' do
     inherit! :search_paths

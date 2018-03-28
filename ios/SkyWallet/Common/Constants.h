@@ -10,7 +10,6 @@
 #define Constants_h
 
 #define kWalletId @"kWalletId"
-#define kWalletPinCode @"kWalletPinCode"
 
 #define kLocalWalletArray @"kLocalWalletArray"
 #define kPinCode @"kPinCode"
