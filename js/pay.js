@@ -52,21 +52,26 @@ async tapSend() {
       } else {
           Keyboard.dismiss();
           console.log('send sky');
+          var pinCodeVerified = await navigationHelper.showPinCodeInputCheckViewControllerWithCloseButton(true);
+
+        if (pinCodeVerified) {
           var ret = await walletManager.sendSkyCoinWithWalletId(walletId, targetAddress, amount);
 
-          if(ret == 'success') {
-               Alert.alert('send sky success', 
-               '',
-            [{text:'OK', onPress:()=>{
-                            navigationHelper.popToRootViewControllerAnimated(true);
-                         }
-             }
-            ]);
-              //navigationHelper.popToRootViewControllerAnimated(true);
+          if (ret == 'success') {
+            Alert.alert('send sky success',
+              '',
+              [{
+                text: 'OK', onPress: () => {
+                  navigationHelper.popToRootViewControllerAnimated(true);
+                }
+              }
+              ]);
+            //navigationHelper.popToRootViewControllerAnimated(true);
           } else {
-              Alert.alert('fail to send sky', ret);
-              // navigationHelper.popToRootViewControllerAnimated(true);
+            Alert.alert('fail to send sky', ret);
+            // navigationHelper.popToRootViewControllerAnimated(true);
           }
+        }
       }
   }
 

@@ -14,6 +14,9 @@
   NSDictionary *dict;
   NSError *error;
   NSData *data = [jsonStr dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+  if (!data) {
+    return nil;
+  }
   
   dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
   if(!error) {

@@ -31,7 +31,6 @@
 		DF3E1FAC2067E68B0057E950 /* QRCodeViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1FAB2067E68B0057E950 /* QRCodeViewManager.m */; };
 		DF3E1FB22068090D0057E950 /* QRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1FB02068090D0057E950 /* QRCodeView.m */; };
 		DF3E1FC1206A97BA0057E950 /* WalletSeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E1FC0206A97BA0057E950 /* WalletSeedViewController.m */; };
-		DF3E20B7206BF3840057E950 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E20B0206BF3820057E950 /* ViewController.m */; };
 		DF3E20B8206BF3840057E950 /* PinInputCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E20B1206BF3830057E950 /* PinInputCollectionViewCell.m */; };
 		DF3E20B9206BF3840057E950 /* PinDotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E20B3206BF3830057E950 /* PinDotCollectionViewCell.m */; };
 		DF3E20BA206BF3840057E950 /* PinInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3E20B6206BF3840057E950 /* PinInputViewController.m */; };
@@ -363,9 +362,7 @@
 		DF3E1FBF206A97BA0057E950 /* WalletSeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletSeedViewController.h; sourceTree = "<group>"; };
 		DF3E1FC0206A97BA0057E950 /* WalletSeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletSeedViewController.m; sourceTree = "<group>"; };
 		DF3E208A206BF3820057E950 /* PinInputCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinInputCollectionViewCell.h; sourceTree = "<group>"; };
-		DF3E20B0206BF3820057E950 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DF3E20B1206BF3830057E950 /* PinInputCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinInputCollectionViewCell.m; sourceTree = "<group>"; };
-		DF3E20B2206BF3830057E950 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		DF3E20B3206BF3830057E950 /* PinDotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinDotCollectionViewCell.m; sourceTree = "<group>"; };
 		DF3E20B4206BF3830057E950 /* PinDotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinDotCollectionViewCell.h; sourceTree = "<group>"; };
 		DF3E20B5206BF3840057E950 /* PinInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinInputViewController.h; sourceTree = "<group>"; };
@@ -717,8 +714,6 @@
 				DF3E20B1206BF3830057E950 /* PinInputCollectionViewCell.m */,
 				DF3E20B5206BF3840057E950 /* PinInputViewController.h */,
 				DF3E20B6206BF3840057E950 /* PinInputViewController.m */,
-				DF3E20B2206BF3830057E950 /* ViewController.h */,
-				DF3E20B0206BF3820057E950 /* ViewController.m */,
 			);
 			path = PinCode;
 			sourceTree = "<group>";
@@ -1365,7 +1360,6 @@
 				DFA33D6020598E6100116E38 /* MainViewController.m in Sources */,
 				DF3E20B8206BF3840057E950 /* PinInputCollectionViewCell.m in Sources */,
 				DFD9A524205D0BA0002A256F /* WalletGeneratorViewController.m in Sources */,
-				DF3E20B7206BF3840057E950 /* ViewController.m in Sources */,
 				DF3E20B9206BF3840057E950 /* PinDotCollectionViewCell.m in Sources */,
 				DF3E1F8420663FBD0057E950 /* AddressQRCodeViewController.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,

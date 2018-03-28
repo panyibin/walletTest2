@@ -90,6 +90,20 @@ async tapNewAddress() {
     Alert.alert('seed copied',this.props.walletModelDict.seed);
   }
 
+  async tapBackupWallet() {
+      var pinCodeVerified = await navigationHelper.showPinCodeInputCheckViewControllerWithCloseButton(true);
+      if(pinCodeVerified) {          
+          navigationHelper.showWalletSeedViewControllerWithWalletModelDict(this.props.walletModelDict, true);
+      }
+  }
+
+  async tapDeleteWallet() {
+    var pinCodeVerified = await navigationHelper.showPinCodeInputCheckViewControllerWithCloseButton(true);
+    if(pinCodeVerified) {          
+        this._tryToRemoveWallet();
+    }
+}
+
   showActionSheet() {
     var buttons = ['back up wallet','delete wallet','cancel'];
     ActionSheetIOS.showActionSheetWithOptions(
@@ -102,14 +116,14 @@ async tapNewAddress() {
         //   navigationHelper.showPayCoinViewControllerWithWalletModelDict(this.props.walletModelDict, true);
         // } else
          if(buttonIndex == 0) {
-            navigationHelper.showWalletSeedViewControllerWithWalletModelDict(this.props.walletModelDict, true);
+            this.tapBackupWallet();
           } else if (buttonIndex == 1) {
             Alert.alert(
                 'Do you want to delete the wallet?',
                 '',
                 [
                     {text:'OK', onPress:()=>{
-                       this._tryToRemoveWallet();
+                        this.tapDeleteWallet();
                     }},
                     {text:'Cancel', onPress:()=>{
         

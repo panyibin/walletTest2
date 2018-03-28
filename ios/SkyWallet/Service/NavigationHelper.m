@@ -13,6 +13,7 @@
 #import "PayCoinViewController.h"
 #import "AddressQRCodeViewController.h"
 #import "WalletSeedViewController.h"
+#import "PinInputViewController.h"
 #import <QRCodeReaderViewController/QRCodeReader.h>
 #import <QRCodeReaderViewController/QRCodeReaderViewController.h>
 
@@ -118,7 +119,15 @@ RCT_EXPORT_METHOD(showQRReaderViewControllerAnimated:(BOOL)animated) {
   });
 }
 
-
+RCT_REMAP_METHOD(showPinCodeInputCheckViewControllerWithCloseButton, showPinCodeInputCheckViewControllerWithCloseButton:(BOOL)hasCloseButton resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+  PinInputViewController *vc = [[PinInputViewController alloc] init];
+  vc.hasCloseButton = hasCloseButton;
+  vc.pinCodeVerifiedBlock = ^{
+    resolve(@YES);
+  };
+  
+  [self.rootNavigationController presentViewController:vc animated:YES completion:nil];
+}
 
 RCT_EXPORT_METHOD(popViewControllerAnimated:(BOOL)animated) {
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -130,6 +139,17 @@ RCT_EXPORT_METHOD(popToRootViewControllerAnimated:(BOOL)animated) {
   dispatch_async(dispatch_get_main_queue(), ^{
     [[self rootNavigationController] popToRootViewControllerAnimated:animated];
   });
+}
+
++ (void)presentPinInputViewControllerWithCloseButton:(BOOL)hasCloseButton animated:(BOOL)animated {
+  [[NavigationHelper sharedInstance] presentPinInputViewControllerWithCloseButton:hasCloseButton animated:animated];
+}
+
+- (void)presentPinInputViewControllerWithCloseButton:(BOOL)hasCloseButton animated:(BOOL)animated {
+  PinInputViewController *vc = [[PinInputViewController alloc] init];
+  vc.hasCloseButton = hasCloseButton;
+  
+  [self.rootNavigationController presentViewController:vc animated:animated completion:nil];
 }
 
 @end

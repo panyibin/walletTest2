@@ -39,7 +39,7 @@
   
   bFirstShow = YES;
   
-  [PinInputViewController showWithCloseButton:NO animated:YES];
+  [NavigationHelper presentPinInputViewControllerWithCloseButton:NO animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

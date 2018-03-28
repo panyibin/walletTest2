@@ -53,22 +53,20 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
   return _instance;
 }
 
-+ (void)showWithCloseButton:(BOOL)bCloseButton animated:(BOOL)animated {
-  
-  [[NavigationHelper sharedInstance].rootNavigationController presentViewController:[PinInputViewController sharedInstance] animated:YES completion:^{
-    
-  }];
-  
-  [PinInputViewController sharedInstance].closeButton.hidden = !bCloseButton;
-}
+//+ (void)showWithCloseButton:(BOOL)bCloseButton animated:(BOOL)animated {
+//  
+//  [[NavigationHelper sharedInstance].rootNavigationController presentViewController:[PinInputViewController sharedInstance] animated:YES completion:^{
+//    
+//  }];
+//  
+//  [PinInputViewController sharedInstance].closeButton.hidden = !bCloseButton;
+//}
 
 - (void)viewDidLoad {
   [super viewDidLoad];
   
   self.view.backgroundColor = [UIColor colorWithRed:32/255.0 green:124/255.0 blue:247/255.0 alpha:1];
   self.inputPinNumArray = [[NSMutableArray alloc] init];
-  
-  [self resetInputStatus];
   
   self.titleLabel.text = @"Input your pin code";
   
@@ -105,6 +103,14 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
     make.width.mas_equalTo(kDotCollectionViewWidth);
     make.height.mas_equalTo(kDotCollectionViewHeight);
   }];
+  
+  if (!self.hasCloseButton) {
+    self.closeButton.hidden = YES;
+  }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  [self resetInputStatus];
 }
 
 #pragma properties initialize
@@ -181,6 +187,9 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
   
   if ([inputPinCode isEqualToString:userPinCode]) {
     [self dismissViewControllerAnimated:YES completion:nil];
+    if(self.pinCodeVerifiedBlock) {
+      self.pinCodeVerifiedBlock();
+    }
   } else {
     [SVProgressHUD showErrorWithStatus:@"wrong pin code"];
     [self resetInputStatus];

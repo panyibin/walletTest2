@@ -14,4 +14,6 @@
 
 - (UINavigationController*)rootNavigationController;
 
++ (void)presentPinInputViewControllerWithCloseButton:(BOOL)hasCloseButton animated:(BOOL)animated;
+
 @end
