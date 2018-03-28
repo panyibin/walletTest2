@@ -39,7 +39,11 @@
   
   bFirstShow = YES;
   
-  [NavigationHelper presentPinInputViewControllerWithCloseButton:NO animated:NO];
+  NSString *pinCode = [[NSUserDefaults standardUserDefaults] stringForKey:kPinCode];
+  
+  if (pinCode) {    
+    [NavigationHelper presentPinInputViewControllerWithCloseButton:NO animated:NO];
+  }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
