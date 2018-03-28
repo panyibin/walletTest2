@@ -17,6 +17,8 @@
 #define kCoinTypeSky @"skycoin"
 #define kCoinTypeSpo @"spocoin"
 
+#define kLastPinCodeFailureTime @"kLastPinCodeFailureTime"
+
 //Notification
 #define kNewAddressCreatedNotification @"kNewAddressCreatedNotification"
 #define kNewWalletCreatedNotification @"kNewWalletCreatedNotification"

@@ -27,6 +27,9 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
 #define kDotCollectionViewHeight 15
 
 @interface PinInputViewController ()
+{
+  NSInteger remainingInputTimes;
+}
 
 @property (nonatomic, strong) NSMutableArray *inputPinNumArray;//the content is NSString
 
@@ -64,6 +67,8 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  remainingInputTimes = 3;
   
   self.view.backgroundColor = [UIColor colorWithRed:32/255.0 green:124/255.0 blue:247/255.0 alpha:1];
   self.inputPinNumArray = [[NSMutableArray alloc] init];
@@ -178,6 +183,30 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
 }
 
 - (void)handlePinCodeResult {
+  //5 minutes check
+  NSTimeInterval lastFailureTime = [[NSUserDefaults standardUserDefaults] floatForKey:kLastPinCodeFailureTime];
+  NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+  
+  NSTimeInterval retryTimeInterval = 60 * 5;//try again 5 minutes later
+  
+  if (currentTime - lastFailureTime < retryTimeInterval) {
+    NSInteger remainingTime = retryTimeInterval - (currentTime - lastFailureTime);
+    if (remainingTime >= 60) {
+      NSInteger remainingMinutes = remainingTime / 60;
+      [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"try again %ld minute(s) later", remainingMinutes]];
+    } else {
+      [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"try again %ld seconds later", remainingTime]];
+    }
+    
+    [self resetInputStatus];
+    
+    return;
+  } else {
+    if (remainingInputTimes <= 0) {
+      remainingInputTimes = 3;
+    }
+  }
+  
   NSString *userPinCode = [[NSUserDefaults standardUserDefaults] stringForKey:kPinCode];
   
   NSMutableString *inputPinCode = [[NSMutableString alloc] init];
@@ -191,7 +220,14 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
       self.pinCodeVerifiedBlock();
     }
   } else {
-    [SVProgressHUD showErrorWithStatus:@"wrong pin code"];
+    remainingInputTimes--;
+    if (remainingInputTimes > 0) {
+      [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"wrong pin code, %ld times remained", remainingInputTimes]];
+    } else {
+      [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"try again 5 minutes later"]];
+      [[NSUserDefaults standardUserDefaults] setFloat:currentTime forKey:kLastPinCodeFailureTime];
+    }
+    
     [self resetInputStatus];
   }
 }
