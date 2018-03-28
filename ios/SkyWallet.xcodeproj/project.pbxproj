@@ -652,6 +652,76 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		DF3E2046206BF04D0057E950 /* AddressQRCode */ = {
+			isa = PBXGroup;
+			children = (
+				DF3E1F8220663FBC0057E950 /* AddressQRCodeViewController.h */,
+				DF3E1F8320663FBC0057E950 /* AddressQRCodeViewController.m */,
+				DF3E1FAA2067E68B0057E950 /* QRCodeViewManager.h */,
+				DF3E1FAB2067E68B0057E950 /* QRCodeViewManager.m */,
+				DF3E1FB12068090D0057E950 /* QRCodeView.h */,
+				DF3E1FB02068090D0057E950 /* QRCodeView.m */,
+			);
+			path = AddressQRCode;
+			sourceTree = "<group>";
+		};
+		DF3E206C206BF1040057E950 /* WalletSeedPage */ = {
+			isa = PBXGroup;
+			children = (
+				DF3E1FBF206A97BA0057E950 /* WalletSeedViewController.h */,
+				DF3E1FC0206A97BA0057E950 /* WalletSeedViewController.m */,
+			);
+			path = WalletSeedPage;
+			sourceTree = "<group>";
+		};
+		DF3E206D206BF1350057E950 /* PayCoin */ = {
+			isa = PBXGroup;
+			children = (
+				DF6DB4B3205E376B00A9A0D9 /* PayCoinViewController.h */,
+				DF6DB4B4205E376B00A9A0D9 /* PayCoinViewController.m */,
+			);
+			path = PayCoin;
+			sourceTree = "<group>";
+		};
+		DF3E206E206BF1730057E950 /* WalletGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				DFD9A521205D0BA0002A256F /* WalletGeneratorViewController.h */,
+				DFD9A522205D0BA0002A256F /* WalletGeneratorViewController.m */,
+				DFD9A523205D0BA0002A256F /* WalletGeneratorViewController.xib */,
+			);
+			path = WalletGenerator;
+			sourceTree = "<group>";
+		};
+		DF3E206F206BF1990057E950 /* PinCode */ = {
+			isa = PBXGroup;
+			children = (
+				DFD9A519205CBCD2002A256F /* PinCodeViewController.h */,
+				DFD9A51A205CBCD2002A256F /* PinCodeViewController.m */,
+				DFD9A51B205CBCD2002A256F /* PinCodeViewController.xib */,
+			);
+			path = PinCode;
+			sourceTree = "<group>";
+		};
+		DF3E2070206BF1B20057E950 /* WalletDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DF6DB488205DF90200A9A0D9 /* WalletDetailViewController.h */,
+				DF6DB489205DF90200A9A0D9 /* WalletDetailViewController.m */,
+			);
+			path = WalletDetail;
+			sourceTree = "<group>";
+		};
+		DF3E2071206BF1FB0057E950 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				DFA33D5D20598E6100116E38 /* MainViewController.h */,
+				DFA33D5E20598E6100116E38 /* MainViewController.m */,
+				DF295142205AC64F00150D7F /* MainViewController.xib */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
 		DF6DB4B6205E755400A9A0D9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,27 +740,13 @@
 				DFA33D1C2059844200116E38 /* MainNavigationViewController.m */,
 				DFA33D1E2059849F00116E38 /* BalanceViewController.h */,
 				DFA33D1F2059849F00116E38 /* BalanceViewController.m */,
-				DFA33D5D20598E6100116E38 /* MainViewController.h */,
-				DFA33D5E20598E6100116E38 /* MainViewController.m */,
-				DF295142205AC64F00150D7F /* MainViewController.xib */,
-				DF6DB488205DF90200A9A0D9 /* WalletDetailViewController.h */,
-				DF6DB489205DF90200A9A0D9 /* WalletDetailViewController.m */,
-				DFD9A519205CBCD2002A256F /* PinCodeViewController.h */,
-				DFD9A51A205CBCD2002A256F /* PinCodeViewController.m */,
-				DFD9A51B205CBCD2002A256F /* PinCodeViewController.xib */,
-				DFD9A521205D0BA0002A256F /* WalletGeneratorViewController.h */,
-				DFD9A522205D0BA0002A256F /* WalletGeneratorViewController.m */,
-				DFD9A523205D0BA0002A256F /* WalletGeneratorViewController.xib */,
-				DF6DB4B3205E376B00A9A0D9 /* PayCoinViewController.h */,
-				DF6DB4B4205E376B00A9A0D9 /* PayCoinViewController.m */,
-				DF3E1F8220663FBC0057E950 /* AddressQRCodeViewController.h */,
-				DF3E1F8320663FBC0057E950 /* AddressQRCodeViewController.m */,
-				DF3E1FAA2067E68B0057E950 /* QRCodeViewManager.h */,
-				DF3E1FAB2067E68B0057E950 /* QRCodeViewManager.m */,
-				DF3E1FB12068090D0057E950 /* QRCodeView.h */,
-				DF3E1FB02068090D0057E950 /* QRCodeView.m */,
-				DF3E1FBF206A97BA0057E950 /* WalletSeedViewController.h */,
-				DF3E1FC0206A97BA0057E950 /* WalletSeedViewController.m */,
+				DF3E2071206BF1FB0057E950 /* Wallet */,
+				DF3E2070206BF1B20057E950 /* WalletDetail */,
+				DF3E206F206BF1990057E950 /* PinCode */,
+				DF3E206E206BF1730057E950 /* WalletGenerator */,
+				DF3E206D206BF1350057E950 /* PayCoin */,
+				DF3E2046206BF04D0057E950 /* AddressQRCode */,
+				DF3E206C206BF1040057E950 /* WalletSeedPage */,
 			);
 			path = Component;
 			sourceTree = "<group>";
