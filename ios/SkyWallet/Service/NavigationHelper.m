@@ -120,13 +120,15 @@ RCT_EXPORT_METHOD(showQRReaderViewControllerAnimated:(BOOL)animated) {
 }
 
 RCT_REMAP_METHOD(showPinCodeInputCheckViewControllerWithCloseButton, showPinCodeInputCheckViewControllerWithCloseButton:(BOOL)hasCloseButton resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
-  PinInputViewController *vc = [[PinInputViewController alloc] init];
-  vc.hasCloseButton = hasCloseButton;
-  vc.pinCodeVerifiedBlock = ^{
-    resolve(@YES);
-  };
-  
-  [self.rootNavigationController presentViewController:vc animated:YES completion:nil];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    PinInputViewController *vc = [[PinInputViewController alloc] init];
+    vc.hasCloseButton = hasCloseButton;
+    vc.pinCodeVerifiedBlock = ^{
+      resolve(@YES);
+    };
+    
+    [self.rootNavigationController presentViewController:vc animated:YES completion:nil];
+  });
 }
 
 RCT_EXPORT_METHOD(popViewControllerAnimated:(BOOL)animated) {

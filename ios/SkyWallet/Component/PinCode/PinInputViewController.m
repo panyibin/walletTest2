@@ -310,21 +310,27 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
     if(collectionView == self.numberCollectionView) {
         if((indexPath.item >= 0 && indexPath.item <= 8) || indexPath.item == kPinInputZeroIndex) {
             PinInputCollectionViewCell *cell = (PinInputCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-            
+          
+          [UIView animateWithDuration:0.1 animations:^{
             cell.highlightView.backgroundColor = [UIColor blackColor];
+          } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.1 animations:^{
+              cell.highlightView.backgroundColor = [UIColor clearColor];
+            }];
+          }];
         }
     }
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (collectionView == self.numberCollectionView) {
-        if((indexPath.item >= 0 && indexPath.item <= 8) || indexPath.item == kPinInputZeroIndex) {
-            PinInputCollectionViewCell *cell = (PinInputCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-            
-            cell.highlightView.backgroundColor = [UIColor clearColor];
-        }
-    }
-}
+//- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+//    if (collectionView == self.numberCollectionView) {
+//        if((indexPath.item >= 0 && indexPath.item <= 8) || indexPath.item == kPinInputZeroIndex) {
+//            PinInputCollectionViewCell *cell = (PinInputCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+//            
+////            cell.highlightView.backgroundColor = [UIColor clearColor];
+//        }
+//    }
+//}
 
 - (void)loadView {
     UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];

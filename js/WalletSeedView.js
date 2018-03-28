@@ -36,7 +36,7 @@ export default class WalletSeedView extends Component<Props> {
       <View style={styles.container}>
         <View style={styles.topView}>
         <Text style={styles.pageTitle}>
-               back up Wallet
+               back up wallet
         </Text>
         <TouchableOpacity style={{ position: 'absolute', marginLeft: 10, marginTop:((isiPhoneX()?44:20) + 10) }} onPress={() => {
               navigationHelper.popViewControllerAnimated(true);
