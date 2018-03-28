@@ -96,7 +96,7 @@ RCT_EXPORT_METHOD(showQRReaderViewControllerAnimated:(BOOL)animated) {
   dispatch_async(dispatch_get_main_queue(), ^{
     QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
     
-    QRCodeReaderViewController *vc = [QRCodeReaderViewController readerWithCancelButtonTitle:@"Cancel" codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:NO showTorchButton:YES];
+    QRCodeReaderViewController *vc = [QRCodeReaderViewController readerWithCancelButtonTitle:@"Cancel" codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:NO showTorchButton:NO];
     
     __weak QRCodeReaderViewController* weakVC = vc;
     

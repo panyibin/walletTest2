@@ -91,18 +91,19 @@ async tapNewAddress() {
   }
 
   showActionSheet() {
-    var buttons = ['send sky','back up wallet','delete wallet','cancel'];
+    var buttons = ['back up wallet','delete wallet','cancel'];
     ActionSheetIOS.showActionSheetWithOptions(
       {
         options:buttons,
         cancelButtonIndex:buttons.length - 1,
       },
       (buttonIndex)=>{
-        if(buttonIndex == 0) {
-          navigationHelper.showPayCoinViewControllerWithWalletModelDict(this.props.walletModelDict, true);
-        } else if(buttonIndex == 1) {
+        // if(buttonIndex == 0) {
+        //   navigationHelper.showPayCoinViewControllerWithWalletModelDict(this.props.walletModelDict, true);
+        // } else
+         if(buttonIndex == 0) {
             navigationHelper.showWalletSeedViewControllerWithWalletModelDict(this.props.walletModelDict, true);
-          } else if (buttonIndex == 2) {
+          } else if (buttonIndex == 1) {
             Alert.alert(
                 'Do you want to delete the wallet?',
                 '',
