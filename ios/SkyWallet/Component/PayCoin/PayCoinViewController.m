@@ -25,7 +25,9 @@
     // Do any additional setup after loading the view.
   if(self.walletModelDict) {
     self.walletModel = [[WalletModel alloc] initWithDictionary:self.walletModelDict];
-    self.balance = [self.walletModelDict getStringForKey:@"balance"];
+    
+    CGFloat balanceNum = [self.walletModelDict getFloatForKey:@"balance"];
+    self.balance = [NSString stringWithFormat:@"%.2f", balanceNum];
   }
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didGetAddressFromQRCodeNotification:) name:kGetAddressFromQRCodeNotification object:nil];

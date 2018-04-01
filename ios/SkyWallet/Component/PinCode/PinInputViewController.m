@@ -88,7 +88,7 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
   }];
   
   [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.top.mas_equalTo(self.view).offset(60);
+    make.top.mas_equalTo(self.view).offset(44);
     make.right.mas_equalTo(self.view).offset(-15);
     make.width.mas_equalTo(20);
     make.height.mas_equalTo(20);

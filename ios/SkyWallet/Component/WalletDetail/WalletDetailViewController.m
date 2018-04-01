@@ -112,8 +112,8 @@
       }
       
       self.addressJsonArray = mutableAddressArray;
-      self.totalCoinBalance = [NSString stringWithFormat:@"%.3f", totalCoinBalance];
-      self.totalHourBalance = [NSString stringWithFormat:@"%.3f", totalHourBalance];
+      self.totalCoinBalance = [NSString stringWithFormat:@"%.2f", totalCoinBalance];
+      self.totalHourBalance = [NSString stringWithFormat:@"%.2f", totalHourBalance];
     }
   }
 }

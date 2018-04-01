@@ -20,6 +20,7 @@ import {
   Clipboard
 } from 'react-native';
 import {isiPhoneX} from './utils';
+import CustomNavigator from './CustomNavigator';
 
 var walletManager = NativeModules.WalletManager;
 var navigationHelper = NativeModules.NavigationHelper;
@@ -34,7 +35,7 @@ export default class WalletSeedView extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.topView}>
+        {/* <View style={styles.topView}>
         <Text style={styles.pageTitle}>
                back up wallet
         </Text>
@@ -43,7 +44,9 @@ export default class WalletSeedView extends Component<Props> {
             }} >
               <Image source={require('./images/arrow-left.png')} style={{ width: 27, height: 27 }} />
             </TouchableOpacity>
-        </View>
+        </View> */}
+
+        <CustomNavigator title='back up wallet' hasBackButton={true} backgroundColor='#1A9BFC' />
 
         <View style={{backgroundColor:'#F7F7F7'}}>        
         <Text style={styles.subTitle} >Long press to copy the seed, make sure to keep a copy of it, you'll lose your wallet if you forget it.</Text>

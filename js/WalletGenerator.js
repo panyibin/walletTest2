@@ -19,12 +19,7 @@ import {
 } from 'react-native';
 import {isiPhoneX} from './utils';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import CustomNavigator from './CustomNavigator';
 
 var walletManager = NativeModules.WalletManager;
 var navigationHelper = NativeModules.NavigationHelper;
@@ -104,7 +99,7 @@ export default class WalletGenerator extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <View style={styles.topView}>
+        {/* <View style={styles.topView}>
         <Text style={styles.pageTitle}>
         {pageTitle}
         </Text>
@@ -115,7 +110,8 @@ export default class WalletGenerator extends Component<Props> {
               <Image source={require('./images/arrow-left.png')} style={{ width: 27, height: 27 }} />
             </TouchableOpacity>
           }
-        </View>
+        </View> */}
+        <CustomNavigator hasBackButton={!this.props.needPinCode} title={pageTitle}/>
         <Text style={styles.instructions}>
         {instructionText}
         </Text>

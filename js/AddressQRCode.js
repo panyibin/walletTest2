@@ -20,6 +20,7 @@ import {
   Clipboard
 } from 'react-native';
 import {isiPhoneX} from './utils';
+import CustomNavigator from './CustomNavigator';
 
 var {requireNativeComponent} = require('react-native');
 var QRCodeView = requireNativeComponent('QRCodeView', null);
@@ -38,7 +39,7 @@ export default class AddressQRCodeView extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.topView}>
+        {/* <View style={styles.topView}>
         <Text style={styles.pageTitle}>
                Generate QR code
         </Text>
@@ -47,7 +48,8 @@ export default class AddressQRCodeView extends Component<Props> {
             }} >
               <Image source={require('./images/arrow-left.png')} style={{ width: 27, height: 27 }} />
             </TouchableOpacity>
-        </View>
+        </View> */}
+        <CustomNavigator hasBackButton={true} title='Generate QR code' backgroundColor='#1A9BFC' />
         <View style={{backgroundColor:'#F7F7F7',alignItems:'center'}}>
         <QRCodeView style={styles.qrCodeView}
          qrCodeString={this.props.address}></QRCodeView>
@@ -101,8 +103,9 @@ const styles = StyleSheet.create({
   },
   address:{
       marginTop:20,
-      fontSize:18,
-      width:250,
+      fontSize:12,
+      // width:270,
+      alignSelf:'center'
   },
   copyImage:{
       width:20,

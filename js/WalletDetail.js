@@ -31,6 +31,8 @@ import {
     getScreenWidth
 } from './utils';
 
+import CustomNavigator from './CustomNavigator';
+
 var walletManager = NativeModules.WalletManager;
 var navigationHelper = NativeModules.NavigationHelper;
 
@@ -157,12 +159,10 @@ async tapNewAddress() {
   render() {
     return (
         <View style={styles.container}>
-            <View style={styles.topView}>
-                {/* <TouchableOpacity onLongPress={this.longPressWalletTitle.bind(this)} > */}
+            {/* <View style={styles.topView}>
                     <Text style={styles.pageTitle}>
                         {this.props.walletModelDict.walletName}
                     </Text>
-                {/* </TouchableOpacity> */}
                 <TouchableOpacity 
                 style={{ position: 'absolute', marginLeft: 10, marginTop: (getStatusBarHeight() + 10) }} 
                 onPress={() => {
@@ -177,7 +177,10 @@ async tapNewAddress() {
                 }} >
                     <Image source={require('./images/more-horizontal.png')} style={{ width: 27, height: 27 }} />
                 </TouchableOpacity>
-            </View>
+            </View> */}
+            <CustomNavigator title={this.props.walletModelDict.walletName} hasBackButton={true}  onPressMore={()=>{
+                this.showActionSheet();
+            }} />
         <ScrollView style={{backgroundColor:'white'}}
                 refreshControl={<RefreshControl
                     refreshing={this.state.refreshing}

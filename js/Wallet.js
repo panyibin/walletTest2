@@ -23,6 +23,8 @@ import {
   ActionSheetIOS,
   RefreshControl
 } from 'react-native';
+
+import CustomNavigator from './CustomNavigator';
  
 import {
   isiPhoneX,
@@ -108,19 +110,7 @@ async tapNewWallet() {
   render() {
     return (
         <View style={styles.container}>
-        <View style={styles.topView}>
-        <Text style={styles.pageTitle}>
-                Wallets
-        </Text>
-        <TouchableOpacity 
-                style={{ position: 'absolute', marginLeft: (getScreenWidth() - 40), marginTop: (getStatusBarHeight() + 10) }} 
-                onPress={
-                  this.showActionSheet
-                }
-                >
-                    {/* <Image source={require('./images/more-horizontal.png')} style={{ width: 27, height: 27 }} /> */}
-                </TouchableOpacity>
-        </View>
+        <CustomNavigator title='Wallets' />
         <ScrollView style={{backgroundColor:'white'}} 
         refreshControl={<RefreshControl
         refreshing={this.state.refreshing}
