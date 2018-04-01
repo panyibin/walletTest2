@@ -14,6 +14,7 @@
 #import "MainNavigationViewController.h"
 #import "BalanceViewController.h"
 #import "MainViewController.h"
+#import "PinInputViewController.h"
 
 @implementation AppDelegate
 
@@ -30,7 +31,35 @@
   
   [[WalletManager sharedInstance] initWallet];
   
+  //reset kLastSuccessfulSessionTime when user restart the app
+  [[NSUserDefaults standardUserDefaults] setDouble:0 forKey:kLastSuccessfulSessionTime];
+  [[NSUserDefaults standardUserDefaults] synchronize];
+  
   return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    NSString *pinCode = [[NSUserDefaults standardUserDefaults] stringForKey:kPinCode];
+  
+    if (pinCode) {
+      NSTimeInterval spaceTimeToInputPinCode = 0;
+      
+      NSTimeInterval lastTime = [[NSUserDefaults standardUserDefaults] doubleForKey:kLastSuccessfulSessionTime];
+      NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+      
+      if (currentTime - lastTime > spaceTimeToInputPinCode) {
+        [NavigationHelper dismissPinInputViewControllerAnimated:NO];
+        [NavigationHelper presentPinInputViewControllerWithCloseButton:NO animated:NO pinCodeVerifiedBlock:nil];
+      }
+    }
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+  NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+  [[NSUserDefaults standardUserDefaults] setDouble:currentTime forKey:kLastSuccessfulSessionTime];
+  [[NSUserDefaults standardUserDefaults] synchronize];
+  
+//  NSLog(@"exit time:%f", currentTime);
 }
 
 @end

@@ -57,12 +57,16 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
 }
 
 //+ (void)showWithCloseButton:(BOOL)bCloseButton animated:(BOOL)animated {
-//  
+//
 //  [[NavigationHelper sharedInstance].rootNavigationController presentViewController:[PinInputViewController sharedInstance] animated:YES completion:^{
 //    
 //  }];
 //  
 //  [PinInputViewController sharedInstance].closeButton.hidden = !bCloseButton;
+//}
+//- (void)showWithCloseButton:(BOOL)bCloseButton animated:(BOOL)animated {
+//  self.hasCloseButton = bCloseButton;
+//  [[NavigationHelper sharedInstance].rootNavigationController presentViewController:self animated:animated completion:nil];
 //}
 
 - (void)viewDidLoad {
@@ -108,13 +112,12 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
     make.width.mas_equalTo(kDotCollectionViewWidth);
     make.height.mas_equalTo(kDotCollectionViewHeight);
   }];
-  
-  if (!self.hasCloseButton) {
-    self.closeButton.hidden = YES;
-  }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+
+  self.closeButton.hidden = self.hasCloseButton ? NO : YES;
+  
   [self resetInputStatus];
 }
 
@@ -184,7 +187,7 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
 
 - (void)handlePinCodeResult {
   //5 minutes check
-  NSTimeInterval lastFailureTime = [[NSUserDefaults standardUserDefaults] floatForKey:kLastPinCodeFailureTime];
+  NSTimeInterval lastFailureTime = [[NSUserDefaults standardUserDefaults] doubleForKey:kLastPinCodeFailureTime];
   NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
   
   NSTimeInterval retryTimeInterval = 60 * 5;//try again 5 minutes later
@@ -225,7 +228,7 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
       [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"wrong pin code, %ld times remained", remainingInputTimes]];
     } else {
       [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"try again 5 minutes later"]];
-      [[NSUserDefaults standardUserDefaults] setFloat:currentTime forKey:kLastPinCodeFailureTime];
+      [[NSUserDefaults standardUserDefaults] setDouble:currentTime forKey:kLastPinCodeFailureTime];
     }
     
     [self resetInputStatus];

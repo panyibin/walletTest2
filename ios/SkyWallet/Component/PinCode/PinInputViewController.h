@@ -11,10 +11,9 @@
 @interface PinInputViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, assign) BOOL hasCloseButton;
-
 @property (nonatomic, copy) void(^pinCodeVerifiedBlock)(void);
 
-//+ (instancetype)sharedInstance;
-//+ (void)showWithCloseButton:(BOOL)bCloseButton animated:(BOOL)animated;
++ (instancetype)sharedInstance;
+//- (void)showWithCloseButton:(BOOL)bCloseButton animated:(BOOL)animated;
 
 @end

@@ -14,6 +14,8 @@
 
 - (UINavigationController*)rootNavigationController;
 
-+ (void)presentPinInputViewControllerWithCloseButton:(BOOL)hasCloseButton animated:(BOOL)animated;
++ (void)presentPinInputViewControllerWithCloseButton:(BOOL)hasCloseButton animated:(BOOL)animated pinCodeVerifiedBlock:(void(^)(void))pinCodeVerifiedBlock;
+
++ (void)dismissPinInputViewControllerAnimated:(BOOL)animated;
 
 @end

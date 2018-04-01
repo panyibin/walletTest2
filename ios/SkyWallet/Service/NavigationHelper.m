@@ -121,7 +121,7 @@ RCT_EXPORT_METHOD(showQRReaderViewControllerAnimated:(BOOL)animated) {
 
 RCT_REMAP_METHOD(showPinCodeInputCheckViewControllerWithCloseButton, showPinCodeInputCheckViewControllerWithCloseButton:(BOOL)hasCloseButton resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
   dispatch_async(dispatch_get_main_queue(), ^{
-    PinInputViewController *vc = [[PinInputViewController alloc] init];
+    PinInputViewController *vc = [PinInputViewController sharedInstance];
     vc.hasCloseButton = hasCloseButton;
     vc.pinCodeVerifiedBlock = ^{
       resolve(@YES);
@@ -143,15 +143,21 @@ RCT_EXPORT_METHOD(popToRootViewControllerAnimated:(BOOL)animated) {
   });
 }
 
-+ (void)presentPinInputViewControllerWithCloseButton:(BOOL)hasCloseButton animated:(BOOL)animated {
-  [[NavigationHelper sharedInstance] presentPinInputViewControllerWithCloseButton:hasCloseButton animated:animated];
++ (void)presentPinInputViewControllerWithCloseButton:(BOOL)hasCloseButton animated:(BOOL)animated pinCodeVerifiedBlock:(void (^)(void))pinCodeVerifiedBlock {
+  
+  [[NavigationHelper sharedInstance] presentPinInputViewControllerWithCloseButton:hasCloseButton animated:animated pinCodeVerifiedBlock:pinCodeVerifiedBlock];
 }
 
-- (void)presentPinInputViewControllerWithCloseButton:(BOOL)hasCloseButton animated:(BOOL)animated {
-  PinInputViewController *vc = [[PinInputViewController alloc] init];
+- (void)presentPinInputViewControllerWithCloseButton:(BOOL)hasCloseButton animated:(BOOL)animated pinCodeVerifiedBlock:(void (^)(void))pinCodeVerifiedBlock{
+  PinInputViewController *vc = [PinInputViewController sharedInstance];
   vc.hasCloseButton = hasCloseButton;
+  vc.pinCodeVerifiedBlock = pinCodeVerifiedBlock;
   
   [self.rootNavigationController presentViewController:vc animated:animated completion:nil];
+}
+
++ (void)dismissPinInputViewControllerAnimated:(BOOL)animated {
+  [[PinInputViewController sharedInstance] dismissViewControllerAnimated:animated completion:nil];
 }
 
 @end

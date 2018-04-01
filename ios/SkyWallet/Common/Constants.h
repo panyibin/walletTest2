@@ -18,6 +18,7 @@
 #define kCoinTypeSpo @"spocoin"
 
 #define kLastPinCodeFailureTime @"kLastPinCodeFailureTime"
+#define kLastSuccessfulSessionTime @"kLastSuccessfulSessionTime"
 
 //Notification
 #define kNewAddressCreatedNotification @"kNewAddressCreatedNotification"
