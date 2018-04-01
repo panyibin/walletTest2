@@ -121,13 +121,9 @@ RCT_EXPORT_METHOD(showQRReaderViewControllerAnimated:(BOOL)animated) {
 
 RCT_REMAP_METHOD(showPinCodeInputCheckViewControllerWithCloseButton, showPinCodeInputCheckViewControllerWithCloseButton:(BOOL)hasCloseButton resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
   dispatch_async(dispatch_get_main_queue(), ^{
-    PinInputViewController *vc = [PinInputViewController sharedInstance];
-    vc.hasCloseButton = hasCloseButton;
-    vc.pinCodeVerifiedBlock = ^{
+    [NavigationHelper presentPinInputViewControllerWithCloseButton:hasCloseButton animated:YES pinCodeVerifiedBlock:^{
       resolve(@YES);
-    };
-    
-    [self.rootNavigationController presentViewController:vc animated:YES completion:nil];
+    }];
   });
 }
 
