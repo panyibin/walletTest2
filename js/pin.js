@@ -56,7 +56,7 @@ async tapCreate() {
           Great, now create a pin
         </Text>
         <Text style={styles.instructions}>
-       This PIN # will be used to open the wallet. Don't forget your pin. If you do, you may lose access to your mobile wallet..
+       This PIN # will be used to open the wallet. Don't forget your pin. If you do, you may lose access to your mobile wallet.
         </Text>
         <Text style={styles.pinCodeTitle}>
         pin code (must be 6 digits)
