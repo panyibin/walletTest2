@@ -69,6 +69,7 @@ async tapCreate() {
                 this.setState({pinCode:text});
             }
         }
+        keyboardType={'number-pad'}
         />
         <Text style={styles.pinCodeTitleConfirm}>
         confirm your pin code
@@ -81,6 +82,7 @@ async tapCreate() {
                         this.setState({ pinCodeConfirm: text });
                     }
                 }
+                keyboardType={'number-pad'}
             ></TextInput>
         <View style={{alignItems:'center'}}>
         <TouchableOpacity style={styles.createButton} onPress={this.tapCreate.bind(this)}>
