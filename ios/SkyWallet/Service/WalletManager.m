@@ -87,7 +87,9 @@ RCT_EXPORT_METHOD(createNewAddressWithWalletId:(NSString*)walletId num:(NSIntege
 
 RCT_REMAP_METHOD(sendSkyCoinWithWalletId, sendSkyCoinWithWalletId:(NSString*)walletId toAddress:(NSString*)toAddr amount:(NSString*)amount resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
   NSError *error;
-  MobileSend(kCoinTypeSky, walletId, toAddr, amount, &error);
+  NSString *pinCode = [[NSUserDefaults standardUserDefaults] stringForKey:kPinCode];
+  NSString *password = [self passwordWithPinCode:pinCode];
+  MobileSend(kCoinTypeSky, walletId, toAddr, amount, password, &error);
   if(!error) {
     resolve(@"success");
     [[NSNotificationCenter defaultCenter] postNotificationName:kCoinSentNotification object:nil];
