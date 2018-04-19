@@ -19,13 +19,17 @@
 
 - (NSString*)getBalance:(NSString*)addrs error:(NSError**)error;
 - (NSString*)getNodeAddr;
-- (NSString*)getOutputByID:(NSString*)outid error:(NSError**)error;
 - (NSString*)getTransactionByID:(NSString*)txid error:(NSError**)error;
 - (BOOL)isTransactionConfirmed:(NSString*)txid ret0_:(BOOL*)ret0_ error:(NSError**)error;
 - (NSString*)name;
-- (NSString*)send:(NSString*)walletID toAddr:(NSString*)toAddr amount:(NSString*)amount error:(NSError**)error;
+- (NSString*)send:(NSString*)walletID toAddr:(NSString*)toAddr amount:(NSString*)amount passwd:(NSString*)passwd error:(NSError**)error;
 - (BOOL)validateAddr:(NSString*)addr error:(NSError**)error;
 @end
+
+/**
+ * DropletPrecisionCheck checks if an amount of coins is valid given decimal place restrictions
+ */
+FOUNDATION_EXPORT BOOL MobileDropletPrecisionCheck(int64_t amount, NSError** error);
 
 /**
  * GetAddresses return all addresses in the wallet.
@@ -42,12 +46,12 @@ FOUNDATION_EXPORT NSString* MobileGetBalance(NSString* coinType, NSString* addre
 /**
  * GetKeyPairOfAddr get pubkey and seckey pair of address in specific wallet.
  */
-FOUNDATION_EXPORT NSString* MobileGetKeyPairOfAddr(NSString* walletID, NSString* addr, NSError** error);
+FOUNDATION_EXPORT NSString* MobileGetKeyPairOfAddr(NSString* walletID, NSString* addr, NSString* passwd, NSError** error);
 
 /**
  * GetSeed returun wallet seed
  */
-FOUNDATION_EXPORT NSString* MobileGetSeed(NSString* walletID, NSError** error);
+FOUNDATION_EXPORT NSString* MobileGetSeed(NSString* walletID, NSString* passwd, NSError** error);
 
 /**
  * GetSupportedCoin return supported coins, joined by ","
@@ -118,7 +122,7 @@ FOUNDATION_EXPORT BOOL MobileRemove(NSString* walletID, NSError** error);
 /**
  * Send send coins, support bitcoin and all coins in skycoin ledger
  */
-FOUNDATION_EXPORT NSString* MobileSend(NSString* coinType, NSString* wid, NSString* toAddr, NSString* amount, NSError** error);
+FOUNDATION_EXPORT NSString* MobileSend(NSString* coinType, NSString* wid, NSString* toAddr, NSString* amount, NSString* passwd, NSError** error);
 
 /**
  * ValidateAddress validate the address
@@ -140,11 +144,10 @@ FOUNDATION_EXPORT BOOL MobileValidateAddress(NSString* coinType, NSString* addr,
 
 - (NSString*)getBalance:(NSString*)addrs error:(NSError**)error;
 - (NSString*)getNodeAddr;
-- (NSString*)getOutputByID:(NSString*)outid error:(NSError**)error;
 - (NSString*)getTransactionByID:(NSString*)txid error:(NSError**)error;
 - (BOOL)isTransactionConfirmed:(NSString*)txid ret0_:(BOOL*)ret0_ error:(NSError**)error;
 - (NSString*)name;
-- (NSString*)send:(NSString*)walletID toAddr:(NSString*)toAddr amount:(NSString*)amount error:(NSError**)error;
+- (NSString*)send:(NSString*)walletID toAddr:(NSString*)toAddr amount:(NSString*)amount passwd:(NSString*)passwd error:(NSError**)error;
 - (BOOL)validateAddr:(NSString*)addr error:(NSError**)error;
 @end
 
