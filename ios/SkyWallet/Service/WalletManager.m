@@ -195,8 +195,12 @@ RCT_EXPORT_METHOD(refreshAddressList) {
 
 - (void)registerNewCoin {
   NSError *error;
-  MobileRegisterNewCoin(@"spocoin", @"47.75.36.182:8620", &error);
-  MobileRegisterNewCoin(@"skycoin", @"47.75.36.182:6420", &error);
+//  MobileRegisterNewCoin(@"spocoin", @"47.75.36.182:8620", &error);
+//  MobileRegisterNewCoin(@"skycoin", @"47.75.36.182:6420", &error);
+  MobileRegisterNewCoin(@"skycoin", @"api.skycoin.cn:6420", &error);
+  if (error) {
+    NSLog(@"register coin failed");
+  }
 }
 
 - (WalletBalanceModel*)getBalanceOfWallet:(NSString*)walletId coinType:(NSString*)coinType {
