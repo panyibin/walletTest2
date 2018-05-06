@@ -87,7 +87,7 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
   }];
   
   [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.top.mas_equalTo(self.view).offset(80);
+    make.top.mas_equalTo(self.view).offset(60);
     make.centerX.mas_equalTo(self.view);
   }];
   
@@ -99,7 +99,8 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
   }];
   
   [self.numberCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.bottom.mas_equalTo(-30);
+//    make.bottom.mas_equalTo(-30);
+    make.centerY.mas_equalTo(self.view).offset(50);
     make.centerX.mas_equalTo(self.view);
     make.width.mas_equalTo(kPinInputCollectionViewWidth);
     make.height.mas_equalTo(kPinInputCollectionViewHeight);
@@ -107,7 +108,12 @@ static NSString *kPinDotCollectionViewCellIdentifier = @"kPinDotCollectionViewCe
   
   //    self.dotCollectionView.backgroundColor = [UIColor redColor];
   [self.dotCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.bottom.mas_equalTo(self.numberCollectionView.mas_top).offset(-50);
+    if ([SWUtils getScreenType] == ScreenTypeiPhoneSmall) {
+      make.bottom.mas_equalTo(self.numberCollectionView.mas_top).offset(-20);
+    } else {
+      make.bottom.mas_equalTo(self.numberCollectionView.mas_top).offset(-50);
+    }
+    
     make.centerX.mas_equalTo(self.view);
     make.width.mas_equalTo(kDotCollectionViewWidth);
     make.height.mas_equalTo(kDotCollectionViewHeight);

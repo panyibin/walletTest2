@@ -116,14 +116,15 @@
       totalCoinBalance += [wbm.balance floatValue];
       totalHourBalance += [wbm.hours floatValue];
       
-      [dict setObject:wbm.balance forKey:@"balance"];
+      NSString *balanceToDisplay = [NSString stringWithFormat:@"%.3f", [wbm.balance floatValue]];
+      [dict setObject:balanceToDisplay forKey:@"balance"];
       [mutableWalletArray addObject:dict];
     }
   }
   
   self.walletJsonArray = mutableWalletArray;
-  self.totalCoinBalance = [NSString stringWithFormat:@"%.2f", totalCoinBalance];
-  self.totalHourBalance = [NSString stringWithFormat:@"%.2f", totalHourBalance];
+  self.totalCoinBalance = [NSString stringWithFormat:@"%.3f", totalCoinBalance];
+  self.totalHourBalance = [NSString stringWithFormat:@"%.1f", totalHourBalance];
 }
 
 - (NSArray*)getJsonArray {

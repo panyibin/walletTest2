@@ -101,9 +101,10 @@
       for (NSString *address in self.addressArray) {
         WalletBalanceModel *wbm = [[WalletManager sharedInstance] getBalanceOfAddress:address coinType:kCoinTypeSky];
         NSMutableDictionary *mutableAddressDict = [[NSMutableDictionary alloc] init];
+        NSString *balanceToDisplay = [NSString stringWithFormat:@"%.3f", [wbm.balance floatValue]];
         
         [mutableAddressDict setObject:address forKey:@"address"];
-        [mutableAddressDict setObject:wbm.balance forKey:@"balance"];
+        [mutableAddressDict setObject:balanceToDisplay forKey:@"balance"];
         
         [mutableAddressArray addObject:mutableAddressDict];
         
@@ -112,8 +113,8 @@
       }
       
       self.addressJsonArray = mutableAddressArray;
-      self.totalCoinBalance = [NSString stringWithFormat:@"%.2f", totalCoinBalance];
-      self.totalHourBalance = [NSString stringWithFormat:@"%.2f", totalHourBalance];
+      self.totalCoinBalance = [NSString stringWithFormat:@"%.3f", totalCoinBalance];
+      self.totalHourBalance = [NSString stringWithFormat:@"%.1f", totalHourBalance];
     }
   }
 }

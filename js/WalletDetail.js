@@ -196,9 +196,9 @@ async tapNewAddress() {
                 </Text>
             </View>
             <View style={{marginTop:0, backgroundColor:'white'}}>
-                <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
+                <View style={{flexDirection:'row',marginTop:10,marginBottom:10,justifyContent:'space-between'}}>
                  <Text style={{marginLeft:10,width:200, backgroundColor:'transparent',fontSize:15, fontWeight:'bold', color:'#C3C4C6'}}>Address</Text>
-                 <Text style={{marginLeft:80,width:100, backgroundColor:'transparent',fontSize:15, fontWeight:'bold', color:'#C3C4C6'}}>Balance</Text>
+                 <Text style={{marginRight:0,width:80, backgroundColor:'transparent',fontSize:15, fontWeight:'bold', color:'#C3C4C6'}}>Balance</Text>
                 </View>
                 <View style={{height:0.5, backgroundColor:'#EFF0F0'}} />
                 <FlatList
@@ -215,7 +215,7 @@ async tapNewAddress() {
                             }
                         }>
                         <View>
-                        <View style={{ flexDirection: 'row', marginBottom:10,marginTop:10 }}>
+                        <View style={{ flexDirection: 'row', marginBottom:10,marginTop:10, justifyContent:'space-between' }}>
                         <View style={{marginLeft:10,width:200}}>
                         <Text 
                         style={{backgroundColor: 'transparent', fontSize: 15 ,fontWeight:'bold', color:'#919497'}}
@@ -224,7 +224,7 @@ async tapNewAddress() {
                         {item.address}
                         </Text>
                         </View>
-                        <View style={{marginLeft:80, width:100}}>
+                        <View style={{marginRight:0, width:80}}>
                         <Text style={{backgroundColor: 'transparent', fontSize: 15, textAlign:'left', fontWeight:'bold'}}>{item.balance}</Text>
                         </View>                                                        
                         </View>

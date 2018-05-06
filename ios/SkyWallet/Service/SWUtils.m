@@ -43,4 +43,37 @@
 
 }
 
++ (ScreenType)getScreenType {
+  ScreenType currentScreenType = ScreenTypeUnknown;
+  
+  if([[UIDevice currentDevice]userInterfaceIdiom]==UIUserInterfaceIdiomPhone) {
+    
+    switch ((int)[[UIScreen mainScreen] nativeBounds].size.height) {
+        
+      case 1136:
+        printf("iPhone 5 or 5S or 5C");
+        currentScreenType = ScreenTypeiPhoneSmall;
+        break;
+      case 1334:
+        printf("iPhone 6/6S/7/8");
+        currentScreenType = ScreenTypeiPhoneMiddle;
+        break;
+      case 1920:
+      case 2208:
+        printf("iPhone 6+/6S+/7+/8+");
+        currentScreenType = ScreenTypeiPhonePlus;
+        break;
+      case 2436:
+        printf("iPhone X");
+        currentScreenType = ScreenTypeiPhoneX;
+        break;
+      default:
+        currentScreenType = ScreenTypeUnknown;
+        printf("unknown");
+    }
+  }
+  
+  return currentScreenType;
+}
+
 @end

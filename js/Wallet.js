@@ -126,9 +126,9 @@ async tapNewWallet() {
                 </Text>
             </View>
             <View style={{marginTop:0, backgroundColor:'white'}}>
-                <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
+                <View style={{flexDirection:'row',marginTop:10,marginBottom:10,justifyContent:'space-between'}}>
                  <Text style={{marginLeft:10,width:100, backgroundColor:'transparent',fontSize:15, fontWeight:'bold', color:'#C3C4C6'}}>Wallet</Text>
-                 <Text style={{marginLeft:180, backgroundColor:'transparent',fontSize:15, fontWeight:'bold', color:'#C3C4C6'}}>Balance</Text>
+                 <Text style={{marginRight:0, width:80, backgroundColor:'transparent',fontSize:15, fontWeight:'bold', color:'#C3C4C6'}}>Balance</Text>
                 </View>
                 <View style={{height:0.5, backgroundColor:'#EFF0F0'}} />
                 <FlatList
@@ -143,11 +143,11 @@ async tapNewWallet() {
                             }
                         }>
                         <View>
-                        <View style={{ flexDirection: 'row', marginBottom:10,marginTop:10 }}>
+                        <View style={{ flexDirection: 'row', marginBottom:10,marginTop:10, justifyContent:'space-between' }}>
                         <View style={{marginLeft:10,width:100}}>
                         <Text style={{backgroundColor: 'transparent', fontSize: 15, color:'#0B8DFC',fontWeight:'bold' }}>{item.walletName}</Text>
                         </View>
-                        <View style={{marginLeft:180, width:100}}>
+                        <View style={{marginRight:0, width:80}}>
                         <Text style={{backgroundColor: 'transparent', fontSize: 15, textAlign:'left',fontWeight:'bold' }}>{item.balance}</Text>
                         </View>                                                        
                         </View>
