@@ -35,6 +35,7 @@ export default class WalletGenerator extends Component<Props> {
     super(props);
     this.state = {
       seed: props.defaultSeed,
+      seedConfirm: "",
       walletName: ""
     };
   }
@@ -50,11 +51,16 @@ export default class WalletGenerator extends Component<Props> {
   async tapNext() {
     var walletName = this.state.walletName;
     var seed = this.state.seed;
+    var seedConfirm = this.state.seedConfirm;
 
     if(walletName == undefined || walletName.length == 0) {
-      Alert.alert('walletName is invalid');
+      Alert.alert('wallet name is invalid');
     } else if (seed == undefined || seed.length == 0) {
       Alert.alert('seed is invalid');
+    } else if (this.props.showGenerateSeedButton && (seedConfirm == undefined || seedConfirm.length == 0) ) {
+      Alert.alert('Please confirm the seed');
+    } else if (this.props.showGenerateSeedButton && seed != seedConfirm) {
+      Alert.alert("The seeds aren't the same");
     } else {
       if(this.props.needPinCode) {
         navigationHelper.showPinCodeViewControllerWithWalletName(this.state.walletName, this.state.seed,true);
@@ -136,6 +142,17 @@ export default class WalletGenerator extends Component<Props> {
         >
         {this.state.seed}
         </TextInput>
+        { this.props.showGenerateSeedButton &&
+        <Text style={styles.subTitleSeed}>
+        Confirm Seed
+        </Text>}
+        { this.props.showGenerateSeedButton &&
+        <TextInput 
+        style={styles.textInputSeed} 
+        multiline={true} 
+        onChangeText={(text)=>{this.setState({seedConfirm:text})}}
+        >
+        </TextInput>}
         <TouchableOpacity style={styles.seedGenerateButton} onPress={this.getSeed.bind(this)}>
         <Text style={styles.seedGenerateButtonText}>{generateSeedButtonText}</Text>
         </TouchableOpacity>
@@ -216,7 +233,7 @@ const styles = StyleSheet.create({
     marginLeft:35,
     marginRight:35,
     marginTop:10,
-    height:45,
+    height:60,
     borderRadius:5,
     fontWeight:'bold'
     // textAlign:'left'
@@ -235,7 +252,7 @@ const styles = StyleSheet.create({
     // backgroundColor:'red'
   },
   nextButton:{
-    marginTop:150,
+    marginTop:100,
     height:30,
     width:80,
     backgroundColor:'black',

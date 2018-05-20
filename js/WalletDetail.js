@@ -192,7 +192,7 @@ async tapNewAddress() {
                     {(this.props.totalCoinBalance != undefined ? this.props.totalCoinBalance : '0')   + ' SKY'}
                 </Text>
                 <Text style={styles.skyHourBalance}>
-                    {(this.props.totalHourBalance != undefined ? this.props.totalHourBalance : '0') + ' SKY Hours'}
+                    {(this.props.totalHourBalance != undefined ? this.props.totalHourBalance : '0') + ' SKY Coin Hours'}
                 </Text>
             </View>
             <View style={{marginTop:0, backgroundColor:'white'}}>
